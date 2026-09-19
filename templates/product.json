@@ -35,6 +35,10 @@
             "show_dynamic_checkout": true
           }
         },
+        "trust-badges": {
+          "type": "trust-badges",
+          "settings": {}
+        },
         "inventory": {
           "type": "inventory",
           "settings": {
@@ -42,14 +46,38 @@
           }
         },
         "description": {
-          "type": "description",
-          "settings": {}
+          "type": "accordion",
+          "settings": {
+            "heading": "Description",
+            "content": ""
+          }
+        },
+        "whats-included": {
+          "type": "accordion",
+          "settings": {
+            "heading": "What's Included",
+            "content": "<p>1x Precision Tool, 1x Care Guide, 1x Certificate of Authenticity.</p>"
+          }
+        },
+        "specifications": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Specifications",
+            "content": "<p>Material: Aerospace-grade aluminium, stainless steel, and walnut wood accents. Precision tolerance: ±0.05mm.</p>"
+          }
         },
         "shipping": {
           "type": "accordion",
           "settings": {
-            "heading": "Shipping and returns",
-            "content": "<p>Free standard shipping on orders over $100. Returns accepted within 30 days.</p>"
+            "heading": "Shipping",
+            "content": "<p>Free standard shipping on orders over €55. Dispatched within 24 hours from Seville, Spain.</p>"
+          }
+        },
+        "returns": {
+          "type": "accordion",
+          "settings": {
+            "heading": "Returns",
+            "content": "<p>30-day no-hassle return policy. Items must be in original condition and packaging.</p>"
           }
         }
       },
@@ -60,9 +88,13 @@
         "variant-picker",
         "quantity",
         "buy-buttons",
+        "trust-badges",
         "inventory",
         "description",
-        "shipping"
+        "whats-included",
+        "specifications",
+        "shipping",
+        "returns"
       ],
       "settings": {
         "media_layout": "stacked",

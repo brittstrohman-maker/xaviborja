@@ -7,10 +7,11 @@
       if threshold > 0 and remaining > 0
         assign progress = cart.total_price | times: 100.0 | divided_by: threshold
       endif
+      assign remaining_money = remaining | money
     -%}
     <div class="shipping-bar">
       {%- if remaining > 0 -%}
-        <span>{{ 'sections.cart.free_shipping_progress_html' | t: amount: remaining | money }}</span>
+        <span>{{ 'sections.cart.free_shipping_progress_html' | t: amount: remaining_money }}</span>
       {%- else -%}
         <span>{{ 'sections.cart.free_shipping_reached' | t }}</span>
       {%- endif -%}
@@ -42,5 +43,16 @@
       <label class="visually-hidden" for="CartNote-{{ context }}">{{ 'sections.cart.note' | t }}</label>
       <textarea id="CartNote-{{ context }}" name="note" form="{{ form_id }}">{{ cart.note }}</textarea>
     </details>
+  {%- endif -%}
+
+  {%- if context == 'drawer' -%}
+    <div class="stack" style="--gap: 0.5rem; gap: 0.5rem; margin-top: 1rem;">
+      <button type="submit" name="checkout" class="button button--full" {% if form_id %}form="{{ form_id }}"{% endif %}>
+        {{ 'sections.cart.checkout' | t }}
+      </button>
+      <a href="{{ routes.cart_url }}" class="button button--outline button--full">
+        {{ 'sections.cart.view_cart' | t }}
+      </a>
+    </div>
   {%- endif -%}
 </div>

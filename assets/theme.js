@@ -695,7 +695,7 @@ if (document.body.classList.contains('animate-reveal') && 'IntersectionObserver'
   document.addEventListener('section:loaded', (event) => observeAll(event.detail.target));
 }
 
-/* Header height --------------------------------------------------------- */
+/* Header height & sticky scroll transition ----------------------------- */
 
 const header = document.querySelector('.header-wrapper');
 if (header) {
@@ -704,3 +704,14 @@ if (header) {
   setHeaderHeight();
   new ResizeObserver(setHeaderHeight).observe(header);
 }
+
+const stickyHeader = document.querySelector('.header-wrapper--sticky');
+if (stickyHeader) {
+  const handleStickyScroll = () => {
+    const isScrolled = window.scrollY > 20;
+    stickyHeader.classList.toggle('header-wrapper--scrolled', isScrolled);
+  };
+  window.addEventListener('scroll', handleStickyScroll, { passive: true });
+  handleStickyScroll();
+}
+

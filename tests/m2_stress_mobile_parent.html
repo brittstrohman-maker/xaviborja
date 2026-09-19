@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile Viewport and Touch Target Stress Suite</title>
+</head>
+<body>
+  <!-- Left Layout Mobile Frames -->
+  <iframe name="left_320" id="left_320" src="m2_child_left_normal.html" style="width: 320px; height: 800px; border: 0;"></iframe>
+  <iframe name="left_375" id="left_375" src="m2_child_left_normal.html" style="width: 375px; height: 800px; border: 0;"></iframe>
+  <iframe name="left_390" id="left_390" src="m2_child_left_normal.html" style="width: 390px; height: 800px; border: 0;"></iframe>
+  <iframe name="left_414" id="left_414" src="m2_child_left_normal.html" style="width: 414px; height: 800px; border: 0;"></iframe>
+  <iframe name="left_768" id="left_768" src="m2_child_left_normal.html" style="width: 768px; height: 800px; border: 0;"></iframe>
+
+  <!-- Center Layout Mobile Frames -->
+  <iframe name="center_320" id="center_320" src="m2_child_center_normal.html" style="width: 320px; height: 800px; border: 0;"></iframe>
+  <iframe name="center_375" id="center_375" src="m2_child_center_normal.html" style="width: 375px; height: 800px; border: 0;"></iframe>
+  <iframe name="center_390" id="center_390" src="m2_child_center_normal.html" style="width: 390px; height: 800px; border: 0;"></iframe>
+  <iframe name="center_414" id="center_414" src="m2_child_center_normal.html" style="width: 414px; height: 800px; border: 0;"></iframe>
+  <iframe name="center_768" id="center_768" src="m2_child_center_normal.html" style="width: 768px; height: 800px; border: 0;"></iframe>
+
+  <pre id="results">PENDING</pre>
+  <script>
+    const frames = [
+      'left_320', 'left_375', 'left_390', 'left_414', 'left_768',
+      'center_320', 'center_375', 'center_390', 'center_414', 'center_768'
+    ];
+    const collected = {};
+    let loadedCount = 0;
+
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'metricsResult') {
+        const frameId = e.data.frameId || e.source.name;
+        collected[frameId] = e.data.data;
+        if (Object.keys(collected).length === frames.length) {
+          document.getElementById('results').innerText = JSON.stringify(collected, null, 2);
+        }
+      }
+    });
+
+    frames.forEach(id => {
+      const f = document.getElementById(id);
+      f.onload = () => {
+        loadedCount++;
+        if (loadedCount === frames.length) {
+          setTimeout(() => {
+            frames.forEach(fid => {
+              const el = document.getElementById(fid);
+              el.contentWindow.postMessage('runMetrics', '*');
+            });
+          }, 500);
+        }
+      };
+    });
+  </script>
+</body>
+</html>

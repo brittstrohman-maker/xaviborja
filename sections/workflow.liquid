@@ -1,0 +1,174 @@
+<section class="section color-{{ section.settings.color_scheme }} color-scheme">
+  <div class="page-width">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.description != blank -%}
+      <div class="section-header" style="text-align: {{ section.settings.alignment }};">
+        <div class="section-header__text" style="margin-inline: {% if section.settings.alignment == 'center' %}auto{% else %}0{% endif %};">
+          {%- if section.settings.eyebrow != blank -%}
+            <span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading != blank -%}
+            <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.description != blank -%}
+            <div class="rte">{{ section.settings.description }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="workflow-grid">
+      {%- for block in section.blocks -%}
+        <div class="workflow-step" data-animate {{ block.shopify_attributes }}>
+          <div class="workflow-step__header">
+            <span class="workflow-step__number">{{ block.settings.step_number | escape }}</span>
+            <span class="workflow-step__divider"></span>
+          </div>
+          <h3 class="workflow-step__title h4">{{ block.settings.title | escape }}</h3>
+          {%- if block.settings.tagline != blank -%}
+            <p class="workflow-step__tagline text-sm">{{ block.settings.tagline | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="workflow-step__body rte text-sm">{{ block.settings.text }}</div>
+          {%- endif -%}
+          {%- if block.settings.link_label != blank and block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="button--link text-xs workflow-step__link">
+              {{ block.settings.link_label | escape }}
+              {% render 'icon', name: 'arrow-right' %}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Workflow ritual",
+  "tag": "section",
+  "class": "section-workflow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE RITUAL"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE THREE-STEP WORKFLOW"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h3", "label": "Small" },
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Mastering espresso is a ritual of small details. Every stage builds toward perfection.</p>"
+    },
+    {
+      "type": "text_alignment",
+      "id": "alignment",
+      "label": "Header alignment",
+      "default": "center"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme_2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Workflow Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step number",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "DOSE"
+        },
+        {
+          "type": "text",
+          "id": "tagline",
+          "label": "Tagline",
+          "default": "Start with consistency."
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Weigh beans to 0.1g precision. Distribute grounds evenly with needle agitation to eliminate channeling before tamping.</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Shop Dosing Tools"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Workflow ritual",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "title": "01 DOSE",
+            "tagline": "01 DOSE: Start with consistency.",
+            "text": "<p>Weigh beans to 0.1g precision. Distribute grounds evenly with needle agitation to eliminate channeling before tamping.</p>",
+            "link_label": "Shop Dosing Tools"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "title": "02 DIAL",
+            "tagline": "02 DIAL: Fine-tune your grind and extraction.",
+            "text": "<p>Calibrate burr size, track extraction yield, and dial in the sweet spot for your specific roast profile.</p>",
+            "link_label": "Shop Precision Gear"
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "title": "03 BREW",
+            "tagline": "03 BREW: Enjoy the result.",
+            "text": "<p>Pull an unchanneled shot with rich, golden crema. Sip straight or pair with silky steamed milk for latte art.</p>",
+            "link_label": "Shop Brewing Gear"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

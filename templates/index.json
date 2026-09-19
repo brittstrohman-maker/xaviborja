@@ -3,51 +3,161 @@
     "hero": {
       "type": "hero",
       "blocks": {
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p class=\"eyebrow\">DOSE • DIAL • BREW</p>",
+            "alignment": "center"
+          }
+        },
         "heading": {
           "type": "heading",
-          "settings": { "heading": "New season essentials", "size": "h0", "alignment": "center" }
+          "settings": {
+            "heading": "PRECISION FOR EVERY POUR.",
+            "size": "h0",
+            "alignment": "center"
+          }
         },
-        "text": {
+        "subtext": {
           "type": "text",
-          "settings": { "text": "<p>Considered pieces, made to be worn every day.</p>", "alignment": "center" }
+          "settings": {
+            "text": "<p>Premium tools for home baristas who take every shot seriously.</p>",
+            "alignment": "center"
+          }
         },
-        "button": {
-          "type": "button",
-          "settings": { "label": "Shop new arrivals", "style": "solid", "alignment": "center" }
+        "cta_group": {
+          "type": "group",
+          "settings": {
+            "direction": "row",
+            "alignment": "center",
+            "gap": 16
+          },
+          "blocks": {
+            "btn_primary": {
+              "type": "button",
+              "settings": {
+                "label": "SHOP ESPRESSO TOOLS",
+                "link": "/collections/espresso-tools",
+                "style": "solid",
+                "alignment": "center"
+              }
+            },
+            "btn_secondary": {
+              "type": "button",
+              "settings": {
+                "label": "EXPLORE THE COLLECTION",
+                "link": "/collections/all",
+                "style": "outline",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "btn_primary",
+            "btn_secondary"
+          ]
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "subtext",
+        "cta_group"
+      ],
       "settings": {
-        "height": 80,
-        "overlay_opacity": 20,
+        "height": 85,
+        "overlay_opacity": 30,
         "content_position": "center",
+        "boxed": false,
         "color_scheme": "scheme_3"
       }
     },
     "marquee": {
       "type": "marquee",
       "blocks": {
-        "item-1": { "type": "item", "settings": { "text": "Free shipping over $100" } },
-        "item-2": { "type": "item", "settings": { "text": "30 day returns" } },
-        "item-3": { "type": "item", "settings": { "text": "Carbon neutral delivery" } }
+        "item-1": {
+          "type": "item",
+          "settings": {
+            "text": "PRECISION FOR EVERY POUR"
+          }
+        },
+        "item-2": {
+          "type": "item",
+          "settings": {
+            "text": "54MM & 58MM COMPATIBLE GEAR"
+          }
+        },
+        "item-3": {
+          "type": "item",
+          "settings": {
+            "text": "FREE STANDARD SHIPPING ON ORDERS OVER €55"
+          }
+        },
+        "item-4": {
+          "type": "item",
+          "settings": {
+            "text": "ENGINEERED FOR HOME BARISTAS"
+          }
+        }
       },
-      "block_order": ["item-1", "item-2", "item-3"],
-      "settings": { "text_size": "text-sm", "speed": 30, "padding": 16, "color_scheme": "scheme_3" }
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3",
+        "item-4"
+      ],
+      "settings": {
+        "text_size": "text-sm",
+        "speed": 35,
+        "padding": 14,
+        "color_scheme": "scheme_3"
+      }
     },
     "collection-list": {
       "type": "collection-list",
       "blocks": {
-        "collection-1": { "type": "collection", "settings": {} },
-        "collection-2": { "type": "collection", "settings": {} },
-        "collection-3": { "type": "collection", "settings": {} }
+        "card-1": {
+          "type": "collection",
+          "settings": {
+            "heading": "Espresso Tools",
+            "collection": "espresso-tools"
+          }
+        },
+        "card-2": {
+          "type": "collection",
+          "settings": {
+            "heading": "Coffee Station",
+            "collection": "coffee-station"
+          }
+        },
+        "card-3": {
+          "type": "collection",
+          "settings": {
+            "heading": "Brewing Essentials",
+            "collection": "brewing"
+          }
+        },
+        "card-4": {
+          "type": "collection",
+          "settings": {
+            "heading": "Milk & Latte Art",
+            "collection": "milk-latte-art"
+          }
+        }
       },
-      "block_order": ["collection-1", "collection-2", "collection-3"],
+      "block_order": [
+        "card-1",
+        "card-2",
+        "card-3",
+        "card-4"
+      ],
       "settings": {
-        "heading": "Shop by category",
+        "heading": "BUILD YOUR COFFEE BAR",
+        "subheading": "Everything you need to refine your espresso setup.",
         "heading_size": "h2",
         "image_ratio": "portrait",
         "title_position": "on",
-        "columns": 3,
+        "columns": 4,
         "columns_mobile": "2",
         "color_scheme": "scheme_1"
       }
@@ -55,69 +165,168 @@
     "featured-collection": {
       "type": "featured-collection",
       "settings": {
-        "heading": "New arrivals",
+        "eyebrow": "BEST SELLERS",
+        "heading": "ESSENTIALS FOR BETTER ESPRESSO",
         "heading_size": "h2",
+        "description": "<p>Precision tools designed to make every step of your workflow better.</p>",
+        "collection": "espresso-tools",
         "layout": "grid",
         "products_to_show": 8,
         "columns": 4,
         "columns_mobile": "2",
         "show_view_all": true,
+        "view_all_label": "EXPLORE ALL TOOLS",
         "color_scheme": "scheme_1"
       }
     },
     "image-with-text": {
       "type": "image-with-text",
       "blocks": {
-        "heading": { "type": "heading", "settings": { "heading": "Made to last" } },
+        "eyebrow": {
+          "type": "text",
+          "settings": {
+            "text": "<p class=\"eyebrow\">THE PHILOSOPHY</p>"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "CRAFT YOUR PERFECT SHOT.",
+            "size": "h1"
+          }
+        },
         "text": {
           "type": "text",
-          "settings": { "text": "<p>Natural fibres, considered construction and a fit that holds its shape. Fewer, better pieces.</p>" }
+          "settings": {
+            "text": "<p>We believe exceptional espresso is never an accident—it is the direct reward of ritual, patience, and uncompromising precision.</p><p>Dose & Dial was founded to eliminate guesswork from the espresso extraction process. From micron-calibrated distributors to heavy-gauge dosing cups, every piece is sculpted to feel balanced in your hand and deliver pure repeatable excellence in your cup.</p>"
+          }
         },
-        "button": { "type": "button", "settings": { "label": "Our story", "style": "outline" } }
+        "button": {
+          "type": "button",
+          "settings": {
+            "label": "OUR STORY",
+            "link": "/pages/about",
+            "style": "outline"
+          }
+        }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "eyebrow",
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
-        "image_ratio": "landscape",
+        "image_ratio": "portrait",
         "image_position": "left",
         "vertical_alignment": "center",
-        "color_scheme": "scheme_1"
+        "color_scheme": "scheme_2"
       }
     },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
-        "column-1": {
+        "pillar-1": {
           "type": "column",
-          "settings": { "heading": "Free shipping", "text": "<p>On all orders over $100.</p>" }
+          "settings": {
+            "heading": "01 Precision",
+            "text": "<p>Engineered with micron tolerances and calibrated springs to ensure uniform distribution and level tamping every single pull.</p>"
+          }
         },
-        "column-2": {
+        "pillar-2": {
           "type": "column",
-          "settings": { "heading": "30 day returns", "text": "<p>Not right? Send it back, no questions.</p>" }
+          "settings": {
+            "heading": "02 Quality",
+            "text": "<p>Machined from food-grade 304 stainless steel, anodized aluminum, and rich natural walnut built to last a lifetime.</p>"
+          }
         },
-        "column-3": {
+        "pillar-3": {
           "type": "column",
-          "settings": { "heading": "Made responsibly", "text": "<p>Traceable materials and fair factories.</p>" }
+          "settings": {
+            "heading": "03 Simplicity",
+            "text": "<p>Tactile, ergonomic tools that eliminate friction and bring calm clarity to your morning barista workflow.</p>"
+          }
+        },
+        "pillar-4": {
+          "type": "column",
+          "settings": {
+            "heading": "04 Coffee Obsession",
+            "text": "<p>Crafted by home baristas who understand that a tenth of a gram or single click makes the difference in the cup.</p>"
+          }
         }
       },
-      "block_order": ["column-1", "column-2", "column-3"],
-      "settings": { "heading": "Why shop with us", "alignment": "center", "color_scheme": "scheme_2" }
-    },
-    "blog-posts": {
-      "type": "blog-posts",
+      "block_order": [
+        "pillar-1",
+        "pillar-2",
+        "pillar-3",
+        "pillar-4"
+      ],
       "settings": {
-        "heading": "Journal",
-        "blog": "news",
-        "posts_to_show": 3,
-        "show_excerpt": true,
+        "eyebrow": "STANDARDS",
+        "heading": "WHY DOSE & DIAL",
+        "heading_size": "h2",
+        "alignment": "left",
         "color_scheme": "scheme_1"
+      }
+    },
+    "workflow": {
+      "type": "workflow",
+      "blocks": {
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "title": "01 DOSE",
+            "tagline": "01 DOSE: Start with consistency.",
+            "text": "<p>Weigh beans to 0.1g precision. Distribute grounds evenly with needle agitation to eliminate channeling before tamping.</p>",
+            "link_label": "Shop Dosing Tools",
+            "link": "/collections/espresso-tools"
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "title": "02 DIAL",
+            "tagline": "02 DIAL: Fine-tune your grind and extraction.",
+            "text": "<p>Calibrate burr size, track extraction yield, and dial in the sweet spot for your specific roast profile.</p>",
+            "link_label": "Shop Precision Gear",
+            "link": "/collections/espresso-tools"
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "title": "03 BREW",
+            "tagline": "03 BREW: Enjoy the result.",
+            "text": "<p>Pull an unchanneled shot with rich, golden crema. Sip straight or pair with silky steamed milk for latte art.</p>",
+            "link_label": "Shop Brewing Gear",
+            "link": "/collections/brewing"
+          }
+        }
+      },
+      "block_order": [
+        "step-1",
+        "step-2",
+        "step-3"
+      ],
+      "settings": {
+        "eyebrow": "THE RITUAL",
+        "heading": "THE THREE-STEP WORKFLOW",
+        "heading_size": "h2",
+        "description": "<p>Mastering espresso is a ritual of small details. Every stage builds toward perfection.</p>",
+        "alignment": "center",
+        "color_scheme": "scheme_2"
       }
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "heading": "Join the list",
-        "text": "<p>Be first to know about new arrivals and offers.</p>",
-        "color_scheme": "scheme_2"
+        "heading": "JOIN THE BAR.",
+        "heading_size": "h2",
+        "text": "<p>Receive weekly espresso dialing techniques, new tool drop alerts, and exclusive access to limited-run accessories.</p>",
+        "color_scheme": "scheme_1"
       }
     }
   },
@@ -128,7 +337,7 @@
     "featured-collection",
     "image-with-text",
     "multicolumn",
-    "blog-posts",
+    "workflow",
     "newsletter"
   ]
 }

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style id="token-styles">
+    /* TOKEN_CSS */
+  </style>
+  <style id="base-styles">
+    /* BASE_CSS */
+  </style>
+</head>
+<body style="margin: 0; padding: 0; overflow-x: hidden;">
+  <div class="announcement-bar color-scheme-3 color-scheme">
+    <div class="page-width" style="padding-block: 0.6rem; text-align: center;">
+      <p class="text-xs" style="margin: 0; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;">
+        FREE STANDARD SHIPPING ON ORDERS OVER €55
+      </p>
+    </div>
+  </div>
+
+  <div id="header-container">
+    <!-- INJECTED_HEADER -->
+  </div>
+
+  <dialog class="drawer drawer--left color-scheme" id="MenuDrawer" aria-label="Menu" open style="position: relative; translate: 0 0; width: 100%; max-width: 100%; display: block;">
+    <div class="drawer__inner">
+      <header class="drawer__header" id="DrawerHeader">
+        <span class="drawer__title">Menu</span>
+        <button type="button" class="icon-button" id="DrawerClose" data-drawer-close aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </header>
+
+      <div class="drawer__body menu-drawer" id="DrawerBody">
+        <div class="menu-drawer__search" style="margin-bottom: 1.25rem;">
+          <button type="button" class="button button--outline button--full" id="DrawerSearchBtn" data-drawer-open="SearchDrawer" style="justify-content: flex-start; gap: 0.75rem; font-weight: 400; color: rgb(var(--color-text) / 0.7); min-height: 44px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Search...</span>
+          </button>
+        </div>
+
+        <ul class="menu-drawer__list" role="list">
+          <li><a href="/collections/all" class="drawer-link" id="DrawerLinkShop">Shop</a></li>
+          <li><a href="/collections/espresso-tools" class="drawer-link" id="DrawerLinkEspresso">Espresso Tools</a></li>
+          <li><a href="/collections/coffee-station" class="drawer-link" id="DrawerLinkStation">Coffee Station</a></li>
+          <li><a href="/collections/brewing" class="drawer-link" id="DrawerLinkBrewing">Brewing</a></li>
+          <li><a href="/pages/about" class="drawer-link" id="DrawerLinkAbout">About</a></li>
+          <li>
+            <details id="DrawerDetails">
+              <summary class="menu-drawer__summary" id="DrawerSummary">
+                Nested Collection
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </summary>
+              <ul class="menu-drawer__list menu-drawer__sublist" role="list">
+                <li><a href="/collections/nested-1" class="drawer-sublink" id="DrawerSublink">Nested Item 1</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+
+        <p style="margin-top: 1.5rem;">
+          <a href="/account" class="button button--outline button--full" id="DrawerAccountBtn" style="min-height: 44px; display: inline-flex; align-items: center; justify-content: center;">
+            Log in
+          </a>
+        </p>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    function getMetrics() {
+      const docEl = document.documentElement;
+      const headerWrapper = document.getElementById('HeaderWrapper');
+      const header = document.getElementById('HeaderEl');
+      const ann = document.querySelector('.announcement-bar');
+      const drawerBody = document.getElementById('DrawerBody');
+      const nav = document.getElementById('HeaderNav');
+      const logo = document.getElementById('HeaderLogo');
+      const actions = document.getElementById('HeaderActions') || document.getElementById('HeaderActionsRight');
+      const actionsLeft = document.getElementById('HeaderActionsLeft');
+      const menuToggle = document.getElementById('MenuToggle');
+      
+      const getRect = (el) => {
+        if (!el) return null;
+        const r = el.getBoundingClientRect();
+        return {
+          width: Math.round(r.width * 100) / 100,
+          height: Math.round(r.height * 100) / 100,
+          top: Math.round(r.top * 100) / 100,
+          bottom: Math.round(r.bottom * 100) / 100,
+          left: Math.round(r.left * 100) / 100,
+          right: Math.round(r.right * 100) / 100
+        };
+      };
+
+      const drawerLinks = Array.from(document.querySelectorAll('.drawer-link')).map(a => getRect(a));
+      const navLinks = Array.from(document.querySelectorAll('.nav__link')).map(a => ({
+        text: a.innerText.trim(),
+        rect: getRect(a)
+      }));
+
+      const navStyle = nav ? window.getComputedStyle(nav) : null;
+      const toggleStyle = menuToggle ? window.getComputedStyle(menuToggle) : null;
+      const headerRect = getRect(header);
+      const logoRect = getRect(logo);
+      const navRect = getRect(nav);
+      const actionsRect = getRect(actions);
+      const actionsLeftRect = getRect(actionsLeft);
+
+      let logoCenterDelta = null;
+      let isNavBelowLogo = false;
+      if (headerRect && logoRect) {
+        const headerMid = headerRect.left + (headerRect.width / 2);
+        const logoMid = logoRect.left + (logoRect.width / 2);
+        logoCenterDelta = Math.round(Math.abs(headerMid - logoMid) * 100) / 100;
+      }
+      if (navRect && logoRect) {
+        isNavBelowLogo = navRect.top >= (logoRect.bottom - 5);
+      }
+
+      return {
+        viewportWidth: window.innerWidth,
+        docClientWidth: docEl.clientWidth,
+        docScrollWidth: docEl.scrollWidth,
+        hasDocOverflow: docEl.scrollWidth > docEl.clientWidth,
+        headerClientWidth: header ? header.clientWidth : 0,
+        headerScrollWidth: header ? header.scrollWidth : 0,
+        hasHeaderOverflow: header ? header.scrollWidth > header.clientWidth : false,
+        annClientWidth: ann ? ann.clientWidth : 0,
+        annScrollWidth: ann ? ann.scrollWidth : 0,
+        hasAnnOverflow: ann ? ann.scrollWidth > ann.clientWidth : false,
+        drawerClientWidth: drawerBody ? drawerBody.clientWidth : 0,
+        drawerScrollWidth: drawerBody ? drawerBody.scrollWidth : 0,
+        hasDrawerOverflow: drawerBody ? drawerBody.scrollWidth > drawerBody.clientWidth : false,
+        
+        navComputedDisplay: navStyle ? navStyle.display : null,
+        navComputedJustify: navStyle ? navStyle.justifyContent : null,
+        navGridColumn: navStyle ? navStyle.gridColumn : null,
+        toggleComputedDisplay: toggleStyle ? toggleStyle.display : null,
+        
+        headerRect: headerRect,
+        logoRect: logoRect,
+        navRect: navRect,
+        actionsRect: actionsRect,
+        actionsLeftRect: actionsLeftRect,
+        logoCenterDelta: logoCenterDelta,
+        isNavBelowLogo: isNavBelowLogo,
+        navLinks: navLinks,
+        
+        targets: {
+          menuToggle: getRect(document.getElementById('MenuToggle')),
+          headerSearch: getRect(document.getElementById('HeaderSearch')),
+          headerAccount: getRect(document.getElementById('HeaderAccount')),
+          cartBubble: getRect(document.getElementById('CartIconBubble')),
+          drawerClose: getRect(document.getElementById('DrawerClose')),
+          drawerSearchBtn: getRect(document.getElementById('DrawerSearchBtn')),
+          drawerAccountBtn: getRect(document.getElementById('DrawerAccountBtn')),
+          drawerSummary: getRect(document.getElementById('DrawerSummary')),
+          drawerSublink: getRect(document.getElementById('DrawerSublink')),
+          drawerLinks: drawerLinks
+        }
+      };
+    }
+
+    window.addEventListener('message', (e) => {
+      if (e.data === 'runMetrics') {
+        const m = getMetrics();
+        window.parent.postMessage({ type: 'metricsResult', data: m, frameId: window.name }, '*');
+      }
+    });
+  </script>
+</body>
+</html>

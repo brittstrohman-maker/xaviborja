@@ -20,9 +20,9 @@
       "page": "Page {{ page }}"
     },
     "404": {
-      "title": "Page not found",
-      "subtext": "The page you were looking for does not exist.",
-      "link": "Continue shopping"
+      "title": "LOOKS LIKE THIS SHOT DIDN'T DIAL IN.",
+      "subtext": "The page you were looking for does not exist or has been moved.",
+      "link": "BACK TO THE COFFEE BAR"
     },
     "pagination": {
       "label": "Pagination",
@@ -36,7 +36,8 @@
       "submit": "Search",
       "reset": "Clear search term",
       "results_for": "Results for \"{{ terms }}\"",
-      "no_results": "No results found for \"{{ terms }}\". Check the spelling or use a different word.",
+      "no_results": "NOTHING YET.",
+      "recovery_copy": "Try another search or explore our coffee bar essentials.",
       "results_count": {
         "one": "{{ count }} result",
         "other": "{{ count }} results"
@@ -202,8 +203,8 @@
       "update": "Update",
       "note": "Order note",
       "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout.",
-      "free_shipping_progress_html": "Spend {{ amount }} more for free shipping.",
-      "free_shipping_reached": "You qualify for free shipping.",
+      "free_shipping_progress_html": "{{ amount }} away from FREE SHIPPING",
+      "free_shipping_reached": "FREE STANDARD SHIPPING UNLOCKED",
       "continue_shopping": "Continue shopping"
     },
     "collection": {

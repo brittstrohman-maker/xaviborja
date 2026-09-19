@@ -1,7 +1,11 @@
-{%- assign menu = section.settings.menu -%}
+{%- assign menu = linklists[section.settings.menu] | default: section.settings.menu -%}
+{%- assign sticky_enabled = false -%}
+{%- if section.settings.sticky_header or section.settings.sticky -%}
+  {%- assign sticky_enabled = true -%}
+{%- endif -%}
 
 <div
-  class="header-wrapper color-{{ section.settings.color_scheme }} color-scheme{% if section.settings.sticky %} header-wrapper--sticky{% endif %}"
+  class="header-wrapper color-{{ section.settings.color_scheme }} color-scheme{% if sticky_enabled %} header-wrapper--sticky{% endif %}"
   {% if section.settings.show_bottom_border %}style="border-bottom: 1px solid rgb(var(--color-border));"{% endif %}
 >
   <header class="header page-width{% if section.settings.layout == 'center' %} header--center{% endif %}">
@@ -30,78 +34,88 @@
           | image_tag:
             widths: '120, 240, 360, 480, 600',
             sizes: '(min-width: 750px) var(--logo-width), 120px',
-            alt: shop.name,
+            alt: shop.name | default: 'Dose & Dial',
             loading: 'eager'
         }}
       {%- else -%}
-        {{ shop.name }}
+        <span class="header__logo-text">Dose & Dial</span>
       {%- endif -%}
     {%- endcapture -%}
 
-    {%- if section.settings.layout == 'center' -%}
-      <a href="{{ routes.root_url }}" class="header__logo">{{ logo }}</a>
-    {%- else -%}
-      <a href="{{ routes.root_url }}" class="header__logo">{{ logo }}</a>
-
+    {%- capture nav_html -%}
       <nav class="nav" role="navigation" aria-label="{{ 'sections.header.menu' | t }}">
         <ul class="nav__list" role="list">
-          {%- for link in menu.links -%}
-            <li class="nav__item">
-              <a
-                href="{{ link.url }}"
-                class="nav__link"
-                {% if link.current %}aria-current="page"{% endif %}
-              >
-                {{ link.title | escape }}
-                {%- if link.links.size > 0 %} {% render 'icon', name: 'chevron-down' %}{% endif -%}
-              </a>
+          {%- if menu != blank and menu.links.size > 0 -%}
+            {%- for link in menu.links -%}
+              <li class="nav__item">
+                <a
+                  href="{{ link.url }}"
+                  class="nav__link"
+                  {% if link.current %}aria-current="page"{% endif %}
+                >
+                  {{ link.title | escape }}
+                  {%- if link.links.size > 0 %} {% render 'icon', name: 'chevron-down' %}{% endif -%}
+                </a>
 
-              {%- if link.links.size > 0 -%}
-                {%- assign has_grandchildren = false -%}
-                {%- for child in link.links -%}
-                  {%- if child.links.size > 0 -%}
-                    {%- assign has_grandchildren = true -%}
-                    {%- break -%}
-                  {%- endif -%}
-                {%- endfor -%}
+                {%- if link.links.size > 0 -%}
+                  {%- assign has_grandchildren = false -%}
+                  {%- for child in link.links -%}
+                    {%- if child.links.size > 0 -%}
+                      {%- assign has_grandchildren = true -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endfor -%}
 
-                {%- if has_grandchildren -%}
-                  <div class="mega-menu">
-                    <div class="mega-menu__grid">
-                      {%- for child in link.links -%}
-                        <div>
-                          <p class="mega-menu__heading">
-                            <a href="{{ child.url }}" class="nav__link" style="padding: 0;">{{ child.title | escape }}</a>
-                          </p>
-                          {%- if child.links.size > 0 -%}
-                            <ul class="mega-menu__list" role="list">
-                              {%- for grandchild in child.links -%}
-                                <li>
-                                  <a href="{{ grandchild.url }}" class="nav__link">{{ grandchild.title | escape }}</a>
-                                </li>
-                              {%- endfor -%}
-                            </ul>
-                          {%- endif -%}
-                        </div>
-                      {%- endfor -%}
+                  {%- if has_grandchildren -%}
+                    <div class="mega-menu">
+                      <div class="mega-menu__grid">
+                        {%- for child in link.links -%}
+                          <div>
+                            <p class="mega-menu__heading">
+                              <a href="{{ child.url }}" class="nav__link" style="padding: 0;">{{ child.title | escape }}</a>
+                            </p>
+                            {%- if child.links.size > 0 -%}
+                              <ul class="mega-menu__list" role="list">
+                                {%- for grandchild in child.links -%}
+                                  <li>
+                                    <a href="{{ grandchild.url }}" class="nav__link">{{ grandchild.title | escape }}</a>
+                                  </li>
+                                {%- endfor -%}
+                              </ul>
+                            {%- endif -%}
+                          </div>
+                        {%- endfor -%}
+                      </div>
                     </div>
-                  </div>
-                {%- else -%}
-                  <ul class="nav__dropdown" role="list">
-                    {%- for child in link.links -%}
-                      <li>
-                        <a href="{{ child.url }}" class="nav__link" {% if child.current %}aria-current="page"{% endif %}>
-                          {{ child.title | escape }}
-                        </a>
-                      </li>
-                    {%- endfor -%}
-                  </ul>
+                  {%- else -%}
+                    <ul class="nav__dropdown" role="list">
+                      {%- for child in link.links -%}
+                        <li>
+                          <a href="{{ child.url }}" class="nav__link" {% if child.current %}aria-current="page"{% endif %}>
+                            {{ child.title | escape }}
+                          </a>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
                 {%- endif -%}
-              {%- endif -%}
-            </li>
-          {%- endfor -%}
+              </li>
+            {%- endfor -%}
+          {%- else -%}
+            <li class="nav__item"><a href="{{ routes.all_products_collection_url }}" class="nav__link">Shop</a></li>
+            <li class="nav__item"><a href="/collections/espresso-tools" class="nav__link">Espresso Tools</a></li>
+            <li class="nav__item"><a href="/collections/coffee-station" class="nav__link">Coffee Station</a></li>
+            <li class="nav__item"><a href="/collections/brewing" class="nav__link">Brewing</a></li>
+            <li class="nav__item"><a href="/pages/about" class="nav__link">About</a></li>
+          {%- endif -%}
         </ul>
       </nav>
+    {%- endcapture -%}
+
+    <a href="{{ routes.root_url }}" class="header__logo">{{ logo }}</a>
+
+    {%- if section.settings.layout != 'center' -%}
+      {{ nav_html }}
     {%- endif -%}
 
     <div class="header__actions">
@@ -130,6 +144,10 @@
         {% render 'cart-icon-bubble' %}
       </a>
     </div>
+
+    {%- if section.settings.layout == 'center' -%}
+      {{ nav_html }}
+    {%- endif -%}
   </header>
 </div>
 
@@ -144,48 +162,65 @@
     </header>
 
     <div class="drawer__body menu-drawer">
+      {%- if section.settings.show_search -%}
+        <div class="menu-drawer__search" style="margin-bottom: 1.25rem;">
+          <button type="button" class="button button--outline button--full" data-drawer-open="SearchDrawer" style="justify-content: flex-start; gap: 0.75rem; font-weight: 400; color: rgb(var(--color-text) / 0.7); min-height: 44px;">
+            {% render 'icon', name: 'search' %}
+            <span>{{ 'general.search.search' | t }}...</span>
+          </button>
+        </div>
+      {%- endif -%}
+
       <ul class="menu-drawer__list" role="list">
-        {%- for link in menu.links -%}
-          <li>
-            {%- if link.links.size > 0 -%}
-              <details>
-                <summary class="menu-drawer__summary">
-                  {{ link.title | escape }}
-                  {% render 'icon', name: 'chevron-down' %}
-                </summary>
-                <ul class="menu-drawer__list menu-drawer__sublist" role="list">
-                  <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
-                  {%- for child in link.links -%}
-                    <li>
-                      {%- if child.links.size > 0 -%}
-                        <details>
-                          <summary class="menu-drawer__summary">
-                            {{ child.title | escape }}
-                            {% render 'icon', name: 'chevron-down' %}
-                          </summary>
-                          <ul class="menu-drawer__list menu-drawer__sublist" role="list">
-                            {%- for grandchild in child.links -%}
-                              <li><a href="{{ grandchild.url }}">{{ grandchild.title | escape }}</a></li>
-                            {%- endfor -%}
-                          </ul>
-                        </details>
-                      {%- else -%}
-                        <a href="{{ child.url }}">{{ child.title | escape }}</a>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </details>
-            {%- else -%}
-              <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>
-            {%- endif -%}
-          </li>
-        {%- endfor -%}
+        {%- if menu != blank and menu.links.size > 0 -%}
+          {%- for link in menu.links -%}
+            <li>
+              {%- if link.links.size > 0 -%}
+                <details>
+                  <summary class="menu-drawer__summary">
+                    {{ link.title | escape }}
+                    {% render 'icon', name: 'chevron-down' %}
+                  </summary>
+                  <ul class="menu-drawer__list menu-drawer__sublist" role="list">
+                    <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                    {%- for child in link.links -%}
+                      <li>
+                        {%- if child.links.size > 0 -%}
+                          <details>
+                            <summary class="menu-drawer__summary">
+                              {{ child.title | escape }}
+                              {% render 'icon', name: 'chevron-down' %}
+                            </summary>
+                            <ul class="menu-drawer__list menu-drawer__sublist" role="list">
+                              {%- for grandchild in child.links -%}
+                                <li><a href="{{ grandchild.url }}">{{ grandchild.title | escape }}</a></li>
+                              {%- endfor -%}
+                            </ul>
+                          </details>
+                        {%- else -%}
+                          <a href="{{ child.url }}">{{ child.title | escape }}</a>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </details>
+              {%- else -%}
+                <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        {%- else -%}
+          <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+          <li><a href="/collections/espresso-tools">Espresso Tools</a></li>
+          <li><a href="/collections/coffee-station">Coffee Station</a></li>
+          <li><a href="/collections/brewing">Brewing</a></li>
+          <li><a href="/pages/about">About</a></li>
+        {%- endif -%}
       </ul>
 
       {%- if shop.customer_accounts_enabled -%}
         <p style="margin-top: 1.5rem;">
-          <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="button button--outline button--full">
+          <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="button button--outline button--full" style="min-height: 44px; display: inline-flex; align-items: center; justify-content: center;">
             {% if customer %}{{ 'customer.account.title' | t }}{% else %}{{ 'customer.log_in' | t }}{% endif %}
           </a>
         </p>
@@ -239,6 +274,12 @@
         }
       ],
       "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "t:sections.header.settings.sticky.label",
+      "default": true
     },
     {
       "type": "checkbox",

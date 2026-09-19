@@ -29,13 +29,17 @@
 
     {% render 'meta-tags' %}
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>{% render 'theme-styles' %}</style>
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      window.Fashe = {
+      window.DoseDial = window.Fashe = {
         routes: {
           root: {{ routes.root_url | json }},
           cart: {{ routes.cart_url | json }},

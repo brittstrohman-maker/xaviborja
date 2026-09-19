@@ -3,7 +3,7 @@
     <div class="page-width" style="padding-block: 0.6rem; text-align: center;">
       {%- if section.blocks.size == 1 -%}
         {%- assign block = section.blocks.first -%}
-        <p class="text-xs" style="margin: 0; letter-spacing: 0.06em;" {{ block.shopify_attributes }}>
+        <p class="text-xs" style="margin: 0; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;" {{ block.shopify_attributes }}>
           {%- if block.settings.link != blank -%}
             <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
           {%- else -%}
@@ -15,7 +15,7 @@
           {%- for block in section.blocks -%}
             <p
               class="text-xs"
-              style="margin: 0; letter-spacing: 0.06em;"
+              style="margin: 0; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500;"
               {% unless forloop.first %}hidden{% endunless %}
               {{ block.shopify_attributes }}
             >
@@ -62,7 +62,7 @@
           "type": "text",
           "id": "text",
           "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label",
-          "default": "Free shipping on orders over $100"
+          "default": "FREE STANDARD SHIPPING ON ORDERS OVER €55"
         },
         {
           "type": "url",

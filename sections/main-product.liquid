@@ -13,27 +13,31 @@
               id="ProductMedia-{{ section.id }}"
             >
               {%- for media in product.media -%}
-                {%- liquid
-                  assign media_loading = 'lazy'
-                  assign media_priority = 'auto'
-                  if forloop.first
-                    assign media_loading = 'eager'
-                    assign media_priority = 'high'
-                  endif
-                -%}
                 <div class="media media--{{ section.settings.media_ratio }}" data-media-id="{{ media.id }}">
                   {%- case media.media_type -%}
                     {%- when 'image' -%}
-                      {{
-                        media
-                        | image_url: width: 1946
-                        | image_tag:
-                          loading: media_loading,
-                          fetchpriority: media_priority,
-                          widths: '350, 550, 750, 1100, 1500, 1946',
-                          sizes: '(min-width: 990px) 55vw, 100vw',
-                          alt: media.alt
-                      }}
+                      {%- if forloop.first -%}
+                        {{
+                          media
+                          | image_url: width: 1946
+                          | image_tag:
+                            loading: 'eager',
+                            fetchpriority: 'high',
+                            widths: '350, 550, 750, 1100, 1500, 1946',
+                            sizes: '(min-width: 990px) 55vw, 100vw',
+                            alt: media.alt
+                        }}
+                      {%- else -%}
+                        {{
+                          media
+                          | image_url: width: 1946
+                          | image_tag:
+                            loading: 'lazy',
+                            widths: '350, 550, 750, 1100, 1500, 1946',
+                            sizes: '(min-width: 990px) 55vw, 100vw',
+                            alt: media.alt
+                        }}
+                      {%- endif -%}
                     {%- when 'video' -%}
                       {{ media | video_tag: controls: true, playsinline: true, preload: 'metadata', image_size: '1100x' }}
                     {%- when 'external_video' -%}
@@ -167,15 +171,39 @@
           "type": "buy-buttons"
         },
         {
-          "type": "inventory"
+          "type": "trust-badges"
         },
         {
-          "type": "description"
+          "type": "inventory"
         },
         {
           "type": "accordion",
           "settings": {
-            "heading": "Shipping and returns"
+            "heading": "Description"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "What's Included"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "Specifications"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "Shipping"
+          }
+        },
+        {
+          "type": "accordion",
+          "settings": {
+            "heading": "Returns"
           }
         }
       ]

@@ -1,65 +1,66 @@
 {
+  "theme_name": "Dose & Dial",
   "current": {
     "color_schemes": {
       "scheme_1": {
         "settings": {
-          "background": "#ffffff",
+          "background": "#FCFAF6",
           "background_gradient": "",
-          "text": "#141414",
-          "button": "#141414",
-          "button_label": "#ffffff",
-          "outline_button": "#141414",
-          "accent": "#c8553d",
-          "border": "#e4e4e4"
+          "text": "#111111",
+          "button": "#111111",
+          "button_label": "#FFFFFF",
+          "outline_button": "#111111",
+          "accent": "#9A6238",
+          "border": "#E7E0D6"
         }
       },
       "scheme_2": {
         "settings": {
-          "background": "#f4f2ee",
+          "background": "#F7F3EB",
           "background_gradient": "",
-          "text": "#141414",
-          "button": "#141414",
-          "button_label": "#f4f2ee",
-          "outline_button": "#141414",
-          "accent": "#c8553d",
-          "border": "#dcd8d0"
+          "text": "#111111",
+          "button": "#111111",
+          "button_label": "#FFFFFF",
+          "outline_button": "#111111",
+          "accent": "#9A6238",
+          "border": "#E7E0D6"
         }
       },
       "scheme_3": {
         "settings": {
-          "background": "#141414",
+          "background": "#111111",
           "background_gradient": "",
-          "text": "#f4f2ee",
-          "button": "#f4f2ee",
-          "button_label": "#141414",
-          "outline_button": "#f4f2ee",
-          "accent": "#e2a087",
-          "border": "#333333"
+          "text": "#F7F3EB",
+          "button": "#9A6238",
+          "button_label": "#FFFFFF",
+          "outline_button": "#F7F3EB",
+          "accent": "#9A6238",
+          "border": "#2A1D17"
         }
       },
       "scheme_4": {
         "settings": {
-          "background": "#c8553d",
+          "background": "#2A1D17",
           "background_gradient": "",
-          "text": "#ffffff",
-          "button": "#ffffff",
-          "button_label": "#c8553d",
-          "outline_button": "#ffffff",
-          "accent": "#ffffff",
-          "border": "#d97c68"
+          "text": "#F7F3EB",
+          "button": "#9A6238",
+          "button_label": "#FFFFFF",
+          "outline_button": "#F7F3EB",
+          "accent": "#9A6238",
+          "border": "#7A5736"
         }
       }
     },
     "heading_font": "assistant_n4",
-    "heading_case": "none",
-    "heading_tracking": -2,
+    "heading_case": "uppercase",
+    "heading_tracking": 2,
     "heading_scale": 100,
     "body_font": "assistant_n4",
     "body_scale": 100,
     "page_width": 1440,
-    "spacing_sections": 0,
-    "radius_base": 0,
-    "radius_media": 0,
+    "spacing_sections": 24,
+    "radius_base": 4,
+    "radius_media": 6,
     "card_image_ratio": "portrait",
     "card_hover_image": true,
     "card_show_vendor": false,
@@ -68,13 +69,13 @@
     "card_show_swatches": true,
     "cart_type": "drawer",
     "cart_notes": false,
-    "cart_show_free_shipping_bar": false,
-    "cart_free_shipping_threshold": "100",
+    "cart_show_free_shipping_bar": true,
+    "cart_free_shipping_threshold": "55",
     "predictive_search_enabled": true,
     "predictive_search_show_price": true,
     "animations_reveal": true,
     "animations_hover_zoom": true,
-    "logo_width": 120,
+    "logo_width": 140,
     "social_instagram_link": "",
     "social_tiktok_link": "",
     "social_facebook_link": "",
@@ -85,45 +86,90 @@
     "blocks": {}
   },
   "presets": {
-    "Fashe": {
+    "Dose & Dial": {
       "color_schemes": {
         "scheme_1": {
           "settings": {
-            "background": "#ffffff",
-            "text": "#141414",
-            "button": "#141414",
-            "button_label": "#ffffff",
-            "outline_button": "#141414",
-            "accent": "#c8553d",
-            "border": "#e4e4e4"
+            "background": "#FCFAF6",
+            "text": "#111111",
+            "button": "#111111",
+            "button_label": "#FFFFFF",
+            "outline_button": "#111111",
+            "accent": "#9A6238",
+            "border": "#E7E0D6"
+          }
+        },
+        "scheme_2": {
+          "settings": {
+            "background": "#F7F3EB",
+            "text": "#111111",
+            "button": "#111111",
+            "button_label": "#FFFFFF",
+            "outline_button": "#111111",
+            "accent": "#9A6238",
+            "border": "#E7E0D6"
+          }
+        },
+        "scheme_3": {
+          "settings": {
+            "background": "#111111",
+            "text": "#F7F3EB",
+            "button": "#9A6238",
+            "button_label": "#FFFFFF",
+            "outline_button": "#F7F3EB",
+            "accent": "#9A6238",
+            "border": "#2A1D17"
+          }
+        },
+        "scheme_4": {
+          "settings": {
+            "background": "#2A1D17",
+            "text": "#F7F3EB",
+            "button": "#9A6238",
+            "button_label": "#FFFFFF",
+            "outline_button": "#F7F3EB",
+            "accent": "#9A6238",
+            "border": "#7A5736"
           }
         }
       },
       "heading_font": "assistant_n4",
+      "heading_case": "uppercase",
+      "heading_tracking": 2,
+      "heading_scale": 100,
       "body_font": "assistant_n4",
+      "body_scale": 100,
       "card_image_ratio": "portrait",
-      "radius_base": 0,
-      "radius_media": 0
+      "radius_base": 4,
+      "radius_media": 6,
+      "cart_show_free_shipping_bar": true,
+      "cart_free_shipping_threshold": "55"
     },
-    "Fashe Soft": {
+    "Editorial Espresso": {
       "color_schemes": {
         "scheme_1": {
           "settings": {
-            "background": "#faf7f2",
-            "text": "#2b2622",
-            "button": "#2b2622",
-            "button_label": "#faf7f2",
-            "outline_button": "#2b2622",
-            "accent": "#a8714f",
-            "border": "#e6ded2"
+            "background": "#F7F3EB",
+            "text": "#111111",
+            "button": "#2A1D17",
+            "button_label": "#FFFFFF",
+            "outline_button": "#2A1D17",
+            "accent": "#9A6238",
+            "border": "#E7E0D6"
           }
         }
       },
       "heading_font": "assistant_n4",
+      "heading_case": "uppercase",
+      "heading_tracking": 2,
+      "heading_scale": 100,
       "body_font": "assistant_n4",
-      "card_image_ratio": "tall",
-      "radius_base": 24,
-      "radius_media": 16
+      "body_scale": 100,
+      "card_image_ratio": "portrait",
+      "radius_base": 4,
+      "radius_media": 6,
+      "cart_show_free_shipping_bar": true,
+      "cart_free_shipping_threshold": "55"
     }
   }
 }

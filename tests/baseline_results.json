@@ -1,0 +1,1639 @@
+﻿{
+    "Timestamp":  "2026-09-18T18:32:20.8436745+02:00",
+    "TotalTests":  160,
+    "TotalPassed":  90,
+    "TotalFailed":  70,
+    "PassRate":  "56.2%",
+    "TierSummary":  [
+                        {
+                            "Tier":  "Tier 1: Feature \u0026 Syntactic",
+                            "Total":  130,
+                            "Passed":  76,
+                            "Failed":  54,
+                            "Rate":  "58.5%"
+                        },
+                        {
+                            "Tier":  "Tier 2: Boundary \u0026 Corner",
+                            "Total":  12,
+                            "Passed":  8,
+                            "Failed":  4,
+                            "Rate":  "66.7%"
+                        },
+                        {
+                            "Tier":  "Tier 3: Cross-Integration",
+                            "Total":  10,
+                            "Passed":  5,
+                            "Failed":  5,
+                            "Rate":  "50%"
+                        },
+                        {
+                            "Tier":  "Tier 4: Customer Scenarios",
+                            "Total":  8,
+                            "Passed":  null,
+                            "Failed":  8,
+                            "Rate":  "0%"
+                        }
+                    ],
+    "Results":  [
+                    {
+                        "Id":  "F01-01",
+                        "Tier":  1,
+                        "FeatureId":  "F01",
+                        "Description":  "Warm Cream #F7F3EB token configured",
+                        "Passed":  true,
+                        "Expected":  "#F7F3EB present in theme tokens/styles",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F01-02",
+                        "Tier":  1,
+                        "FeatureId":  "F01",
+                        "Description":  "Soft Off-White #FCFAF6 token configured",
+                        "Passed":  true,
+                        "Expected":  "#FCFAF6 present in theme tokens/styles",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F01-03",
+                        "Tier":  1,
+                        "FeatureId":  "F01",
+                        "Description":  "Matte Black #111111 or Espresso #2A1D17 token configured",
+                        "Passed":  true,
+                        "Expected":  "#111111 or #2A1D17 present in theme tokens/styles",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F01-04",
+                        "Tier":  1,
+                        "FeatureId":  "F01",
+                        "Description":  "Copper Accent #9A6238 or Walnut #7A5736 token configured",
+                        "Passed":  true,
+                        "Expected":  "#9A6238 or #7A5736 present in theme tokens/styles",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F01-05",
+                        "Tier":  1,
+                        "FeatureId":  "F01",
+                        "Description":  "Light Taupe #E7E0D6 border token configured",
+                        "Passed":  true,
+                        "Expected":  "#E7E0D6 present in theme tokens/styles",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F02-01",
+                        "Tier":  1,
+                        "FeatureId":  "F02",
+                        "Description":  "Manrope or Inter font stack loaded",
+                        "Passed":  true,
+                        "Expected":  "Manrope/Inter reference in layout or CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F02-02",
+                        "Tier":  1,
+                        "FeatureId":  "F02",
+                        "Description":  "Uppercase micro-label styling defined in base CSS",
+                        "Passed":  true,
+                        "Expected":  "text-transform: uppercase in CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F02-03",
+                        "Tier":  1,
+                        "FeatureId":  "F02",
+                        "Description":  "Subtle letter-spacing defined for headings/labels",
+                        "Passed":  true,
+                        "Expected":  "letter-spacing \u003e 0 in CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F02-04",
+                        "Tier":  1,
+                        "FeatureId":  "F02",
+                        "Description":  "Structured heading scale hierarchy defined (.h1, .h2, .h3)",
+                        "Passed":  true,
+                        "Expected":  "Heading scale utility classes in CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F02-05",
+                        "Tier":  1,
+                        "FeatureId":  "F02",
+                        "Description":  "Font custom properties bound in theme styles",
+                        "Passed":  true,
+                        "Expected":  "--font-heading or --font-body custom properties",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F03-01",
+                        "Tier":  1,
+                        "FeatureId":  "F03",
+                        "Description":  "Button radius schema setting exists",
+                        "Passed":  true,
+                        "Expected":  "radius_base setting in settings_schema.json",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F03-02",
+                        "Tier":  1,
+                        "FeatureId":  "F03",
+                        "Description":  "Button radius setting configured between 2px and 8px",
+                        "Passed":  true,
+                        "Expected":  "radius_base in [2..8]",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F03-03",
+                        "Tier":  1,
+                        "FeatureId":  "F03",
+                        "Description":  "CSS custom property --radius-base defined",
+                        "Passed":  true,
+                        "Expected":  "--radius-base in base.css or theme-styles.liquid",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F03-04",
+                        "Tier":  1,
+                        "FeatureId":  "F03",
+                        "Description":  "Media radius token configured",
+                        "Passed":  true,
+                        "Expected":  "radius_media token present",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F03-05",
+                        "Tier":  1,
+                        "FeatureId":  "F03",
+                        "Description":  "Button hover and transition styling defined",
+                        "Passed":  true,
+                        "Expected":  "Button transition / hover rule in CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F04-01",
+                        "Tier":  1,
+                        "FeatureId":  "F04",
+                        "Description":  "settings_schema.json parses as strict valid JSON",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON",
+                        "Actual":  "         ",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F04-02",
+                        "Tier":  1,
+                        "FeatureId":  "F04",
+                        "Description":  "settings_data.json parses as strict valid JSON",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F04-03",
+                        "Tier":  1,
+                        "FeatureId":  "F04",
+                        "Description":  "Color schemes configured in settings_data.json",
+                        "Passed":  true,
+                        "Expected":  "color_schemes defined",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F04-04",
+                        "Tier":  1,
+                        "FeatureId":  "F04",
+                        "Description":  "Dose \u0026 Dial defaults applied in settings_data.json",
+                        "Passed":  false,
+                        "Expected":  "Dose \u0026 Dial brand defaults in settings",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F04-05",
+                        "Tier":  1,
+                        "FeatureId":  "F04",
+                        "Description":  "Typography section defined in settings_schema.json",
+                        "Passed":  true,
+                        "Expected":  "Typography schema present",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F05-01",
+                        "Tier":  1,
+                        "FeatureId":  "F05",
+                        "Description":  "Announcement bar copy \u0027FREE STANDARD SHIPPING ON ORDERS OVER 55\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "Announcement copy present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F05-02",
+                        "Tier":  1,
+                        "FeatureId":  "F05",
+                        "Description":  "announcement-bar.liquid Liquid tags balanced",
+                        "Passed":  true,
+                        "Expected":  "Balanced Liquid tags",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F05-03",
+                        "Tier":  1,
+                        "FeatureId":  "F05",
+                        "Description":  "Announcement bar has valid embedded schema block",
+                        "Passed":  true,
+                        "Expected":  "Embedded schema block",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F05-04",
+                        "Tier":  1,
+                        "FeatureId":  "F05",
+                        "Description":  "Announcement bar supports theme color scheme class",
+                        "Passed":  true,
+                        "Expected":  "color_scheme setting applied",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F05-05",
+                        "Tier":  1,
+                        "FeatureId":  "F05",
+                        "Description":  "Announcement bar registered in header-group.json",
+                        "Passed":  true,
+                        "Expected":  "Registered in header-group.json",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F06-01",
+                        "Tier":  1,
+                        "FeatureId":  "F06",
+                        "Description":  "Dose and Dial brand wordmark present in header",
+                        "Passed":  false,
+                        "Expected":  "\u0027Dose \u0026 Dial\u0027 in header template or settings",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F06-02",
+                        "Tier":  1,
+                        "FeatureId":  "F06",
+                        "Description":  "Header iterates through navigation links",
+                        "Passed":  true,
+                        "Expected":  "for link in menu loop in header.liquid",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F06-03",
+                        "Tier":  1,
+                        "FeatureId":  "F06",
+                        "Description":  "Header includes search trigger",
+                        "Passed":  true,
+                        "Expected":  "Search trigger in header",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F06-04",
+                        "Tier":  1,
+                        "FeatureId":  "F06",
+                        "Description":  "Header includes cart trigger and bubble",
+                        "Passed":  true,
+                        "Expected":  "Cart link / bubble in header",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F06-05",
+                        "Tier":  1,
+                        "FeatureId":  "F06",
+                        "Description":  "Header embedded schema JSON parses validly",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON schema",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F07-01",
+                        "Tier":  1,
+                        "FeatureId":  "F07",
+                        "Description":  "Scroll event listener or IntersectionObserver in theme.js",
+                        "Passed":  true,
+                        "Expected":  "Scroll listener in theme.js",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F07-02",
+                        "Tier":  1,
+                        "FeatureId":  "F07",
+                        "Description":  "Sticky scrolled class toggled in theme.js",
+                        "Passed":  false,
+                        "Expected":  "Scrolled class toggle in JS",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F07-03",
+                        "Tier":  1,
+                        "FeatureId":  "F07",
+                        "Description":  "Sticky scrolled header styling in base.css",
+                        "Passed":  false,
+                        "Expected":  "Scrolled header CSS selector",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F07-04",
+                        "Tier":  1,
+                        "FeatureId":  "F07",
+                        "Description":  "Subtle border styling on scrolled header",
+                        "Passed":  false,
+                        "Expected":  "Border on scrolled header in CSS",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F07-05",
+                        "Tier":  1,
+                        "FeatureId":  "F07",
+                        "Description":  "Sticky header setting present in header schema",
+                        "Passed":  false,
+                        "Expected":  "sticky_header setting in schema",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F08-01",
+                        "Tier":  1,
+                        "FeatureId":  "F08",
+                        "Description":  "Mobile navigation toggle button in header.liquid",
+                        "Passed":  true,
+                        "Expected":  "Mobile menu toggle in header",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F08-02",
+                        "Tier":  1,
+                        "FeatureId":  "F08",
+                        "Description":  "Touch targets \u003e= 44px enforced in base.css",
+                        "Passed":  true,
+                        "Expected":  "min-height or min-width \u003e= 44px in CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F08-03",
+                        "Tier":  1,
+                        "FeatureId":  "F08",
+                        "Description":  "Mobile header integrates search access",
+                        "Passed":  true,
+                        "Expected":  "Search access present",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F08-04",
+                        "Tier":  1,
+                        "FeatureId":  "F08",
+                        "Description":  "Mobile header integrates cart access",
+                        "Passed":  true,
+                        "Expected":  "Cart access present",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F08-05",
+                        "Tier":  1,
+                        "FeatureId":  "F08",
+                        "Description":  "Navigation drawer logic supported in theme.js",
+                        "Passed":  true,
+                        "Expected":  "Drawer handler in JS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F09-01",
+                        "Tier":  1,
+                        "FeatureId":  "F09",
+                        "Description":  "Hero headline \u0027PRECISION FOR EVERY POUR.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027PRECISION FOR EVERY POUR.\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F09-02",
+                        "Tier":  1,
+                        "FeatureId":  "F09",
+                        "Description":  "Hero micro-label \u0027DOSE - DIAL - BREW\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027DOSE - DIAL - BREW\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F09-03",
+                        "Tier":  1,
+                        "FeatureId":  "F09",
+                        "Description":  "Hero subtext \u0027Premium tools for home baristas...\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "Hero subtext present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F09-04",
+                        "Tier":  1,
+                        "FeatureId":  "F09",
+                        "Description":  "Hero primary CTA \u0027SHOP ESPRESSO TOOLS\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027SHOP ESPRESSO TOOLS\u0027 CTA present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F09-05",
+                        "Tier":  1,
+                        "FeatureId":  "F09",
+                        "Description":  "Hero schema supports image configuration",
+                        "Passed":  true,
+                        "Expected":  "Image settings in hero schema",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F10-01",
+                        "Tier":  1,
+                        "FeatureId":  "F10",
+                        "Description":  "Featured collections heading \u0027BUILD YOUR COFFEE BAR\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027BUILD YOUR COFFEE BAR\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F10-02",
+                        "Tier":  1,
+                        "FeatureId":  "F10",
+                        "Description":  "Featured collections subheading present",
+                        "Passed":  false,
+                        "Expected":  "Subheading present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F10-03",
+                        "Tier":  1,
+                        "FeatureId":  "F10",
+                        "Description":  "Category cards (Espresso Tools, Coffee Station...) configured",
+                        "Passed":  false,
+                        "Expected":  "Dose and Dial categories configured in index.json",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F10-04",
+                        "Tier":  1,
+                        "FeatureId":  "F10",
+                        "Description":  "Image hover zoom CSS transition defined in base.css",
+                        "Passed":  true,
+                        "Expected":  "transform: scale / transition in CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F10-05",
+                        "Tier":  1,
+                        "FeatureId":  "F10",
+                        "Description":  "collection-list.liquid schema JSON valid",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON schema",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F11-01",
+                        "Tier":  1,
+                        "FeatureId":  "F11",
+                        "Description":  "Best Sellers heading \u0027ESSENTIALS FOR BETTER ESPRESSO\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027ESSENTIALS FOR BETTER ESPRESSO\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F11-02",
+                        "Tier":  1,
+                        "FeatureId":  "F11",
+                        "Description":  "Best Sellers subtext present",
+                        "Passed":  false,
+                        "Expected":  "Workflow subtext present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F11-03",
+                        "Tier":  1,
+                        "FeatureId":  "F11",
+                        "Description":  "featured-collection.liquid renders product-card snippet",
+                        "Passed":  true,
+                        "Expected":  "render \u0027product-card\u0027 in section",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F11-04",
+                        "Tier":  1,
+                        "FeatureId":  "F11",
+                        "Description":  "featured-collection.liquid includes empty collection fallback",
+                        "Passed":  true,
+                        "Expected":  "Fallback for empty collection",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F11-05",
+                        "Tier":  1,
+                        "FeatureId":  "F11",
+                        "Description":  "featured-collection.liquid schema JSON valid",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON schema",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F12-01",
+                        "Tier":  1,
+                        "FeatureId":  "F12",
+                        "Description":  "Brand story heading \u0027CRAFT YOUR PERFECT SHOT.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027CRAFT YOUR PERFECT SHOT.\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F12-02",
+                        "Tier":  1,
+                        "FeatureId":  "F12",
+                        "Description":  "Brand story CTA \u0027OUR STORY\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027OUR STORY\u0027 CTA present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F12-03",
+                        "Tier":  1,
+                        "FeatureId":  "F12",
+                        "Description":  "Brand philosophy copy present in homepage settings",
+                        "Passed":  false,
+                        "Expected":  "Philosophy copy present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F12-04",
+                        "Tier":  1,
+                        "FeatureId":  "F12",
+                        "Description":  "image-with-text.liquid layout structures media and content blocks",
+                        "Passed":  true,
+                        "Expected":  "Media and content containers present",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F12-05",
+                        "Tier":  1,
+                        "FeatureId":  "F12",
+                        "Description":  "image-with-text.liquid schema JSON valid",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON schema",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F13-01",
+                        "Tier":  1,
+                        "FeatureId":  "F13",
+                        "Description":  "4 value pillars (Precision, Quality, Simplicity, Coffee Obsession) configured",
+                        "Passed":  false,
+                        "Expected":  "All 4 pillars present in index.json",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F13-02",
+                        "Tier":  1,
+                        "FeatureId":  "F13",
+                        "Description":  "Value pillars use 01/02/03/04 numbering prefix",
+                        "Passed":  false,
+                        "Expected":  "01/02 prefix in pillars",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F13-03",
+                        "Tier":  1,
+                        "FeatureId":  "F13",
+                        "Description":  "Multicolumn grid structure defined in base.css",
+                        "Passed":  false,
+                        "Expected":  "Multicolumn grid in CSS",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F13-04",
+                        "Tier":  1,
+                        "FeatureId":  "F13",
+                        "Description":  "Multicolumn card styling defined in base.css",
+                        "Passed":  false,
+                        "Expected":  "Multicolumn card CSS rule",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F13-05",
+                        "Tier":  1,
+                        "FeatureId":  "F13",
+                        "Description":  "multicolumn.liquid schema JSON valid",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON schema",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F14-01",
+                        "Tier":  1,
+                        "FeatureId":  "F14",
+                        "Description":  "Step 01 DOSE: \u0027Start with consistency.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u002701 DOSE: Start with consistency.\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F14-02",
+                        "Tier":  1,
+                        "FeatureId":  "F14",
+                        "Description":  "Step 02 DIAL: \u0027Fine-tune your grind and extraction.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u002702 DIAL: Fine-tune your grind and extraction.\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F14-03",
+                        "Tier":  1,
+                        "FeatureId":  "F14",
+                        "Description":  "Step 03 BREW: \u0027Enjoy the result.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u002703 BREW: Enjoy the result.\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F14-04",
+                        "Tier":  1,
+                        "FeatureId":  "F14",
+                        "Description":  "Dedicated workflow section or template entry exists",
+                        "Passed":  false,
+                        "Expected":  "workflow section in theme",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F14-05",
+                        "Tier":  1,
+                        "FeatureId":  "F14",
+                        "Description":  "Workflow section registered in index.json order",
+                        "Passed":  false,
+                        "Expected":  "workflow in index.json order array",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F15-01",
+                        "Tier":  1,
+                        "FeatureId":  "F15",
+                        "Description":  "Newsletter heading \u0027JOIN THE BAR.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027JOIN THE BAR.\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F15-02",
+                        "Tier":  1,
+                        "FeatureId":  "F15",
+                        "Description":  "Newsletter coffee tips / updates copy present",
+                        "Passed":  false,
+                        "Expected":  "Coffee tips copy present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F15-03",
+                        "Tier":  1,
+                        "FeatureId":  "F15",
+                        "Description":  "Newsletter uses native Shopify customer form",
+                        "Passed":  true,
+                        "Expected":  "form \u0027customer\u0027 present",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F15-04",
+                        "Tier":  1,
+                        "FeatureId":  "F15",
+                        "Description":  "Newsletter form includes [newsletter] tag",
+                        "Passed":  false,
+                        "Expected":  "contact[tags] = newsletter in form",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F15-05",
+                        "Tier":  1,
+                        "FeatureId":  "F15",
+                        "Description":  "newsletter.liquid schema JSON valid",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON schema",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F16-01",
+                        "Tier":  1,
+                        "FeatureId":  "F16",
+                        "Description":  "templates/index.json is valid JSON",
+                        "Passed":  true,
+                        "Expected":  "Valid JSON",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F16-02",
+                        "Tier":  1,
+                        "FeatureId":  "F16",
+                        "Description":  "Homepage contains at least 7 branded editorial sections",
+                        "Passed":  true,
+                        "Expected":  "\u003e= 7 sections in order",
+                        "Actual":  "8 sections",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F16-03",
+                        "Tier":  1,
+                        "FeatureId":  "F16",
+                        "Description":  "Hero section is first main body section in index.json",
+                        "Passed":  true,
+                        "Expected":  "First section in order has type \u0027hero\u0027",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F16-04",
+                        "Tier":  1,
+                        "FeatureId":  "F16",
+                        "Description":  "Best Sellers (featured-collection) included in index.json",
+                        "Passed":  true,
+                        "Expected":  "featured-collection present in index.json",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F16-05",
+                        "Tier":  1,
+                        "FeatureId":  "F16",
+                        "Description":  "Newsletter section placed near end of homepage sequence",
+                        "Passed":  true,
+                        "Expected":  "newsletter in last two positions of order",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F17-01",
+                        "Tier":  1,
+                        "FeatureId":  "F17",
+                        "Description":  "Product card background styled with Soft Off-White #FCFAF6",
+                        "Passed":  true,
+                        "Expected":  "#FCFAF6 background on .card",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F17-02",
+                        "Tier":  1,
+                        "FeatureId":  "F17",
+                        "Description":  "Product card subtle border styled with Light Taupe #E7E0D6",
+                        "Passed":  true,
+                        "Expected":  "Subtle taupe border on .card",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F17-03",
+                        "Tier":  1,
+                        "FeatureId":  "F17",
+                        "Description":  "product-card.liquid supports secondary image on hover",
+                        "Passed":  true,
+                        "Expected":  "card__image--secondary in snippet",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F17-04",
+                        "Tier":  1,
+                        "FeatureId":  "F17",
+                        "Description":  "Discreet quick-add form supported on product card",
+                        "Passed":  true,
+                        "Expected":  "Quick-add capability in product-card",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F17-05",
+                        "Tier":  1,
+                        "FeatureId":  "F17",
+                        "Description":  "Sale badge renders strictly on genuine compare_at_price \u003e price",
+                        "Passed":  true,
+                        "Expected":  "compare_at_price \u003e product.price condition",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F18-01",
+                        "Tier":  1,
+                        "FeatureId":  "F18",
+                        "Description":  "PDP features high-res media gallery",
+                        "Passed":  true,
+                        "Expected":  "product-gallery in main-product.liquid",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F18-02",
+                        "Tier":  1,
+                        "FeatureId":  "F18",
+                        "Description":  "Primary product image configured with eager loading",
+                        "Passed":  false,
+                        "Expected":  "loading: eager or fetchpriority: high",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F18-03",
+                        "Tier":  1,
+                        "FeatureId":  "F18",
+                        "Description":  "Sticky product info block defined on right",
+                        "Passed":  true,
+                        "Expected":  "product-info in main-product",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F18-04",
+                        "Tier":  1,
+                        "FeatureId":  "F18",
+                        "Description":  "Category micro-label / eyebrow block defined",
+                        "Passed":  true,
+                        "Expected":  "eyebrow micro-label block",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F18-05",
+                        "Tier":  1,
+                        "FeatureId":  "F18",
+                        "Description":  "Variant picker and buy buttons present in product.json",
+                        "Passed":  false,
+                        "Expected":  "variant-picker and buy-buttons blocks present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F19-01",
+                        "Tier":  1,
+                        "FeatureId":  "F19",
+                        "Description":  "blocks/accordion.liquid enforces strict conditionality (content != blank)",
+                        "Passed":  false,
+                        "Expected":  "{%- if content != blank -%} guard",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F19-02",
+                        "Tier":  1,
+                        "FeatureId":  "F19",
+                        "Description":  "accordion.liquid if/endif blocks strictly balanced",
+                        "Passed":  true,
+                        "Expected":  "Balanced if/endif",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F19-03",
+                        "Tier":  1,
+                        "FeatureId":  "F19",
+                        "Description":  "Accordion accesses product.description when configured",
+                        "Passed":  false,
+                        "Expected":  "product.description access in accordion",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F19-04",
+                        "Tier":  1,
+                        "FeatureId":  "F19",
+                        "Description":  "templates/product.json configures 5 standard accordions",
+                        "Passed":  false,
+                        "Expected":  "\u003e= 5 accordion blocks in product.json",
+                        "Actual":  "0 accordion blocks",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F19-05",
+                        "Tier":  1,
+                        "FeatureId":  "F19",
+                        "Description":  "Accordion summary contains toggle icon",
+                        "Passed":  true,
+                        "Expected":  "\u003csummary\u003e with chevron icon",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F20-01",
+                        "Tier":  1,
+                        "FeatureId":  "F20",
+                        "Description":  "blocks/trust-badges.liquid theme block exists",
+                        "Passed":  false,
+                        "Expected":  "File blocks/trust-badges.liquid exists",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F20-02",
+                        "Tier":  1,
+                        "FeatureId":  "F20",
+                        "Description":  "Trust badge \u0027Secure checkout\u0027 present with SVG icon",
+                        "Passed":  false,
+                        "Expected":  "\u0027Secure checkout\u0027 in trust badges",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F20-03",
+                        "Tier":  1,
+                        "FeatureId":  "F20",
+                        "Description":  "Trust badge \u0027Fast dispatch\u0027 present with SVG icon",
+                        "Passed":  false,
+                        "Expected":  "\u0027Fast dispatch\u0027 in trust badges",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F20-04",
+                        "Tier":  1,
+                        "FeatureId":  "F20",
+                        "Description":  "Trust badge \u0027Designed for the home barista\u0027 present",
+                        "Passed":  false,
+                        "Expected":  "\u0027Designed for the home barista\u0027 in trust badges",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F20-05",
+                        "Tier":  1,
+                        "FeatureId":  "F20",
+                        "Description":  "Trust badges registered in templates/product.json",
+                        "Passed":  false,
+                        "Expected":  "trust-badges block in product.json",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F21-01",
+                        "Tier":  1,
+                        "FeatureId":  "F21",
+                        "Description":  "Slide-out dialog #CartDrawer defined in cart-drawer.liquid",
+                        "Passed":  true,
+                        "Expected":  "#CartDrawer in cart-drawer.liquid",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F21-02",
+                        "Tier":  1,
+                        "FeatureId":  "F21",
+                        "Description":  "Line item details (title, variant, image) rendered in cart",
+                        "Passed":  true,
+                        "Expected":  "cart.items iteration with titles in cart-items",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F21-03",
+                        "Tier":  1,
+                        "FeatureId":  "F21",
+                        "Description":  "Quantity adjustment and item removal controls supported",
+                        "Passed":  true,
+                        "Expected":  "Quantity input or cart/change in cart items",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F21-04",
+                        "Tier":  1,
+                        "FeatureId":  "F21",
+                        "Description":  "Cart subtotal and checkout CTA present in cart summary",
+                        "Passed":  false,
+                        "Expected":  "total_price and checkout button in summary",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F21-05",
+                        "Tier":  1,
+                        "FeatureId":  "F21",
+                        "Description":  "Section Rendering API cart-drawer endpoint registered in theme.js",
+                        "Passed":  true,
+                        "Expected":  "CART_SECTIONS includes cart-drawer",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F22-01",
+                        "Tier":  1,
+                        "FeatureId":  "F22",
+                        "Description":  "Free shipping threshold configured to 55 in settings_data.json",
+                        "Passed":  true,
+                        "Expected":  "cart_free_shipping_threshold = 55",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F22-02",
+                        "Tier":  1,
+                        "FeatureId":  "F22",
+                        "Description":  "cart-summary.liquid calculates difference from threshold",
+                        "Passed":  true,
+                        "Expected":  "minus: cart.total_price in cart-summary",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F22-03",
+                        "Tier":  1,
+                        "FeatureId":  "F22",
+                        "Description":  "Translation key \u0027away from FREE SHIPPING\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027away from FREE SHIPPING\u0027 in locale or snippet",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F22-04",
+                        "Tier":  1,
+                        "FeatureId":  "F22",
+                        "Description":  "Translation key \u0027FREE STANDARD SHIPPING UNLOCKED\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027FREE STANDARD SHIPPING UNLOCKED\u0027 in locale or snippet",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F22-05",
+                        "Tier":  1,
+                        "FeatureId":  "F22",
+                        "Description":  "Shipping bar progress fill calculated and styled",
+                        "Passed":  true,
+                        "Expected":  "Percentage width calculation on shipping-bar__fill",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F23-01",
+                        "Tier":  1,
+                        "FeatureId":  "F23",
+                        "Description":  "Predictive search drawer dialog defined in header",
+                        "Passed":  true,
+                        "Expected":  "#SearchDrawer in header.liquid",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F23-02",
+                        "Tier":  1,
+                        "FeatureId":  "F23",
+                        "Description":  "Empty search state \u0027NOTHING YET.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027NOTHING YET.\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F23-03",
+                        "Tier":  1,
+                        "FeatureId":  "F23",
+                        "Description":  "Search recovery copy \u0027Try another search or explore...\u0027 present",
+                        "Passed":  false,
+                        "Expected":  "Recovery copy present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F23-04",
+                        "Tier":  1,
+                        "FeatureId":  "F23",
+                        "Description":  "404 page headline \u0027LOOKS LIKE THIS SHOT DIDN\u0027\u0027T DIAL IN.\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "Brand 404 headline present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F23-05",
+                        "Tier":  1,
+                        "FeatureId":  "F23",
+                        "Description":  "404 page CTA \u0027BACK TO THE COFFEE BAR\u0027 configured",
+                        "Passed":  false,
+                        "Expected":  "\u0027BACK TO THE COFFEE BAR\u0027 present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F24-01",
+                        "Tier":  1,
+                        "FeatureId":  "F24",
+                        "Description":  "4-column footer structure configured in footer.liquid",
+                        "Passed":  false,
+                        "Expected":  "4-column grid structure in footer",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F24-02",
+                        "Tier":  1,
+                        "FeatureId":  "F24",
+                        "Description":  "Physical address \u0027Calle Pintor Roldan 3, 41940 Sevilla, Spain\u0027 present verbatim",
+                        "Passed":  false,
+                        "Expected":  "Verbatim Seville address in footer",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F24-03",
+                        "Tier":  1,
+                        "FeatureId":  "F24",
+                        "Description":  "Business phone \u0027+34 648 273 811\u0027 present verbatim",
+                        "Passed":  false,
+                        "Expected":  "+34 648 273 811 present in footer",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F24-04",
+                        "Tier":  1,
+                        "FeatureId":  "F24",
+                        "Description":  "Business email \u0027xaviborja1@hotmail.com\u0027 present verbatim",
+                        "Passed":  false,
+                        "Expected":  "xaviborja1@hotmail.com present in footer",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F24-05",
+                        "Tier":  1,
+                        "FeatureId":  "F24",
+                        "Description":  "Dynamic copyright with current year and brand present",
+                        "Passed":  false,
+                        "Expected":  "Dynamic copyright tag in footer",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F25-01",
+                        "Tier":  1,
+                        "FeatureId":  "F25",
+                        "Description":  "All 25 JSON files parse with zero syntax errors",
+                        "Passed":  true,
+                        "Expected":  "0 JSON parse errors",
+                        "Actual":  "0 errors ()",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F25-02",
+                        "Tier":  1,
+                        "FeatureId":  "F25",
+                        "Description":  "All 71 Liquid files have balanced tags ({% %} and {{ }})",
+                        "Passed":  true,
+                        "Expected":  "0 tag mismatches",
+                        "Actual":  "0 mismatches ()",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F25-03",
+                        "Tier":  1,
+                        "FeatureId":  "F25",
+                        "Description":  "All Liquid files have balanced block pairs (if/endif, for/endfor, form/endform)",
+                        "Passed":  true,
+                        "Expected":  "0 block mismatches",
+                        "Actual":  "0 mismatches ()",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F25-04",
+                        "Tier":  1,
+                        "FeatureId":  "F25",
+                        "Description":  "All embedded {% schema %} JSON blocks parse validly",
+                        "Passed":  true,
+                        "Expected":  "0 schema errors",
+                        "Actual":  "0 errors ()",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F25-05",
+                        "Tier":  1,
+                        "FeatureId":  "F25",
+                        "Description":  "CSS includes prefers-reduced-motion: reduce media queries",
+                        "Passed":  true,
+                        "Expected":  "prefers-reduced-motion in base.css",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F26-01",
+                        "Tier":  1,
+                        "FeatureId":  "F26",
+                        "Description":  "Git repository initialized (.git present)",
+                        "Passed":  true,
+                        "Expected":  ".git directory present",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F26-02",
+                        "Tier":  1,
+                        "FeatureId":  "F26",
+                        "Description":  "Active git branch is master",
+                        "Passed":  true,
+                        "Expected":  "Branch \u0027master\u0027",
+                        "Actual":  "master",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F26-03",
+                        "Tier":  1,
+                        "FeatureId":  "F26",
+                        "Description":  "Remote origin tracked to brittstrohman-maker/xaviborja",
+                        "Passed":  true,
+                        "Expected":  "Remote points to brittstrohman-maker/xaviborja",
+                        "Actual":  "https://github.com/brittstrohman-maker/xaviborja",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F26-04",
+                        "Tier":  1,
+                        "FeatureId":  "F26",
+                        "Description":  ".agents/ metadata directory excluded in .gitignore",
+                        "Passed":  false,
+                        "Expected":  ".agents/ in .gitignore",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "F26-05",
+                        "Tier":  1,
+                        "FeatureId":  "F26",
+                        "Description":  "No .agents metadata files tracked in git index",
+                        "Passed":  true,
+                        "Expected":  "Zero .agents files in git ls-files",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-01",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Cart total 0c yields 5500c remaining and 0% progress",
+                        "Passed":  true,
+                        "Expected":  "remaining=5500, progress=0",
+                        "Actual":  "remaining=5500, progress=0",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-02",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Cart total 5499c (54.99) yields exactly 1c remaining",
+                        "Passed":  true,
+                        "Expected":  "remaining=1, status=still locked",
+                        "Actual":  "remaining=1",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-03",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Cart total 5500c reaches 100% progress and unlocked",
+                        "Passed":  true,
+                        "Expected":  "remaining\u003c=0, progress=100",
+                        "Actual":  "remaining=0, progress=100",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-04",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Cart total 8000c clamps progress to 100% without error",
+                        "Passed":  true,
+                        "Expected":  "progress clamped to 100%",
+                        "Actual":  "progress=100",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-05",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Blank accordion content wraps details in if content != blank",
+                        "Passed":  false,
+                        "Expected":  "\u003cdetails\u003e wrapped in if content != blank",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-06",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Description accordion cleanly falls back to product.description",
+                        "Passed":  false,
+                        "Expected":  "product.description fallback present",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-07",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Corner: Single-variant product card handles direct add-to-cart action",
+                        "Passed":  true,
+                        "Expected":  "Direct cart addition for single variant",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-08",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Corner: Multi-variant product routes to product detail options",
+                        "Passed":  true,
+                        "Expected":  "product.url link for multi-variant",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-09",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Predictive search gracefully handles zero search query state",
+                        "Passed":  true,
+                        "Expected":  "Graceful check on search.performed / query.size",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-10",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Corner: Zero search results triggers \u0027NOTHING YET.\u0027 empty state",
+                        "Passed":  false,
+                        "Expected":  "\u0027NOTHING YET.\u0027 on 0 results",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-11",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Boundary: Button radius schema definition bounds clamped to 2-8px",
+                        "Passed":  false,
+                        "Expected":  "radius schema clamped",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T2-12",
+                        "Tier":  2,
+                        "FeatureId":  "T2",
+                        "Description":  "Corner: Sale badge strictly suppressed when compare_at_price \u003c= price",
+                        "Passed":  true,
+                        "Expected":  "Strict compare_at_price \u003e price evaluation",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-01",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: Design token cascade from theme-styles into base.css CSS variables",
+                        "Passed":  true,
+                        "Expected":  "var(--color-background) defined in styles and used in CSS",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-02",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: Announcement bar threshold (55) strictly syncs with cart threshold",
+                        "Passed":  false,
+                        "Expected":  "Both announcement and cart threshold set to 55",
+                        "Actual":  "Announcement=False, Cart=True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-03",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: All PDP theme blocks in product.json have physical blocks/*.liquid files",
+                        "Passed":  false,
+                        "Expected":  "All blocks present",
+                        "Actual":  "Missing: trust-badges",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-04",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: theme.js CART_SECTIONS strictly matches physical sections/*.liquid",
+                        "Passed":  true,
+                        "Expected":  "cart-drawer and cart-icon-bubble exist for theme.js",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-05",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: Footer legal links bind to standard Shopify policy routes",
+                        "Passed":  false,
+                        "Expected":  "Shopify policy objects / routes in footer.liquid",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-06",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: Header navigation items align with index.json collection cards",
+                        "Passed":  false,
+                        "Expected":  "Dose \u0026 Dial collection handles in index.json",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-07",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: Product card quick-add dispatches to theme.js cart drawer handler",
+                        "Passed":  true,
+                        "Expected":  "Product card form intercepted by theme.js cart engine",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-08",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: Dark color scheme cascade applied to dark accent components",
+                        "Passed":  false,
+                        "Expected":  "scheme_3 dark scheme styles generated",
+                        "Actual":  "False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-09",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: 404 recovery CTA binds dynamically to routes.all_products_collection_url",
+                        "Passed":  true,
+                        "Expected":  "routes.all_products_collection_url in 404 section",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T3-10",
+                        "Tier":  3,
+                        "FeatureId":  "T3",
+                        "Description":  "Integration: Menu drawer and Search dialog coexist without DOM ID collisions",
+                        "Passed":  true,
+                        "Expected":  "Independent dialog / drawer IDs in header.liquid",
+                        "Actual":  "True",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-01",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario A: Complete discovery flow (Announcement -\u003e Wordmark -\u003e Hero -\u003e Collections)",
+                        "Passed":  false,
+                        "Expected":  "All 4 touchpoints configured",
+                        "Actual":  "Announce=False, Logo=False, Hero=False, Coll=False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-02",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario B: Editorial ritual engagement (Workflow Ritual -\u003e Brand Story -\u003e Join the Bar)",
+                        "Passed":  false,
+                        "Expected":  "Ritual, Story, and Newsletter present in index",
+                        "Actual":  "Ritual=False, Story=False, Newsletter=False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-03",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario C: PDP high-res gallery, trust badges, and conditional accordions",
+                        "Passed":  false,
+                        "Expected":  "Gallery + Badges + Conditional Accordions",
+                        "Actual":  "Gallery=True, Badges=False, Accordions=False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-04",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario D: Cart drawer progress calculation and bilingual threshold states",
+                        "Passed":  false,
+                        "Expected":  "Calculation + \u0027away\u0027 text + \u0027unlocked\u0027 text",
+                        "Actual":  "Calc=True, Away=False, Unlocked=False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-05",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario E: Search drawer empty-state and catalog discovery recovery",
+                        "Passed":  false,
+                        "Expected":  "Drawer + \u0027NOTHING YET.\u0027 + recovery copy",
+                        "Actual":  "Drawer=True, Empty=False, Recovery=False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-06",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario F: 404 extraction error message and catalog return CTA",
+                        "Passed":  false,
+                        "Expected":  "\u0027DIDN\u0027T DIAL IN\u0027 + \u0027BACK TO THE COFFEE BAR\u0027",
+                        "Actual":  "Headline=False, CTA=False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-07",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario G: Seville business credentials and dynamic copyright transparency",
+                        "Passed":  false,
+                        "Expected":  "Address + Phone + Email + Copyright in footer",
+                        "Actual":  "Addr=False, Phone=False, Email=False, Copyright=False",
+                        "Details":  ""
+                    },
+                    {
+                        "Id":  "T4-08",
+                        "Tier":  4,
+                        "FeatureId":  "T4",
+                        "Description":  "Scenario H: Mobile touch targets (\u003e=44px) and prefers-reduced-motion compliance",
+                        "Passed":  true,
+                        "Expected":  "Touch target min 44px + reduced motion in CSS",
+                        "Actual":  "Touch=True, Motion=True",
+                        "Details":  ""
+                    }
+                ]
+}

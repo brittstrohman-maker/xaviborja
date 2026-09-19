@@ -1,10 +1,10 @@
 <section class="section color-{{ section.settings.color_scheme }} color-scheme">
   <div class="page-width" style="text-align: center; padding-block: var(--space-2xl);">
     <p class="eyebrow">404</p>
-    <h1 class="h1">{{ 'general.404.title' | t }}</h1>
-    <p>{{ 'general.404.subtext' | t }}</p>
+    <h1 class="h1">{{ 'general.404.title' | t | default: "LOOKS LIKE THIS SHOT DIDN'T DIAL IN." }}</h1>
+    <p>{{ 'general.404.subtext' | t | default: "The page you were looking for does not exist or has been moved." }}</p>
     <p style="margin-top: 1.5rem;">
-      <a href="{{ routes.all_products_collection_url }}" class="button">{{ 'general.404.link' | t }}</a>
+      <a href="{{ routes.all_products_collection_url }}" class="button">{{ 'general.404.link' | t | default: "BACK TO THE COFFEE BAR" }}</a>
     </p>
   </div>
 </section>

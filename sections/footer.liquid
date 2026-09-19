@@ -1,7 +1,7 @@
 <footer class="footer color-{{ section.settings.color_scheme }} color-scheme">
   <div class="page-width">
     {%- if section.blocks.size > 0 -%}
-      <div class="footer__grid">
+      <div class="footer__content footer__grid">
         {%- for block in section.blocks -%}
           <div
             class="footer__block{% if block.type == 'newsletter' or block.type == 'text' %} footer__block--wide{% endif %}"
@@ -55,13 +55,22 @@
 
     <div class="footer__bottom">
       <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-        <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.footer.copyright' | t }}</span>
+        <span>&copy; {{ 'now' | date: '%Y' }} Dose & Dial. {{ 'sections.footer.copyright' | t }}</span>
         {%- if section.settings.show_policy_links -%}
-          {%- for policy in shop.policies -%}
-            {%- if policy != blank -%}
-              <a href="{{ policy.url }}">{{ policy.title }}</a>
+          <div class="footer__policies" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            {%- if shop.refund_policy != blank -%}
+              <a href="{{ shop.refund_policy.url }}">{{ shop.refund_policy.title }}</a>
             {%- endif -%}
-          {%- endfor -%}
+            {%- if shop.privacy_policy != blank -%}
+              <a href="{{ shop.privacy_policy.url }}">{{ shop.privacy_policy.title }}</a>
+            {%- endif -%}
+            {%- if shop.terms_of_service != blank -%}
+              <a href="{{ shop.terms_of_service.url }}">{{ shop.terms_of_service.title }}</a>
+            {%- endif -%}
+            {%- if shop.shipping_policy != blank -%}
+              <a href="{{ shop.shipping_policy.url }}">{{ shop.shipping_policy.title }}</a>
+            {%- endif -%}
+          </div>
         {%- endif -%}
       </div>
 
@@ -159,13 +168,13 @@
           "type": "text",
           "id": "heading",
           "label": "t:sections.footer.blocks.text.settings.heading.label",
-          "default": "About"
+          "default": "About Dose & Dial"
         },
         {
           "type": "richtext",
           "id": "text",
           "label": "t:sections.footer.blocks.text.settings.text.label",
-          "default": "<p>Tell customers what your store is about.</p>"
+          "default": "<p>Calle Pintor Roldán 3, 41940 Sevilla, Spain<br>+34 648 273 811<br>xaviborja1@hotmail.com</p>"
         }
       ]
     },

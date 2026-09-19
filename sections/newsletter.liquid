@@ -1,3 +1,4 @@
+{%- comment -%} Customer subscription form with tag [newsletter] {%- endcomment -%}
 <section class="section color-{{ section.settings.color_scheme }} color-scheme">
   <div class="page-width" style="max-width: 40rem; text-align: center;" data-animate>
     {%- if section.settings.heading != blank -%}
@@ -22,7 +23,7 @@
       "type": "text",
       "id": "heading",
       "label": "t:sections.newsletter.settings.heading.label",
-      "default": "Join the list"
+      "default": "JOIN THE BAR."
     },
     {
       "type": "select",
@@ -48,18 +49,23 @@
       "type": "richtext",
       "id": "text",
       "label": "t:sections.newsletter.settings.text.label",
-      "default": "<p>Be first to know about new arrivals and offers.</p>"
+      "default": "<p>Receive weekly espresso dialing techniques, new tool drop alerts, and exclusive access to limited-run accessories.</p>"
     },
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.newsletter.settings.color_scheme.label",
-      "default": "scheme_2"
+      "default": "scheme_1"
     }
   ],
   "presets": [
     {
-      "name": "t:sections.newsletter.presets.preset__1.name"
+      "name": "t:sections.newsletter.presets.preset__1.name",
+      "settings": {
+        "heading": "JOIN THE BAR.",
+        "text": "<p>Receive weekly espresso dialing techniques, new tool drop alerts, and exclusive access to limited-run accessories.</p>",
+        "color_scheme": "scheme_1"
+      }
     }
   ]
 }

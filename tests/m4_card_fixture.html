@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>M4 Product Card Stress Fixture</title>
+  <style>
+/* TOKEN_CSS */
+/* BASE_CSS */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-text));
+    font-family: var(--font-body);
+  }
+  .fixture-container {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+<body>
+  <div class="fixture-container">
+    <div class="grid grid--products" id="cardGrid">
+
+      <!-- CARD 1: Single Variant, Genuine Sale (compare_at > price), 2 images, available -->
+      <div class="card" id="card1" data-test="card-sale-single">
+        <div class="card__media">
+          <a href="/products/tamper-pro" tabindex="-1" aria-hidden="true" class="media media--portrait">
+            <img class="card__image--primary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%23E7E0D6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2377716B'%3EPrimary Img 1%3C/text%3E%3C/svg%3E" alt="Precision Tamper" />
+            <img class="card__image--secondary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%232A1D17'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23FCFAF6'%3ESecondary Img 1%3C/text%3E%3C/svg%3E" alt="" />
+          </a>
+          <div class="card__badges">
+            <span class="badge badge--sale">Sale</span>
+          </div>
+          <div class="card__quick-add" id="quickAdd1">
+            <product-form>
+              <form method="post" action="/cart/add" class="card__quick-add-form" id="form1">
+                <input type="hidden" name="id" value="4401">
+                <button type="submit" name="add" class="button button--small button--full" id="btn1" aria-label="Quick add Precision Tamper">
+                  <span>Quick add</span>
+                </button>
+              </form>
+            </product-form>
+          </div>
+        </div>
+        <h3 class="card__title">
+          <a href="/products/tamper-pro" id="link1">Precision Tamper 58.5mm</a>
+        </h3>
+        <div class="price price--on-sale" id="price1">
+          <span class="price__sale">€28,00</span>
+          <s class="price__compare">€35,00</s>
+        </div>
+      </div>
+
+      <!-- CARD 2: Multi-Variant, Regular Price (compare_at blank), 2 images, available -->
+      <div class="card" id="card2" data-test="card-regular-multi">
+        <div class="card__media">
+          <a href="/products/bottomless-portafilter" tabindex="-1" aria-hidden="true" class="media media--portrait">
+            <img class="card__image--primary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%23E7E0D6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2377716B'%3EPrimary Img 2%3C/text%3E%3C/svg%3E" alt="Portafilter" />
+            <img class="card__image--secondary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%232A1D17'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23FCFAF6'%3ESecondary Img 2%3C/text%3E%3C/svg%3E" alt="" />
+          </a>
+          <div class="card__badges"></div>
+          <div class="card__quick-add" id="quickAdd2">
+            <a href="/products/bottomless-portafilter" class="button button--small button--full button--outline" id="btn2">
+              Choose options
+            </a>
+          </div>
+        </div>
+        <h3 class="card__title">
+          <a href="/products/bottomless-portafilter" id="link2">Bottomless Portafilter</a>
+        </h3>
+        <div class="price" id="price2">
+          <span>€65,00</span>
+        </div>
+      </div>
+
+      <!-- CARD 3: Single Variant, Equal Compare-At Price (compare_at == price, €24 == €24) -->
+      <div class="card" id="card3" data-test="card-equal-price">
+        <div class="card__media">
+          <a href="/products/wdt-tool" tabindex="-1" aria-hidden="true" class="media media--portrait">
+            <img class="card__image--primary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%23E7E0D6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2377716B'%3EPrimary Img 3%3C/text%3E%3C/svg%3E" alt="WDT Tool" />
+            <img class="card__image--secondary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%232A1D17'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23FCFAF6'%3ESecondary Img 3%3C/text%3E%3C/svg%3E" alt="" />
+          </a>
+          <div class="card__badges"></div>
+          <div class="card__quick-add" id="quickAdd3">
+            <product-form>
+              <form method="post" action="/cart/add" class="card__quick-add-form" id="form3">
+                <input type="hidden" name="id" value="4403">
+                <button type="submit" name="add" class="button button--small button--full" id="btn3" aria-label="Quick add WDT Tool">
+                  <span>Quick add</span>
+                </button>
+              </form>
+            </product-form>
+          </div>
+        </div>
+        <h3 class="card__title">
+          <a href="/products/wdt-tool" id="link3">Precision WDT Tool</a>
+        </h3>
+        <div class="price" id="price3">
+          <span>€24,00</span>
+        </div>
+      </div>
+
+      <!-- CARD 4: Single Variant, Inverted Compare-At Price (compare_at < price, €15 < €18), 1 Image Only -->
+      <div class="card" id="card4" data-test="card-inverted-price-single-img">
+        <div class="card__media">
+          <a href="/products/dosing-funnel" tabindex="-1" aria-hidden="true" class="media media--portrait">
+            <img class="card__image--primary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%23E7E0D6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2377716B'%3EPrimary Only%3C/text%3E%3C/svg%3E" alt="Dosing Funnel" />
+          </a>
+          <div class="card__badges"></div>
+          <div class="card__quick-add" id="quickAdd4">
+            <product-form>
+              <form method="post" action="/cart/add" class="card__quick-add-form" id="form4">
+                <input type="hidden" name="id" value="4404">
+                <button type="submit" name="add" class="button button--small button--full" id="btn4" aria-label="Quick add Dosing Funnel">
+                  <span>Quick add</span>
+                </button>
+              </form>
+            </product-form>
+          </div>
+        </div>
+        <h3 class="card__title">
+          <a href="/products/dosing-funnel" id="link4">Dosing Funnel 58mm</a>
+        </h3>
+        <div class="price" id="price4">
+          <span>€18,00</span>
+        </div>
+      </div>
+
+      <!-- CARD 5: Single Variant, Sold Out with compare-at price (€32 vs €40), available = false -->
+      <div class="card" id="card5" data-test="card-sold-out-sale">
+        <div class="card__media">
+          <a href="/products/precision-basket" tabindex="-1" aria-hidden="true" class="media media--portrait">
+            <img class="card__image--primary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%23E7E0D6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2377716B'%3EPrimary Img 5%3C/text%3E%3C/svg%3E" alt="Precision Basket" />
+            <img class="card__image--secondary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%232A1D17'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23FCFAF6'%3ESecondary Img 5%3C/text%3E%3C/svg%3E" alt="" />
+          </a>
+          <div class="card__badges">
+            <span class="badge badge--sold-out">Sold out</span>
+          </div>
+        </div>
+        <h3 class="card__title">
+          <a href="/products/precision-basket" id="link5">Precision Nano-Coated Basket</a>
+        </h3>
+        <div class="price price--on-sale" id="price5">
+          <span class="price__sale">€32,00</span>
+          <s class="price__compare">€40,00</s>
+        </div>
+      </div>
+
+      <!-- CARD 6: Multi-Variant, Sold Out, available = false -->
+      <div class="card" id="card6" data-test="card-sold-out-multi">
+        <div class="card__media">
+          <a href="/products/milk-pitcher" tabindex="-1" aria-hidden="true" class="media media--portrait">
+            <img class="card__image--primary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%23E7E0D6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%2377716B'%3EPrimary Img 6%3C/text%3E%3C/svg%3E" alt="Milk Pitcher" />
+            <img class="card__image--secondary" loading="lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='533'%3E%3Crect width='100%25' height='100%25' fill='%232A1D17'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='20' fill='%23FCFAF6'%3ESecondary Img 6%3C/text%3E%3C/svg%3E" alt="" />
+          </a>
+          <div class="card__badges">
+            <span class="badge badge--sold-out">Sold out</span>
+          </div>
+        </div>
+        <h3 class="card__title">
+          <a href="/products/milk-pitcher" id="link6">Dial Milk Pitcher 450ml</a>
+        </h3>
+        <div class="price" id="price6">
+          <span>€42,00</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function getMetrics(targetWidth) {
+      const docW = document.documentElement.clientWidth;
+      const docSW = document.documentElement.scrollWidth;
+      const bodySW = document.body.scrollWidth;
+      const maxSW = Math.max(docSW, bodySW);
+      const hasDocOverflow = maxSW > (docW + 1);
+
+      // Check child element bleed
+      let anyOverflow = false;
+      let overflowingCount = 0;
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.right > (docW + 1.5) || r.left < -1.5) {
+          anyOverflow = true;
+          overflowingCount++;
+        }
+      });
+
+      // Card 1 computed styles
+      const c1 = document.getElementById('card1');
+      const sC1 = window.getComputedStyle(c1);
+      
+      const badgeSale = c1.querySelector('.badge--sale');
+      const sBadgeSale = badgeSale ? window.getComputedStyle(badgeSale) : null;
+
+      const c5 = document.getElementById('card5');
+      const badgeSoldOut = c5.querySelector('.badge--sold-out');
+      const sBadgeSoldOut = badgeSoldOut ? window.getComputedStyle(badgeSoldOut) : null;
+
+      const btn1 = document.getElementById('btn1');
+      const sBtn1 = btn1 ? window.getComputedStyle(btn1) : null;
+
+      const btn2 = document.getElementById('btn2');
+      const sBtn2 = btn2 ? window.getComputedStyle(btn2) : null;
+
+      const imgSec1 = c1.querySelector('.card__image--secondary');
+      const sImgSec1 = imgSec1 ? window.getComputedStyle(imgSec1) : null;
+
+      const quickAdd1 = document.getElementById('quickAdd1');
+      const sQuickAdd1 = quickAdd1 ? window.getComputedStyle(quickAdd1) : null;
+
+      // Hit testing inside quick-add button
+      let hitTargetIsButton = false;
+      let hitElementTag = '';
+      let hitElementClass = '';
+      if (btn1) {
+        const rBtn = btn1.getBoundingClientRect();
+        const hitX = rBtn.left + (rBtn.width / 2);
+        const hitY = rBtn.top + (rBtn.height / 2);
+        const hitEl = document.elementFromPoint(hitX, hitY);
+        if (hitEl) {
+          hitElementTag = hitEl.tagName.toLowerCase();
+          hitElementClass = hitEl.className || '';
+          hitTargetIsButton = hitEl === btn1 || hitEl.parentElement === btn1 || hitEl.closest('button') === btn1;
+        }
+      }
+
+      // Check DOM presence for cards
+      const c1Data = {
+        hasSaleBadge: !!c1.querySelector('.badge--sale'),
+        hasSoldOutBadge: !!c1.querySelector('.badge--sold-out'),
+        hasSecondaryImg: !!c1.querySelector('.card__image--secondary'),
+        hasProductForm: !!c1.querySelector('product-form'),
+        hasHiddenIdInput: !!c1.querySelector('input[name="id"]'),
+        hasSubmitBtn: !!c1.querySelector('button[type="submit"]'),
+        hasOutlineBtn: !!c1.querySelector('.button--outline'),
+        hasPriceOnSaleClass: c1.querySelector('.price').classList.contains('price--on-sale'),
+        hasPriceCompareTag: !!c1.querySelector('.price__compare')
+      };
+
+      const c2 = document.getElementById('card2');
+      const c2Data = {
+        hasSaleBadge: !!c2.querySelector('.badge--sale'),
+        hasSoldOutBadge: !!c2.querySelector('.badge--sold-out'),
+        hasSecondaryImg: !!c2.querySelector('.card__image--secondary'),
+        hasProductForm: !!c2.querySelector('product-form'),
+        hasOutlineBtn: !!c2.querySelector('.button--outline'),
+        outlineHref: c2.querySelector('.button--outline') ? c2.querySelector('.button--outline').getAttribute('href') : '',
+        hasPriceOnSaleClass: c2.querySelector('.price').classList.contains('price--on-sale'),
+        hasPriceCompareTag: !!c2.querySelector('.price__compare')
+      };
+
+      const c3 = document.getElementById('card3');
+      const c3Data = {
+        hasSaleBadge: !!c3.querySelector('.badge--sale'),
+        hasSoldOutBadge: !!c3.querySelector('.badge--sold-out'),
+        hasSecondaryImg: !!c3.querySelector('.card__image--secondary'),
+        hasProductForm: !!c3.querySelector('product-form'),
+        hasPriceOnSaleClass: c3.querySelector('.price').classList.contains('price--on-sale'),
+        hasPriceCompareTag: !!c3.querySelector('.price__compare')
+      };
+
+      const c4 = document.getElementById('card4');
+      const c4Data = {
+        hasSaleBadge: !!c4.querySelector('.badge--sale'),
+        hasSoldOutBadge: !!c4.querySelector('.badge--sold-out'),
+        hasSecondaryImg: !!c4.querySelector('.card__image--secondary'),
+        hasProductForm: !!c4.querySelector('product-form'),
+        hasPriceOnSaleClass: c4.querySelector('.price').classList.contains('price--on-sale'),
+        hasPriceCompareTag: !!c4.querySelector('.price__compare')
+      };
+
+      const c5Data = {
+        hasSaleBadge: !!c5.querySelector('.badge--sale'),
+        hasSoldOutBadge: !!c5.querySelector('.badge--sold-out'),
+        hasQuickAdd: !!c5.querySelector('.card__quick-add'),
+        hasSecondaryImg: !!c5.querySelector('.card__image--secondary')
+      };
+
+      const c6 = document.getElementById('card6');
+      const c6Data = {
+        hasSaleBadge: !!c6.querySelector('.badge--sale'),
+        hasSoldOutBadge: !!c6.querySelector('.badge--sold-out'),
+        hasQuickAdd: !!c6.querySelector('.card__quick-add')
+      };
+
+      // Check stylesheet rules for reduced motion and hover:none
+      let hasReducedMotionRule = false;
+      let hasHoverNoneRule = false;
+      try {
+        for (let s = 0; s < document.styleSheets.length; s++) {
+          const sheet = document.styleSheets[s];
+          const rules = sheet.cssRules || sheet.rules;
+          for (let r = 0; r < rules.length; r++) {
+            const rule = rules[r];
+            if (rule.media && rule.media.mediaText) {
+              if (rule.media.mediaText.includes('prefers-reduced-motion: reduce')) {
+                hasReducedMotionRule = true;
+              }
+              if (rule.media.mediaText.includes('hover: none')) {
+                hasHoverNoneRule = true;
+              }
+            }
+          }
+        }
+      } catch (e) {
+        // Cross-domain or security restriction fallback
+      }
+
+      return {
+        targetWidth: targetWidth || window.innerWidth,
+        viewportWidth: docW,
+        docScrollWidth: maxSW,
+        docClientWidth: docW,
+        hasDocOverflow: hasDocOverflow,
+        anyElementOverflows: anyOverflow,
+        overflowingElementsCount: overflowingCount,
+        cardStyles: {
+          backgroundColor: sC1.backgroundColor,
+          borderTopColor: sC1.borderTopColor,
+          borderTopWidth: sC1.borderTopWidth,
+          borderTopStyle: sC1.borderTopStyle,
+          borderRadius: sC1.borderRadius,
+          paddingTop: sC1.paddingTop,
+          display: sC1.display
+        },
+        badgeSaleStyles: sBadgeSale ? {
+          color: sBadgeSale.color,
+          backgroundColor: sBadgeSale.backgroundColor,
+          fontSize: sBadgeSale.fontSize,
+          textTransform: sBadgeSale.textTransform,
+          letterSpacing: sBadgeSale.letterSpacing
+        } : null,
+        badgeSoldOutStyles: sBadgeSoldOut ? {
+          backgroundColor: sBadgeSoldOut.backgroundColor,
+          fontSize: sBadgeSoldOut.fontSize,
+          textTransform: sBadgeSoldOut.textTransform
+        } : null,
+        btnDirectStyles: sBtn1 ? {
+          backgroundColor: sBtn1.backgroundColor,
+          color: sBtn1.color,
+          fontSize: sBtn1.fontSize,
+          fontWeight: sBtn1.fontWeight,
+          letterSpacing: sBtn1.letterSpacing,
+          textTransform: sBtn1.textTransform,
+          borderTopColor: sBtn1.borderTopColor
+        } : null,
+        btnOutlineStyles: sBtn2 ? {
+          backgroundColor: sBtn2.backgroundColor,
+          color: sBtn2.color,
+          borderTopColor: sBtn2.borderTopColor
+        } : null,
+        secondaryImgStyles: sImgSec1 ? {
+          position: sImgSec1.position,
+          opacity: sImgSec1.opacity,
+          transitionProperty: sImgSec1.transitionProperty,
+          transitionDuration: sImgSec1.transitionDuration
+        } : null,
+        quickAddStyles: sQuickAdd1 ? {
+          position: sQuickAdd1.position,
+          zIndex: sQuickAdd1.zIndex,
+          opacity: sQuickAdd1.opacity
+        } : null,
+        hitTesting: {
+          hitTargetIsButton: hitTargetIsButton,
+          hitElementTag: hitElementTag,
+          hitElementClass: hitElementClass
+        },
+        cards: {
+          c1: c1Data,
+          c2: c2Data,
+          c3: c3Data,
+          c4: c4Data,
+          c5: c5Data,
+          c6: c6Data
+        },
+        stylesheetRules: {
+          hasReducedMotionRule: hasReducedMotionRule,
+          hasHoverNoneRule: hasHoverNoneRule
+        }
+      };
+    }
+
+    window.addEventListener('message', (e) => {
+      const action = typeof e.data === 'string' ? e.data : e.data?.action;
+      if (action === 'runMetrics') {
+        const targetWidth = typeof e.data === 'object' ? e.data.targetWidth : null;
+        const metrics = getMetrics(targetWidth);
+        window.parent.postMessage({
+          type: 'metricsResult',
+          data: metrics
+        }, '*');
+      }
+    });
+  </script>
+</body>
+</html>

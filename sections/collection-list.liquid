@@ -1,9 +1,14 @@
 <section class="section color-{{ section.settings.color_scheme }} color-scheme">
   <div class="page-width">
-    {%- if section.settings.heading != blank -%}
+    {%- if section.settings.heading != blank or section.settings.subheading != blank -%}
       <div class="section-header">
         <div class="section-header__text">
-          <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+          {%- if section.settings.heading != blank -%}
+            <h2 class="{{ section.settings.heading_size }}">{{ section.settings.heading | escape }}</h2>
+          {%- endif -%}
+          {%- if section.settings.subheading != blank -%}
+            <p>{{ section.settings.subheading | escape }}</p>
+          {%- endif -%}
         </div>
       </div>
     {%- endif -%}
@@ -53,7 +58,13 @@
       "type": "text",
       "id": "heading",
       "label": "t:sections.collection-list.settings.heading.label",
-      "default": "Shop by category"
+      "default": "BUILD YOUR COFFEE BAR"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Everything you need to refine your espresso setup."
     },
     {
       "type": "select",
@@ -174,15 +185,36 @@
   "presets": [
     {
       "name": "t:sections.collection-list.presets.preset__1.name",
+      "settings": {
+        "heading": "BUILD YOUR COFFEE BAR",
+        "subheading": "Everything you need to refine your espresso setup.",
+        "columns": 4,
+        "columns_mobile": "2"
+      },
       "blocks": [
         {
-          "type": "collection"
+          "type": "collection",
+          "settings": {
+            "heading": "Espresso Tools"
+          }
         },
         {
-          "type": "collection"
+          "type": "collection",
+          "settings": {
+            "heading": "Coffee Station"
+          }
         },
         {
-          "type": "collection"
+          "type": "collection",
+          "settings": {
+            "heading": "Brewing Essentials"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "heading": "Milk & Latte Art"
+          }
         }
       ]
     }

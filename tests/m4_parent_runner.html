@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>M4 Challenger Multi-Viewport Parent Runner</title>
+</head>
+<body>
+  <!-- Viewport frames for responsive verification -->
+  <iframe id="f360" src="m4_child_card.html" style="width: 360px; height: 1000px; border: 0;"></iframe>
+  <iframe id="f375" src="m4_child_card.html" style="width: 375px; height: 1000px; border: 0;"></iframe>
+  <iframe id="f390" src="m4_child_card.html" style="width: 390px; height: 1000px; border: 0;"></iframe>
+  <iframe id="f414" src="m4_child_card.html" style="width: 414px; height: 1000px; border: 0;"></iframe>
+  <iframe id="f768" src="m4_child_card.html" style="width: 768px; height: 1000px; border: 0;"></iframe>
+  <iframe id="f1024" src="m4_child_card.html" style="width: 1024px; height: 1000px; border: 0;"></iframe>
+  <iframe id="f1440" src="m4_child_card.html" style="width: 1440px; height: 1000px; border: 0;"></iframe>
+
+  <pre id="results">PENDING</pre>
+
+  <script>
+    const frameDefs = [
+      { id: 'f360', width: 360 },
+      { id: 'f375', width: 375 },
+      { id: 'f390', width: 390 },
+      { id: 'f414', width: 414 },
+      { id: 'f768', width: 768 },
+      { id: 'f1024', width: 1024 },
+      { id: 'f1440', width: 1440 }
+    ];
+    const totalFrames = frameDefs.length;
+    const collected = {};
+    let loadedCount = 0;
+
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'metricsResult') {
+        const w = e.data.data.targetWidth || e.data.data.viewportWidth;
+        collected['vp_' + w] = e.data.data;
+        checkDone();
+      }
+    });
+
+    function checkDone() {
+      if (Object.keys(collected).length === totalFrames) {
+        document.getElementById('results').innerText = JSON.stringify(collected, null, 2);
+      }
+    }
+
+    frameDefs.forEach(def => {
+      const f = document.getElementById(def.id);
+      f.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalFrames) {
+          setTimeout(() => {
+            frameDefs.forEach(d => {
+              const frameEl = document.getElementById(d.id);
+              frameEl.contentWindow.postMessage({ action: 'runMetrics', targetWidth: d.width }, '*');
+            });
+          }, 600);
+        }
+      };
+    });
+  </script>
+</body>
+</html>

@@ -1,11 +1,11 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Fashe",
-    "theme_version": "2.0.2",
-    "theme_author": "Colorlib",
-    "theme_documentation_url": "https://colorlib.com/wp/themes/fashe-free-shopify-ecommerce-theme/",
-    "theme_support_url": "https://colorlib.com/wp/support/"
+    "theme_name": "Dose & Dial",
+    "theme_version": "1.0.0",
+    "theme_author": "Dose & Dial",
+    "theme_documentation_url": "https://doseydial.myshopify.com",
+    "theme_support_url": "https://doseydial.myshopify.com"
   },
   {
     "name": "t:settings_schema.colors.name",
@@ -18,7 +18,7 @@
             "type": "color",
             "id": "background",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.background.label",
-            "default": "#ffffff"
+            "default": "#FCFAF6"
           },
           {
             "type": "color_background",
@@ -30,37 +30,37 @@
             "type": "color",
             "id": "text",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.text.label",
-            "default": "#141414"
+            "default": "#111111"
           },
           {
             "type": "color",
             "id": "button",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.button.label",
-            "default": "#141414"
+            "default": "#111111"
           },
           {
             "type": "color",
             "id": "button_label",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.button_label.label",
-            "default": "#ffffff"
+            "default": "#FFFFFF"
           },
           {
             "type": "color",
             "id": "outline_button",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.outline_button.label",
-            "default": "#141414"
+            "default": "#111111"
           },
           {
             "type": "color",
             "id": "accent",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.accent.label",
-            "default": "#c8553d"
+            "default": "#9A6238"
           },
           {
             "type": "color",
             "id": "border",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.border.label",
-            "default": "#e4e4e4"
+            "default": "#E7E0D6"
           }
         ],
         "role": {
@@ -109,7 +109,7 @@
             "label": "t:settings_schema.typography.settings.heading_case.options__2.label"
           }
         ],
-        "default": "none"
+        "default": "uppercase"
       },
       {
         "type": "range",
@@ -119,7 +119,7 @@
         "step": 1,
         "unit": "%",
         "label": "t:settings_schema.typography.settings.heading_tracking.label",
-        "default": -2
+        "default": 2
       },
       {
         "type": "range",
@@ -184,12 +184,12 @@
       {
         "type": "range",
         "id": "radius_base",
-        "min": 0,
-        "max": 24,
-        "step": 2,
+        "min": 2,
+        "max": 8,
+        "step": 1,
         "unit": "px",
         "label": "t:settings_schema.layout.settings.radius_base.label",
-        "default": 0
+        "default": 4
       },
       {
         "type": "range",
@@ -199,7 +199,7 @@
         "step": 2,
         "unit": "px",
         "label": "t:settings_schema.layout.settings.radius_media.label",
-        "default": 0
+        "default": 6
       }
     ]
   },
@@ -292,13 +292,13 @@
         "type": "checkbox",
         "id": "cart_show_free_shipping_bar",
         "label": "t:settings_schema.cart.settings.cart_show_free_shipping_bar.label",
-        "default": false
+        "default": true
       },
       {
         "type": "text",
         "id": "cart_free_shipping_threshold",
         "label": "t:settings_schema.cart.settings.cart_free_shipping_threshold.label",
-        "default": "100",
+        "default": "55",
         "info": "t:settings_schema.cart.settings.cart_free_shipping_threshold.info"
       }
     ]

@@ -5,26 +5,41 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "menu-1": {
-          "type": "menu",
-          "settings": { "heading": "Shop", "menu": "footer" }
-        },
-        "text-1": {
+        "column-about": {
           "type": "text",
           "settings": {
-            "heading": "About",
-            "text": "<p>Modern wardrobe essentials, made to last.</p>"
+            "heading": "About Dose & Dial",
+            "text": "<p>Precision for every pour. Premium coffee gear and accessories for home baristas taking every extraction seriously.</p><p>Calle Pintor Roldán 3, 41940 Sevilla, Spain<br>+34 648 273 811<br>xaviborja1@hotmail.com</p>"
           }
         },
-        "newsletter-1": {
+        "column-shop": {
+          "type": "menu",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu"
+          }
+        },
+        "column-support": {
+          "type": "menu",
+          "settings": {
+            "heading": "Support & Policies",
+            "menu": "footer"
+          }
+        },
+        "column-newsletter": {
           "type": "newsletter",
           "settings": {
-            "heading": "Newsletter",
-            "text": "<p>New arrivals and offers, straight to your inbox.</p>"
+            "heading": "JOIN THE BAR.",
+            "text": "<p>Get espresso recipes, dial-in tips, and exclusive gear updates straight to your inbox.</p>"
           }
         }
       },
-      "block_order": ["menu-1", "text-1", "newsletter-1"],
+      "block_order": [
+        "column-about",
+        "column-shop",
+        "column-support",
+        "column-newsletter"
+      ],
       "settings": {
         "show_social": true,
         "show_payment_icons": true,
@@ -33,5 +48,7 @@
       }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }

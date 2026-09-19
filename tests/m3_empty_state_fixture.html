@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage Empty-State Fixture</title>
+  <style id="token-styles">
+    /* TOKEN_CSS */
+  </style>
+  <style id="base-styles">
+    /* BASE_CSS */
+  </style>
+</head>
+<body style="margin: 0; padding: 0;">
+
+  <!-- SECTION 1: HERO (EMPTY STATE - NO IMAGE / NO VIDEO) -->
+  <section id="empty-hero" class="banner color-scheme-3 color-scheme" style="--banner-height: 85vh; --overlay-opacity: 0.3; --content-justify: center; --content-align: center;">
+    <div class="banner__media">
+      <svg class="placeholder-svg" viewBox="0 0 500 500"><rect width="100%" height="100%" fill="#555"/></svg>
+    </div>
+    <div class="page-width">
+      <div class="banner__content" data-animate>
+        <p class="eyebrow">DOSE • DIAL • BREW</p>
+        <h1 class="h0">PRECISION FOR EVERY POUR.</h1>
+        <div class="block-group" style="display: flex; flex-direction: row; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;">
+          <div><a href="#" class="button button--solid">SHOP ESPRESSO TOOLS</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: MARQUEE (EMPTY STATE - 0 BLOCKS) -->
+  <!-- Note: marquee.liquid specifies: {%- if section.blocks.size > 0 -%}...{%- endif -%} -->
+  <div id="empty-marquee-container">
+    <!-- Cleanly omitted when blocks size is 0 -->
+  </div>
+
+  <!-- SECTION 3: COLLECTION LIST (EMPTY / UNASSIGNED COLLECTIONS) -->
+  <section id="empty-collection-list" class="section color-scheme-1 color-scheme">
+    <div class="page-width">
+      <div class="section-header">
+        <div class="section-header__text">
+          <h2 class="h2">BUILD YOUR COFFEE BAR</h2>
+          <p>Everything you need to refine your espresso setup.</p>
+        </div>
+      </div>
+      <div class="grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <!-- 4 blocks with null collection (fallback title 'Collection' + placeholder SVG) -->
+        <a href="#" class="collection-card" data-animate>
+          <div class="media media--portrait">
+            <svg class="placeholder-svg" viewBox="0 0 400 500"><rect width="100%" height="100%" fill="#ccc"/></svg>
+          </div>
+          <div class="collection-card__content">
+            <span>Collection</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+        <a href="#" class="collection-card" data-animate>
+          <div class="media media--portrait">
+            <svg class="placeholder-svg" viewBox="0 0 400 500"><rect width="100%" height="100%" fill="#ccc"/></svg>
+          </div>
+          <div class="collection-card__content">
+            <span>Collection</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: FEATURED COLLECTION (EMPTY / 0 PRODUCTS LOOP FALLBACK) -->
+  <section id="empty-featured-collection" class="section color-scheme-1 color-scheme">
+    <div class="page-width">
+      <div class="section-header">
+        <div class="section-header__text">
+          <span class="eyebrow">BEST SELLERS</span>
+          <h2 class="h2">ESSENTIALS FOR BETTER ESPRESSO</h2>
+        </div>
+      </div>
+      <!-- featured-collection.liquid renders (1..limit) placeholder product-cards -->
+      <div class="grid grid--products" style="--columns: 4; --columns-mobile: 2;">
+        <div class="card">
+          <div class="card__media">
+            <div class="media media--adapt">
+              <svg class="placeholder-svg" viewBox="0 0 300 300"><rect width="100%" height="100%" fill="#eee"/></svg>
+            </div>
+          </div>
+          <p class="card__title">Example product title</p>
+          <div class="price"><span>€19.99</span></div>
+        </div>
+        <div class="card">
+          <div class="card__media">
+            <div class="media media--adapt">
+              <svg class="placeholder-svg" viewBox="0 0 300 300"><rect width="100%" height="100%" fill="#eee"/></svg>
+            </div>
+          </div>
+          <p class="card__title">Example product title</p>
+          <div class="price"><span>€19.99</span></div>
+        </div>
+        <div class="card">
+          <div class="card__media">
+            <div class="media media--adapt">
+              <svg class="placeholder-svg" viewBox="0 0 300 300"><rect width="100%" height="100%" fill="#eee"/></svg>
+            </div>
+          </div>
+          <p class="card__title">Example product title</p>
+          <div class="price"><span>€19.99</span></div>
+        </div>
+        <div class="card">
+          <div class="card__media">
+            <div class="media media--adapt">
+              <svg class="placeholder-svg" viewBox="0 0 300 300"><rect width="100%" height="100%" fill="#eee"/></svg>
+            </div>
+          </div>
+          <p class="card__title">Example product title</p>
+          <div class="price"><span>€19.99</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: IMAGE WITH TEXT (EMPTY IMAGE FALLBACK) -->
+  <section id="empty-image-with-text" class="section color-scheme-2 color-scheme">
+    <div class="page-width">
+      <div class="image-with-text" style="display: grid; gap: var(--space-lg); align-items: center;">
+        <div class="image-with-text__media" data-animate>
+          <div class="media media--portrait">
+            <svg class="placeholder-svg" viewBox="0 0 500 650"><rect width="100%" height="100%" fill="#7A5736"/></svg>
+          </div>
+        </div>
+        <div class="image-with-text__content stack" data-animate>
+          <h1 class="h1">CRAFT YOUR PERFECT SHOT.</h1>
+          <p>Dose &amp; Dial was founded to eliminate guesswork from the espresso extraction process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: MULTICOLUMN (0 BLOCKS) -->
+  <section id="empty-multicolumn" class="section color-scheme-1 color-scheme">
+    <div class="page-width">
+      <div class="section-header" style="text-align: left;">
+        <div class="section-header__text">
+          <span class="eyebrow">STANDARDS</span>
+          <h2 class="h2">WHY DOSE &amp; DIAL</h2>
+        </div>
+      </div>
+      <div class="multicolumn__grid grid" style="grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));">
+        <!-- 0 blocks rendered cleanly -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: WORKFLOW (0 BLOCKS) -->
+  <section id="empty-workflow" class="section color-scheme-2 color-scheme section-workflow">
+    <div class="page-width">
+      <div class="section-header" style="text-align: center;">
+        <div class="section-header__text" style="margin-inline: auto;">
+          <span class="eyebrow">THE RITUAL</span>
+          <h2 class="h2">THE THREE-STEP WORKFLOW</h2>
+        </div>
+      </div>
+      <div class="workflow-grid">
+        <!-- 0 blocks rendered cleanly -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: NEWSLETTER (MINIMAL SETTINGS) -->
+  <section id="empty-newsletter" class="section color-scheme-1 color-scheme">
+    <div class="page-width" style="max-width: 40rem; text-align: center;" data-animate>
+      <h2 class="h2">JOIN THE BAR.</h2>
+      <div style="margin-top: 1.5rem;">
+        <form class="newsletter-form">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <input type="email" placeholder="Enter your email" required style="flex: 1 1 12rem; min-height: 44px; padding: 0.5rem 1rem;">
+            <button type="submit" class="button" style="min-height: 44px;">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    window.addEventListener('message', (e) => {
+      if (e.data === 'runEmptyMetrics') {
+        const sections = [
+          'empty-hero',
+          'empty-collection-list',
+          'empty-featured-collection',
+          'empty-image-with-text',
+          'empty-multicolumn',
+          'empty-workflow',
+          'empty-newsletter'
+        ];
+
+        const vpWidth = window.innerWidth;
+        const docEl = document.documentElement;
+        const docScrollWidth = docEl.scrollWidth;
+        const docClientWidth = docEl.clientWidth;
+
+        const sectionData = {};
+        sections.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            sectionData[id] = {
+              scrollWidth: el.scrollWidth,
+              clientWidth: el.clientWidth,
+              hasOverflow: el.scrollWidth > el.clientWidth
+            };
+          }
+        });
+
+        const data = {
+          viewportWidth: vpWidth,
+          docClientWidth: docClientWidth,
+          docScrollWidth: docScrollWidth,
+          hasDocOverflow: docScrollWidth > docClientWidth + 1,
+          sections: sectionData
+        };
+
+        window.parent.postMessage({ type: 'emptyMetricsResult', data: data }, '*');
+      }
+    });
+  </script>
+</body>
+</html>

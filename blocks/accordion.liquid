@@ -3,14 +3,19 @@
   if block.settings.page != blank
     assign content = block.settings.page.content
   endif
+  if block.settings.heading == 'Description' and content == blank
+    assign content = product.description
+  endif
 -%}
-<details class="product__accordion" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
-  <summary>
-    {{ block.settings.heading | escape }}
-    {% render 'icon', name: 'chevron-down' %}
-  </summary>
-  <div class="rte">{{ content }}</div>
-</details>
+{%- if content != blank -%}
+  <details class="product__accordion" {% if block.settings.open %}open{% endif %} {{ block.shopify_attributes }}>
+    <summary>
+      {{ block.settings.heading | escape }}
+      {% render 'icon', name: 'chevron-down' %}
+    </summary>
+    <div class="rte">{{ content }}</div>
+  </details>
+{%- endif -%}
 
 {% schema %}
 {

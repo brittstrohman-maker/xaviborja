@@ -69,9 +69,13 @@
           {{ 'general.search.view_all' | t: terms: predictive_search.terms }}
         </a>
       </div>
-    {%- else -%}
-      <div class="predictive-search__group">
-        <p class="text-sm">{{ 'general.search.no_results' | t: terms: predictive_search.terms }}</p>
+    {%- elsif total == 0 -%}
+      <div class="predictive-search__group predictive-search__empty" style="text-align: center; padding-block: 1.5rem;">
+        <p class="predictive-search__heading h4" style="margin-bottom: 0.5rem;">{{ 'general.search.no_results' | t | default: 'NOTHING YET.' }}</p>
+        <p class="text-sm" style="margin-bottom: 1rem;">{{ 'general.search.recovery_copy' | t | default: 'Try another search or explore our coffee bar essentials.' }}</p>
+        <a class="button button--outline button--sm" href="{{ routes.all_products_collection_url }}">
+          {{ 'general.continue_shopping' | t }}
+        </a>
       </div>
     {%- endif -%}
   {%- endif -%}

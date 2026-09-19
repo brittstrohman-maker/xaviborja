@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Desktop Navigation Stress Suite</title>
+</head>
+<body>
+  <!-- Left Layout Desktop Frames -->
+  <iframe name="left_1024" id="left_1024" src="m2_child_left_normal.html" style="width: 1024px; height: 600px; border: 0;"></iframe>
+  <iframe name="left_1280" id="left_1280" src="m2_child_left_normal.html" style="width: 1280px; height: 600px; border: 0;"></iframe>
+  <iframe name="left_1440" id="left_1440" src="m2_child_left_normal.html" style="width: 1440px; height: 600px; border: 0;"></iframe>
+  <iframe name="left_sticky_1280" id="left_sticky_1280" src="m2_child_left_sticky.html" style="width: 1280px; height: 600px; border: 0;"></iframe>
+
+  <!-- Center Layout Desktop Frames -->
+  <iframe name="center_1024" id="center_1024" src="m2_child_center_normal.html" style="width: 1024px; height: 600px; border: 0;"></iframe>
+  <iframe name="center_1280" id="center_1280" src="m2_child_center_normal.html" style="width: 1280px; height: 600px; border: 0;"></iframe>
+  <iframe name="center_1440" id="center_1440" src="m2_child_center_normal.html" style="width: 1440px; height: 600px; border: 0;"></iframe>
+  <iframe name="center_sticky_1280" id="center_sticky_1280" src="m2_child_center_sticky.html" style="width: 1280px; height: 600px; border: 0;"></iframe>
+
+  <pre id="results">PENDING</pre>
+  <script>
+    const frames = [
+      'left_1024', 'left_1280', 'left_1440', 'left_sticky_1280',
+      'center_1024', 'center_1280', 'center_1440', 'center_sticky_1280'
+    ];
+    const collected = {};
+    let loadedCount = 0;
+
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'metricsResult') {
+        const frameId = e.data.frameId || e.source.name;
+        collected[frameId] = e.data.data;
+        if (Object.keys(collected).length === frames.length) {
+          document.getElementById('results').innerText = JSON.stringify(collected, null, 2);
+        }
+      }
+    });
+
+    frames.forEach(id => {
+      const f = document.getElementById(id);
+      f.onload = () => {
+        loadedCount++;
+        if (loadedCount === frames.length) {
+          setTimeout(() => {
+            frames.forEach(fid => {
+              const el = document.getElementById(fid);
+              el.contentWindow.postMessage('runMetrics', '*');
+            });
+          }, 500);
+        }
+      };
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>M3 Challenger Multi-Viewport Parent Runner</title>
+</head>
+<body>
+  <!-- Standard homepage frames -->
+  <iframe id="f360" src="m3_child_homepage.html" style="width: 360px; height: 1200px; border: 0;"></iframe>
+  <iframe id="f375" src="m3_child_homepage.html" style="width: 375px; height: 1200px; border: 0;"></iframe>
+  <iframe id="f390" src="m3_child_homepage.html" style="width: 390px; height: 1200px; border: 0;"></iframe>
+  <iframe id="f414" src="m3_child_homepage.html" style="width: 414px; height: 1200px; border: 0;"></iframe>
+  <iframe id="f1440" src="m3_child_homepage.html" style="width: 1440px; height: 1200px; border: 0;"></iframe>
+
+  <!-- Empty-state frames -->
+  <iframe id="e375" src="m3_child_empty.html" style="width: 375px; height: 1200px; border: 0;"></iframe>
+  <iframe id="e1440" src="m3_child_empty.html" style="width: 1440px; height: 1200px; border: 0;"></iframe>
+
+  <pre id="results">PENDING</pre>
+
+  <script>
+    const standardFrames = ['f360', 'f375', 'f390', 'f414', 'f1440'];
+    const emptyFrames = ['e375', 'e1440'];
+    const totalFrames = standardFrames.length + emptyFrames.length;
+
+    const collected = {
+      standard: {},
+      empty: {}
+    };
+
+    let loadedCount = 0;
+
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'metricsResult') {
+        const w = e.data.data.viewportWidth;
+        collected.standard['vp_' + w] = e.data.data;
+        checkDone();
+      } else if (e.data && e.data.type === 'emptyMetricsResult') {
+        const w = e.data.data.viewportWidth;
+        collected.empty['vp_' + w] = e.data.data;
+        checkDone();
+      }
+    });
+
+    function checkDone() {
+      const stdCount = Object.keys(collected.standard).length;
+      const empCount = Object.keys(collected.empty).length;
+      if (stdCount === standardFrames.length && empCount === emptyFrames.length) {
+        document.getElementById('results').innerText = JSON.stringify(collected, null, 2);
+      }
+    }
+
+    [...standardFrames, ...emptyFrames].forEach(id => {
+      const f = document.getElementById(id);
+      f.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalFrames) {
+          setTimeout(() => {
+            standardFrames.forEach(fid => {
+              document.getElementById(fid).contentWindow.postMessage('runMetrics', '*');
+            });
+            emptyFrames.forEach(eid => {
+              document.getElementById(eid).contentWindow.postMessage('runEmptyMetrics', '*');
+            });
+          }, 800);
+        }
+      };
+    });
+  </script>
+</body>
+</html>
