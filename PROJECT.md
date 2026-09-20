@@ -48,7 +48,7 @@ The theme is rebuilt on Fashe 2.0.2 Online Store 2.0 Theme Blocks architecture:
 | M3 | Editorial Homepage Sections | R3: `templates/index.json`, `sections/hero.liquid`, `sections/collection-list.liquid`, `sections/workflow.liquid`, etc. | M1 | DONE |
 | M4 | Product Card & PDP Architecture | R4: `snippets/product-card.liquid`, `sections/main-product.liquid`, `blocks/accordion.liquid`, `blocks/trust-badges.liquid`, `templates/product.json` | M1 | DONE |
 | M5 | Cart Drawer, Search, Global Pages & Footer | R5: `sections/cart-drawer.liquid`, `snippets/cart-summary.liquid`, `sections/predictive-search.liquid`, `sections/footer.liquid`, `templates/404.json` | M1 | DONE |
-| M6 | Final Acceptance, Quality Gate, Git Push | R6: E2E test pass (Tiers 1-4), adversarial hardening (Tier 5), git commit & push to `origin/master` | M1-M5 | IN_PROGRESS |
+| M6 | Final Acceptance, Quality Gate, Git Push | R6: E2E test pass (Tiers 1-4), adversarial hardening (Tier 5), git commit & push to `origin/master` | M1-M5 | DONE |
 
 ## Interface Contracts
 ### Design Tokens ↔ Storefront Components
