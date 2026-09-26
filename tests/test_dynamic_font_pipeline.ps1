@@ -82,6 +82,17 @@ Assert-Check "settings_data.json current has heading_font" ([bool]$settingsData.
 Assert-Check "settings_data.json current has body_font" ([bool]$settingsData.current.body_font) "Missing current.body_font"
 Assert-Check "settings_data.json current has body_tracking" ($settingsData.current.body_tracking -ne $null) "Missing current.body_tracking"
 
+# 6. CSS token consumption in base.css
+$baseCssContent = Get-Content "assets/base.css" -Raw
+$bodyHasTracking = ($baseCssContent -match 'body\s*\{[^}]*letter-spacing:\s*var\(--body-tracking\)')
+$buttonHasFont = ($baseCssContent -match '\.button[^{]*\{[^}]*font-family:\s*var\(--font-body\)')
+Assert-Check "base.css applies var(--body-tracking) to body" $bodyHasTracking "Missing letter-spacing: var(--body-tracking) in body"
+Assert-Check "base.css explicitly applies var(--font-body) to .button" $buttonHasFont "Missing font-family: var(--font-body) in .button"
+
+# 7. Defensive guards in layout/theme.liquid
+$themeColorFallback = ($themeLiquid -match 'settings\.color_schemes\.scheme_1\.settings\.background\s*\|\s*default')
+Assert-Check "layout/theme.liquid provides fallback for theme-color meta tag" $themeColorFallback "Missing fallback on theme-color"
+
 if ($allPassed) {
     Write-Host "`nAll Dynamic Font Pipeline assertions PASSED (100%)" -ForegroundColor Green
 } else {

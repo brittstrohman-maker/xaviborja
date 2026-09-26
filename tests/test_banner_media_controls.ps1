@@ -66,6 +66,13 @@ $iwtBrandedFallback = ($iwtContent -match 'brand-story\.jpg')
 Assert-Check "Image-with-text uploaded images take precedence" $iwtPrecedence "Precedence condition missing"
 Assert-Check "Image-with-text preserves branded fallback 'brand-story.jpg'" $iwtBrandedFallback "Missing brand-story.jpg fallback"
 
+# 9. Responsive picture CSS rules in base.css
+$baseCssContent = Get-Content "assets/base.css" -Raw
+$mediaPictureBlock = ($baseCssContent -match '\.media picture\s*\{[^}]*display:\s*block')
+$pictureImgDisplay = ($baseCssContent -match 'picture img\s*\{\s*display:\s*block\s*!important;')
+Assert-Check ".media picture is styled as display: block" $mediaPictureBlock "Missing .media picture display: block"
+Assert-Check "picture img is guarded against display: none toggles" $pictureImgDisplay "Missing picture img display: block !important"
+
 if ($allPassed) {
     Write-Host "`nAll Hero Banner & Media Controls assertions PASSED (100%)" -ForegroundColor Green
 } else {
