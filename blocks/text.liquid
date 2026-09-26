@@ -1,4 +1,4 @@
-<div class="rte" style="text-align: {{ block.settings.alignment }};" {{ block.shopify_attributes }}>
+<div class="rte{% if block.settings.style == 'eyebrow' %} eyebrow{% endif %}" style="text-align: {{ block.settings.alignment }};" {{ block.shopify_attributes }}>
   {{ block.settings.text }}
 </div>
 
@@ -11,6 +11,16 @@
       "id": "text",
       "label": "t:blocks.text.settings.text.label",
       "default": "<p>Share what makes this product different.</p>"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "body", "label": "Body" },
+        { "value": "eyebrow", "label": "Eyebrow" }
+      ],
+      "default": "body"
     },
     {
       "type": "text_alignment",
