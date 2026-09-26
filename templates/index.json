@@ -25,44 +25,31 @@
             "alignment": "center"
           }
         },
-        "cta_group": {
-          "type": "group",
+        "button_primary": {
+          "type": "button",
           "settings": {
-            "direction": "row",
-            "alignment": "center",
-            "gap": 16
-          },
-          "blocks": {
-            "btn_primary": {
-              "type": "button",
-              "settings": {
-                "label": "SHOP ESPRESSO TOOLS",
-                "link": "/collections/espresso-tools",
-                "style": "solid",
-                "alignment": "center"
-              }
-            },
-            "btn_secondary": {
-              "type": "button",
-              "settings": {
-                "label": "EXPLORE THE COLLECTION",
-                "link": "/collections/all",
-                "style": "outline",
-                "alignment": "center"
-              }
-            }
-          },
-          "block_order": [
-            "btn_primary",
-            "btn_secondary"
-          ]
+            "label": "SHOP ESPRESSO TOOLS",
+            "link": "/collections/espresso-tools",
+            "style": "solid",
+            "alignment": "center"
+          }
+        },
+        "button_secondary": {
+          "type": "button",
+          "settings": {
+            "label": "EXPLORE THE COLLECTION",
+            "link": "/collections/all",
+            "style": "outline",
+            "alignment": "center"
+          }
         }
       },
       "block_order": [
         "eyebrow",
         "heading",
         "subtext",
-        "cta_group"
+        "button_primary",
+        "button_secondary"
       ],
       "settings": {
         "height": 85,
@@ -109,7 +96,7 @@
       "settings": {
         "text_size": "text-sm",
         "speed": 35,
-        "padding": 14,
+        "padding": 16,
         "color_scheme": "scheme_3"
       }
     },
