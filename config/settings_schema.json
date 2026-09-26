@@ -76,8 +76,7 @@
           "primary_button_border": "button",
           "secondary_button": "background",
           "on_secondary_button": "outline_button",
-          "secondary_button_border": "outline_button",
-          "shadow": "border"
+          "secondary_button_border": "outline_button"
         }
       }
     ]
