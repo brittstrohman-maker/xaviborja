@@ -41,7 +41,7 @@
     assign accent = scheme.settings.accent | default: '#9A6238'
     assign border = scheme.settings.border | default: '#E7E0D6'
   -%}
-  {% if forloop.first %}:root, {% endif %}.color-{{ scheme.id }} {
+  {% if forloop.first %}:root, {% endif %}.color-{{ scheme.id }}, .color-{{ scheme.id | replace: '_', '-' }} {
     --color-background: {{ bg | color_extract: 'red' }} {{ bg | color_extract: 'green' }} {{ bg | color_extract: 'blue' }};
     --color-text: {{ text | color_extract: 'red' }} {{ text | color_extract: 'green' }} {{ text | color_extract: 'blue' }};
     --color-button: {{ button | color_extract: 'red' }} {{ button | color_extract: 'green' }} {{ button | color_extract: 'blue' }};

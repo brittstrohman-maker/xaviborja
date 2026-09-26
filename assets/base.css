@@ -1577,10 +1577,14 @@ body:has(dialog.modal[open]) { overflow: hidden; }
 
 @media screen and (max-width: 749px) {
   .banner__image--desktop { display: none !important; }
+  picture .banner__image--desktop,
+  picture .banner__image--mobile { display: block !important; }
   picture img { display: block !important; }
 }
 @media screen and (min-width: 750px) {
   .banner__image--mobile { display: none !important; }
+  picture .banner__image--desktop,
+  picture .banner__image--mobile { display: block !important; }
   picture img { display: block !important; }
 }
 
@@ -2028,6 +2032,7 @@ body:has(dialog.modal[open]) { overflow: hidden; }
   background-color: transparent;
   border: 1px solid rgb(var(--color-outline-button));
   color: rgb(var(--color-outline-button));
+  font-family: var(--font-body);
   font-size: var(--text-sm);
   letter-spacing: 0.04em;
   text-transform: uppercase;

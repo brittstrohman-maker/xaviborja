@@ -70,8 +70,76 @@ Assert-Check "Image-with-text preserves branded fallback 'brand-story.jpg'" $iwt
 $baseCssContent = Get-Content "assets/base.css" -Raw
 $mediaPictureBlock = ($baseCssContent -match '\.media picture\s*\{[^}]*display:\s*block')
 $pictureImgDisplay = ($baseCssContent -match 'picture img\s*\{\s*display:\s*block\s*!important;')
+$pictureClassSpecificity = ($baseCssContent -match 'picture\s+\.banner__image--desktop')
 Assert-Check ".media picture is styled as display: block" $mediaPictureBlock "Missing .media picture display: block"
 Assert-Check "picture img is guarded against display: none toggles" $pictureImgDisplay "Missing picture img display: block !important"
+Assert-Check "picture .banner__image--desktop specificity guard is active" $pictureClassSpecificity "Missing picture .banner__image--desktop specificity guard"
+
+# 10. Empirical Headless Browser Verification of Hero Picture Rendering
+$edgePath = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+if (-not (Test-Path $edgePath)) { $edgePath = "C:\Program Files\Microsoft\Edge\Application\msedge.exe" }
+
+if (Test-Path $edgePath) {
+    $browserFixture = @"
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+$baseCssContent
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="banner__media">
+    <picture id="testPic">
+      <source media="(max-width: 749px)" class="banner__image--mobile" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+      <img id="testPicImg" class="banner__image--desktop" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Hero">
+    </picture>
+  </div>
+</div>
+<script>
+window.onload = function() {
+  var img = document.getElementById('testPicImg');
+  var d = window.getComputedStyle(img).display;
+  document.title = 'DISP:' + d;
+};
+</script>
+</body>
+</html>
+"@
+    $tmpFixture = [System.IO.Path]::GetTempFileName() + ".html"
+    [System.IO.File]::WriteAllText($tmpFixture, $browserFixture, [System.Text.Encoding]::UTF8)
+
+    # Mobile test (375px)
+    $psiMobile = New-Object System.Diagnostics.ProcessStartInfo
+    $psiMobile.FileName = $edgePath
+    $psiMobile.Arguments = "--headless --disable-gpu --dump-dom --window-size=375,667 `"$tmpFixture`""
+    $psiMobile.RedirectStandardOutput = $true
+    $psiMobile.UseShellExecute = $false
+    $procMobile = [System.Diagnostics.Process]::Start($psiMobile)
+    $outMobile = $procMobile.StandardOutput.ReadToEnd()
+    $procMobile.WaitForExit()
+
+    $mobilePass = ($outMobile -match 'DISP:block')
+    Assert-Check "Headless Edge: Hero picture img computes display:block on mobile viewport" $mobilePass "Got: $outMobile"
+
+    # Desktop test (1440px)
+    $psiDesktop = New-Object System.Diagnostics.ProcessStartInfo
+    $psiDesktop.FileName = $edgePath
+    $psiDesktop.Arguments = "--headless --disable-gpu --dump-dom --window-size=1440,900 `"$tmpFixture`""
+    $psiDesktop.RedirectStandardOutput = $true
+    $psiDesktop.UseShellExecute = $false
+    $procDesktop = [System.Diagnostics.Process]::Start($psiDesktop)
+    $outDesktop = $procDesktop.StandardOutput.ReadToEnd()
+    $procDesktop.WaitForExit()
+
+    $desktopPass = ($outDesktop -match 'DISP:block')
+    Assert-Check "Headless Edge: Hero picture img computes display:block on desktop viewport" $desktopPass "Got: $outDesktop"
+
+    Remove-Item $tmpFixture -ErrorAction SilentlyContinue
+} else {
+    Write-Host "  [SKIP] Microsoft Edge binary not found for empirical headless browser test" -ForegroundColor Yellow
+}
 
 if ($allPassed) {
     Write-Host "`nAll Hero Banner & Media Controls assertions PASSED (100%)" -ForegroundColor Green

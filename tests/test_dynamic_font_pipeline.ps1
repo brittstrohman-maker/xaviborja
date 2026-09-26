@@ -86,12 +86,18 @@ Assert-Check "settings_data.json current has body_tracking" ($settingsData.curre
 $baseCssContent = Get-Content "assets/base.css" -Raw
 $bodyHasTracking = ($baseCssContent -match 'body\s*\{[^}]*letter-spacing:\s*var\(--body-tracking\)')
 $buttonHasFont = ($baseCssContent -match '\.button[^{]*\{[^}]*font-family:\s*var\(--font-body\)')
+$paymentButtonHasFont = ($baseCssContent -match '\.shopify-payment-button__button--unbranded[^{]*\{[^}]*font-family:\s*var\(--font-body\)')
 Assert-Check "base.css applies var(--body-tracking) to body" $bodyHasTracking "Missing letter-spacing: var(--body-tracking) in body"
 Assert-Check "base.css explicitly applies var(--font-body) to .button" $buttonHasFont "Missing font-family: var(--font-body) in .button"
+Assert-Check "base.css explicitly applies var(--font-body) to .shopify-payment-button__button--unbranded" $paymentButtonHasFont "Missing font-family in payment button"
 
 # 7. Defensive guards in layout/theme.liquid
 $themeColorFallback = ($themeLiquid -match 'settings\.color_schemes\.scheme_1\.settings\.background\s*\|\s*default')
 Assert-Check "layout/theme.liquid provides fallback for theme-color meta tag" $themeColorFallback "Missing fallback on theme-color"
+
+# 8. Dual selector syntax support in snippets/theme-styles.liquid
+$hyphenSchemeSupport = ($themeStyles -match '\.color-\{\{\s*scheme\.id\s*\|\s*replace:\s*''_''\s*,\s*''-''\s*\}\}')
+Assert-Check "snippets/theme-styles.liquid emits hyphenated color-scheme classes" $hyphenSchemeSupport "Missing hyphenated scheme class generation"
 
 if ($allPassed) {
     Write-Host "`nAll Dynamic Font Pipeline assertions PASSED (100%)" -ForegroundColor Green
