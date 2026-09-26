@@ -7,6 +7,7 @@
   assign heading_font = settings.heading_font
   assign heading_font_bold = heading_font | font_modify: 'weight', 'bolder'
   assign heading_font_italic = heading_font | font_modify: 'style', 'italic'
+  assign heading_font_bold_italic = heading_font_bold | font_modify: 'style', 'italic'
   assign body_font = settings.body_font
   assign body_font_bold = body_font | font_modify: 'weight', 'bolder'
   assign body_font_italic = body_font | font_modify: 'style', 'italic'
@@ -16,6 +17,7 @@
 {{ heading_font | font_face: font_display: 'swap' }}
 {{ heading_font_bold | font_face: font_display: 'swap' }}
 {{ heading_font_italic | font_face: font_display: 'swap' }}
+{{ heading_font_bold_italic | font_face: font_display: 'swap' }}
 {{ body_font | font_face: font_display: 'swap' }}
 {{ body_font_bold | font_face: font_display: 'swap' }}
 {{ body_font_italic | font_face: font_display: 'swap' }}
@@ -31,13 +33,13 @@
 
 {%- for scheme in settings.color_schemes -%}
   {%- liquid
-    assign bg = scheme.settings.background
-    assign text = scheme.settings.text
-    assign button = scheme.settings.button
-    assign button_label = scheme.settings.button_label
-    assign outline_button = scheme.settings.outline_button
-    assign accent = scheme.settings.accent
-    assign border = scheme.settings.border
+    assign bg = scheme.settings.background | default: '#FCFAF6'
+    assign text = scheme.settings.text | default: '#111111'
+    assign button = scheme.settings.button | default: '#111111'
+    assign button_label = scheme.settings.button_label | default: '#FFFFFF'
+    assign outline_button = scheme.settings.outline_button | default: button
+    assign accent = scheme.settings.accent | default: '#9A6238'
+    assign border = scheme.settings.border | default: '#E7E0D6'
   -%}
   {% if forloop.first %}:root, {% endif %}.color-{{ scheme.id }} {
     --color-background: {{ bg | color_extract: 'red' }} {{ bg | color_extract: 'green' }} {{ bg | color_extract: 'blue' }};
@@ -81,17 +83,18 @@
 
   --color-text-secondary: var(--color-brand-gray);
 
-  --font-body: 'Manrope', 'Inter', {{ body_font.family }}, {{ body_font.fallback_families }}, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-body-weight: {{ body_font.weight }};
-  --font-heading: 'Manrope', 'Inter', {{ heading_font.family }}, {{ heading_font.fallback_families }}, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading-weight: {{ heading_font.weight }};
-  --font-heading-style: {{ heading_font.style }};
+  --font-body: {%- if body_font != blank and body_font.family != blank -%}{{ body_font.family }}, {%- endif -%}'Manrope', 'Inter', {%- if body_font != blank and body_font.fallback_families != blank -%}{{ body_font.fallback_families }}, {%- endif -%}-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body-weight: {{ body_font.weight | default: 400 }};
+  --font-heading: {%- if heading_font != blank and heading_font.family != blank -%}{{ heading_font.family }}, {%- endif -%}'Manrope', 'Inter', {%- if heading_font != blank and heading_font.fallback_families != blank -%}{{ heading_font.fallback_families }}, {%- endif -%}-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading-weight: {{ heading_font.weight | default: 600 }};
+  --font-heading-style: {{ heading_font.style | default: 'normal' }};
 
   --line-height-body: 1.6;
   --line-height-heading: 1.15;
 
   --heading-tracking: {{ settings.heading_tracking | divided_by: 100.0 }}em;
   --heading-case: {{ settings.heading_case }};
+  --body-tracking: {{ settings.body_tracking | default: 0 | divided_by: 100.0 }}em;
 
   {%- assign hs = settings.heading_scale | default: 100 | divided_by: 100.0 -%}
   {%- assign bs = settings.body_scale | default: 100 | divided_by: 100.0 -%}

@@ -149,6 +149,16 @@
         "unit": "%",
         "label": "t:settings_schema.typography.settings.body_scale.label",
         "default": 100
+      },
+      {
+        "type": "range",
+        "id": "body_tracking",
+        "min": -2,
+        "max": 4,
+        "step": 1,
+        "unit": "%",
+        "label": "t:settings_schema.typography.settings.body_tracking.label",
+        "default": 0
       }
     ]
   },

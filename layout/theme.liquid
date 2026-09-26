@@ -33,6 +33,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    {%- unless settings.heading_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.heading_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+    {%- unless settings.body_font.system? -%}
+      <link rel="preload" as="font" href="{{ settings.body_font | font_url }}" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
     <style>{% render 'theme-styles' %}</style>
 
     {{ 'base.css' | asset_url | stylesheet_tag }}

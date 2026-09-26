@@ -57,6 +57,7 @@
     "heading_scale": 100,
     "body_font": "assistant_n4",
     "body_scale": 100,
+    "body_tracking": 0,
     "page_width": 1440,
     "spacing_sections": 24,
     "radius_base": 4,
@@ -139,6 +140,7 @@
       "heading_scale": 100,
       "body_font": "assistant_n4",
       "body_scale": 100,
+      "body_tracking": 0,
       "card_image_ratio": "portrait",
       "radius_base": 4,
       "radius_media": 6,
@@ -157,6 +159,39 @@
             "accent": "#9A6238",
             "border": "#E7E0D6"
           }
+        },
+        "scheme_2": {
+          "settings": {
+            "background": "#FCFAF6",
+            "text": "#111111",
+            "button": "#2A1D17",
+            "button_label": "#FFFFFF",
+            "outline_button": "#2A1D17",
+            "accent": "#9A6238",
+            "border": "#E7E0D6"
+          }
+        },
+        "scheme_3": {
+          "settings": {
+            "background": "#111111",
+            "text": "#F7F3EB",
+            "button": "#9A6238",
+            "button_label": "#FFFFFF",
+            "outline_button": "#F7F3EB",
+            "accent": "#9A6238",
+            "border": "#2A1D17"
+          }
+        },
+        "scheme_4": {
+          "settings": {
+            "background": "#2A1D17",
+            "text": "#F7F3EB",
+            "button": "#9A6238",
+            "button_label": "#FFFFFF",
+            "outline_button": "#F7F3EB",
+            "accent": "#9A6238",
+            "border": "#7A5736"
+          }
         }
       },
       "heading_font": "assistant_n4",
@@ -165,6 +200,7 @@
       "heading_scale": 100,
       "body_font": "assistant_n4",
       "body_scale": 100,
+      "body_tracking": 0,
       "card_image_ratio": "portrait",
       "radius_base": 4,
       "radius_media": 6,

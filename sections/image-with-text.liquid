@@ -22,12 +22,25 @@
 
       <div class="image-with-text__media" data-animate>
         <div class="media media--{{ section.settings.image_ratio }}">
-          {%- if section.settings.image != blank -%}
-            {{
-              section.settings.image
-              | image_url: width: 1500
-              | image_tag: loading: 'lazy', widths: '400, 600, 900, 1200, 1500', sizes: '(min-width: 750px) 50vw, 100vw', alt: section.settings.image.alt
-            }}
+          {%- if section.settings.image != blank or section.settings.image_mobile != blank -%}
+            <picture>
+              {%- if section.settings.image_mobile != blank -%}
+                <source media="(max-width: 749px)" srcset="{{ section.settings.image_mobile | image_url: width: 750 }}">
+              {%- endif -%}
+              {%- if section.settings.image != blank -%}
+                {{
+                  section.settings.image
+                  | image_url: width: 1500
+                  | image_tag: loading: 'lazy', widths: '400, 600, 900, 1200, 1500', sizes: '(min-width: 750px) 50vw, 100vw', alt: section.settings.image.alt
+                }}
+              {%- else -%}
+                {{
+                  section.settings.image_mobile
+                  | image_url: width: 750
+                  | image_tag: loading: 'lazy', widths: '400, 600, 750', sizes: '100vw', alt: section.settings.image_mobile.alt
+                }}
+              {%- endif -%}
+            </picture>
           {%- else -%}
             <img
               src="{{ 'brand-story.jpg' | asset_url }}"
@@ -39,10 +52,30 @@
               style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-media);"
             >
           {%- endif -%}
+          {%- if section.settings.overlay_opacity > 0 -%}
+            <div
+              class="media__overlay"
+              style="
+                position: absolute;
+                inset: 0;
+                background-color: #000;
+                opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+                pointer-events: none;
+                z-index: 1;
+              "
+            ></div>
+          {%- endif -%}
         </div>
       </div>
 
-      <div class="image-with-text__content stack" data-animate>
+      <div
+        class="image-with-text__content stack"
+        data-animate
+        style="
+          text-align: {{ section.settings.content_alignment | default: 'left' }};
+          align-items: {% if section.settings.content_alignment == 'center' %}center{% elsif section.settings.content_alignment == 'right' %}flex-end{% else %}flex-start{% endif %};
+        "
+      >
         {% content_for 'blocks' %}
       </div>
     </div>
@@ -66,6 +99,21 @@
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.image-with-text.settings.image.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "t:sections.image-with-text.settings.image_mobile.label"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "t:sections.image-with-text.settings.overlay_opacity.label",
+      "default": 0
     },
     {
       "type": "select",
@@ -126,6 +174,26 @@
         }
       ],
       "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "t:sections.image-with-text.settings.content_alignment.label",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.image-with-text.settings.content_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.image-with-text.settings.content_alignment.options__2.label"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.image-with-text.settings.content_alignment.options__3.label"
+        }
+      ],
+      "default": "left"
     },
     {
       "type": "color_scheme",

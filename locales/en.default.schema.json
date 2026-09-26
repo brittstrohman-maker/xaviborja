@@ -670,6 +670,9 @@
         "image": {
           "label": "Background image"
         },
+        "image_mobile": {
+          "label": "Mobile background image (optional)"
+        },
         "overlay_opacity": {
           "label": "Image overlay"
         },
@@ -690,8 +693,23 @@
         "color_scheme": {
           "label": "Colour scheme"
         },
+        "content_alignment": {
+          "label": "Content alignment",
+          "options__1": {
+            "label": "Left"
+          },
+          "options__2": {
+            "label": "Centre"
+          },
+          "options__3": {
+            "label": "Right"
+          }
+        },
         "image": {
           "label": "Image"
+        },
+        "image_mobile": {
+          "label": "Mobile image (optional)"
         },
         "image_position": {
           "label": "Image position on desktop",
@@ -716,6 +734,9 @@
           "options__4": {
             "label": "Landscape (4:3)"
           }
+        },
+        "overlay_opacity": {
+          "label": "Image overlay opacity"
         },
         "vertical_alignment": {
           "label": "Vertical alignment",
@@ -1285,6 +1306,9 @@
         },
         "body_scale": {
           "label": "Size"
+        },
+        "body_tracking": {
+          "label": "Letter spacing"
         },
         "header__1": {
           "content": "Headings"
