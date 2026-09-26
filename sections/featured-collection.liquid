@@ -1,6 +1,10 @@
 {%- liquid
-  assign products = section.settings.collection.products
-  assign limit = section.settings.products_to_show
+  assign target_collection = section.settings.collection
+  if target_collection == blank or target_collection.products.size == 0
+    assign target_collection = collections['all']
+  endif
+  assign products = target_collection.products
+  assign limit = section.settings.products_to_show | default: 8
 -%}
 
 <section class="section color-{{ section.settings.color_scheme }} color-scheme">
@@ -18,8 +22,8 @@
         {%- endif -%}
       </div>
 
-      {%- if section.settings.show_view_all and section.settings.collection != blank -%}
-        <a href="{{ section.settings.collection.url }}" class="button button--outline button--small">
+      {%- if section.settings.show_view_all -%}
+        <a href="{{ target_collection.url | default: routes.all_products_collection_url }}" class="button button--outline button--small">
           {{ section.settings.view_all_label | default: 'View all' }}
         </a>
       {%- endif -%}

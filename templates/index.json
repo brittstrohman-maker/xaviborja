@@ -30,7 +30,7 @@
           "type": "button",
           "settings": {
             "label": "SHOP ESPRESSO TOOLS",
-            "link": "/collections/espresso-tools",
+            "link": "/collections/all",
             "style": "solid",
             "alignment": "center"
           }
@@ -108,28 +108,32 @@
           "type": "collection",
           "settings": {
             "heading": "Espresso Tools",
-            "collection": "espresso-tools"
+            "product": "dd-58mm-espresso-tamper-wdt-tool-set",
+            "link": "/collections/all"
           }
         },
         "card-2": {
           "type": "collection",
           "settings": {
             "heading": "Coffee Station",
-            "collection": "coffee-station"
+            "product": "dd-wooden-espresso-tool-station-knock-box-8-in-1",
+            "link": "/collections/all"
           }
         },
         "card-3": {
           "type": "collection",
           "settings": {
             "heading": "Brewing Essentials",
-            "collection": "brewing"
+            "product": "dd-espresso-scale-dosing-cup-500g-usb-c",
+            "link": "/collections/all"
           }
         },
         "card-4": {
           "type": "collection",
           "settings": {
             "heading": "Milk & Latte Art",
-            "collection": "milk-latte-art"
+            "product": "dd-180ml-espresso-glass-milk-pitcher",
+            "link": "/collections/all"
           }
         }
       },
@@ -157,7 +161,7 @@
         "heading": "ESSENTIALS FOR BETTER ESPRESSO",
         "heading_size": "h2",
         "description": "<p>Precision tools designed to make every step of your workflow better.</p>",
-        "collection": "espresso-tools",
+        "collection": "all",
         "layout": "grid",
         "products_to_show": 8,
         "columns": 4,
@@ -268,8 +272,8 @@
             "title": "01 DOSE",
             "tagline": "01 DOSE: Start with consistency.",
             "text": "<p>Weigh beans to 0.1g precision. Distribute grounds evenly with needle agitation to eliminate channeling before tamping.</p>",
-            "link_label": "Shop Dosing Tools",
-            "link": "/collections/espresso-tools"
+            "link_label": "Shop Dosing Scales & Cups",
+            "link": "/products/dd-espresso-scale-dosing-cup-500g-usb-c"
           }
         },
         "step-2": {
@@ -279,8 +283,8 @@
             "title": "02 DIAL",
             "tagline": "02 DIAL: Fine-tune your grind and extraction.",
             "text": "<p>Calibrate burr size, track extraction yield, and dial in the sweet spot for your specific roast profile.</p>",
-            "link_label": "Shop Precision Gear",
-            "link": "/collections/espresso-tools"
+            "link_label": "Shop Calibrated Tampers & WDT",
+            "link": "/products/dd-espresso-tamper-wdt-kit-30lb"
           }
         },
         "step-3": {
@@ -290,8 +294,8 @@
             "title": "03 BREW",
             "tagline": "03 BREW: Enjoy the result.",
             "text": "<p>Pull an unchanneled shot with rich, golden crema. Sip straight or pair with silky steamed milk for latte art.</p>",
-            "link_label": "Shop Brewing Gear",
-            "link": "/collections/brewing"
+            "link_label": "Shop Stations & Glassware",
+            "link": "/products/dd-wooden-espresso-tool-station-knock-box-8-in-1"
           }
         }
       },
