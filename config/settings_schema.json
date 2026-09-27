@@ -18,7 +18,7 @@
             "type": "color",
             "id": "background",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.background.label",
-            "default": "#FCFAF6"
+            "default": "#0B0C0E"
           },
           {
             "type": "color_background",
@@ -30,37 +30,37 @@
             "type": "color",
             "id": "text",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.text.label",
-            "default": "#111111"
+            "default": "#F3F4F6"
           },
           {
             "type": "color",
             "id": "button",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.button.label",
-            "default": "#111111"
+            "default": "#E5A968"
           },
           {
             "type": "color",
             "id": "button_label",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.button_label.label",
-            "default": "#FFFFFF"
+            "default": "#0B0C0E"
           },
           {
             "type": "color",
             "id": "outline_button",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.outline_button.label",
-            "default": "#111111"
+            "default": "#E5A968"
           },
           {
             "type": "color",
             "id": "accent",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.accent.label",
-            "default": "#9A6238"
+            "default": "#E5A968"
           },
           {
             "type": "color",
             "id": "border",
             "label": "t:settings_schema.colors.settings.color_schemes.definition.border.label",
-            "default": "#E7E0D6"
+            "default": "#22242C"
           }
         ],
         "role": {

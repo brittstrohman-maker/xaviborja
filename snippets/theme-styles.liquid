@@ -37,13 +37,13 @@
 
 {%- for scheme in settings.color_schemes -%}
   {%- liquid
-    assign bg = scheme.settings.background | default: '#FCFAF6'
-    assign text = scheme.settings.text | default: '#111111'
-    assign button = scheme.settings.button | default: '#111111'
-    assign button_label = scheme.settings.button_label | default: '#FFFFFF'
+    assign bg = scheme.settings.background | default: '#0B0C0E'
+    assign text = scheme.settings.text | default: '#F3F4F6'
+    assign button = scheme.settings.button | default: '#E5A968'
+    assign button_label = scheme.settings.button_label | default: '#0B0C0E'
     assign outline_button = scheme.settings.outline_button | default: button
-    assign accent = scheme.settings.accent | default: '#9A6238'
-    assign border = scheme.settings.border | default: '#E7E0D6'
+    assign accent = scheme.settings.accent | default: '#E5A968'
+    assign border = scheme.settings.border | default: '#22242C'
   -%}
   {% if forloop.first %}:root, {% endif %}.color-{{ scheme.id }}, .color-{{ scheme.id | replace: '_', '-' }} {
     --color-background: {{ bg | color_extract: 'red' }} {{ bg | color_extract: 'green' }} {{ bg | color_extract: 'blue' }};
@@ -64,29 +64,47 @@
 }
 
 :root {
-  /* Dose & Dial Brand Palette Tokens (RGB channels) */
-  --color-brand-cream: 247 243 235;
-  --color-brand-offwhite: 252 250 246;
-  --color-brand-white: 255 255 255;
-  --color-brand-black: 17 17 17;
-  --color-brand-espresso: 42 29 23;
-  --color-brand-walnut: 122 87 54;
-  --color-brand-copper: 154 98 56;
-  --color-brand-taupe: 231 224 214;
-  --color-brand-gray: 119 113 107;
+  /* Dose & Dial Futuristic Stealth Palette Tokens */
+  --color-brand-obsidian: 11 12 14;
+  --color-brand-slate: 19 21 26;
+  --color-brand-onyx: 7 7 9;
+  --color-brand-titanium: 243 244 246;
+  --color-brand-amber: 229 169 104;
+  --color-brand-amber-glow: 245 158 11;
+  --color-brand-steel: 156 163 175;
+  --color-brand-border: 34 36 44;
 
-  /* Dose & Dial Brand Palette Hex Values */
-  --color-brand-cream-hex: #F7F3EB;
-  --color-brand-offwhite-hex: #FCFAF6;
-  --color-brand-white-hex: #FFFFFF;
-  --color-brand-black-hex: #111111;
-  --color-brand-espresso-hex: #2A1D17;
-  --color-brand-walnut-hex: #7A5736;
-  --color-brand-copper-hex: #9A6238;
-  --color-brand-taupe-hex: #E7E0D6;
-  --color-brand-gray-hex: #77716B;
+  /* Dose & Dial Futuristic Hex Values */
+  --color-brand-obsidian-hex: #0B0C0E;
+  --color-brand-slate-hex: #13151A;
+  --color-brand-onyx-hex: #070709;
+  --color-brand-titanium-hex: #F3F4F6;
+  --color-brand-amber-hex: #E5A968;
+  --color-brand-steel-hex: #9CA3AF;
+  --color-brand-border-hex: #22242C;
 
-  --color-text-secondary: var(--color-brand-gray);
+  /* Legacy brand tokens mapped to futuristic palette */
+  --color-brand-cream: var(--color-brand-obsidian);
+  --color-brand-offwhite: var(--color-brand-slate);
+  --color-brand-white: var(--color-brand-titanium);
+  --color-brand-black: var(--color-brand-onyx);
+  --color-brand-espresso: 22 19 17;
+  --color-brand-walnut: 40 33 28;
+  --color-brand-copper: var(--color-brand-amber);
+  --color-brand-taupe: var(--color-brand-border);
+  --color-brand-gray: var(--color-brand-steel);
+
+  --color-brand-cream-hex: #0B0C0E;
+  --color-brand-offwhite-hex: #13151A;
+  --color-brand-white-hex: #F3F4F6;
+  --color-brand-black-hex: #070709;
+  --color-brand-espresso-hex: #161311;
+  --color-brand-walnut-hex: #28211C;
+  --color-brand-copper-hex: #E5A968;
+  --color-brand-taupe-hex: #22242C;
+  --color-brand-gray-hex: #9CA3AF;
+
+  --color-text-secondary: var(--color-brand-steel);
 
   --font-body: {%- if body_font != blank and body_font.family != blank -%}{{ body_font.family }}, {%- endif -%}'Manrope', 'Inter', {%- if body_font != blank and body_font.fallback_families != blank -%}{{ body_font.fallback_families }}, {%- endif -%}-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body-weight: {{ body_font.weight | default: 400 }};
