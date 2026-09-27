@@ -109,28 +109,28 @@
 
                 {%- if section.settings.show_collection_links != false -%}
                   {%- unless menu_urls contains '/collections/espresso-tools' -%}
-                    <li class="nav__item">
+                    <li class="nav__item nav__item--collection-direct">
                       <a href="/collections/espresso-tools" class="nav__link" {% if request.path == '/collections/espresso-tools' %}aria-current="page"{% endif %}>
                         {{ collections['espresso-tools'].title | default: 'Espresso Tools' }}
                       </a>
                     </li>
                   {%- endunless -%}
                   {%- unless menu_urls contains '/collections/coffee-station' -%}
-                    <li class="nav__item">
+                    <li class="nav__item nav__item--collection-direct">
                       <a href="/collections/coffee-station" class="nav__link" {% if request.path == '/collections/coffee-station' %}aria-current="page"{% endif %}>
                         {{ collections['coffee-station'].title | default: 'Coffee Station' }}
                       </a>
                     </li>
                   {%- endunless -%}
                   {%- unless menu_urls contains '/collections/brewing' -%}
-                    <li class="nav__item">
+                    <li class="nav__item nav__item--collection-direct">
                       <a href="/collections/brewing" class="nav__link" {% if request.path == '/collections/brewing' %}aria-current="page"{% endif %}>
                         {{ collections['brewing'].title | default: 'Brewing' }}
                       </a>
                     </li>
                   {%- endunless -%}
                   {%- unless menu_urls contains '/collections/cups-glassware' -%}
-                    <li class="nav__item">
+                    <li class="nav__item nav__item--collection-direct">
                       <a href="/collections/cups-glassware" class="nav__link" {% if request.path == '/collections/cups-glassware' %}aria-current="page"{% endif %}>
                         {{ collections['cups-glassware'].title | default: 'Cups & Glassware' }}
                       </a>
@@ -396,7 +396,7 @@
 {% schema %}
 {
   "name": "t:sections.header.name",
-  "class": "section-header",
+  "class": "section-header-nav",
   "settings": [
     {
       "type": "link_list",
