@@ -2159,3 +2159,313 @@ body:has(dialog.modal[open]) { overflow: hidden; }
 }
 
 .shopify-payment-button__more-options { margin-top: 0.5rem; font-size: var(--text-sm); }
+
+/* Cookie consent & Customer Privacy Popup -------------------------------- */
+
+html body #shopify-pc__banner.shopify-pc__banner__dialog,
+html body .shopify-pc__banner__dialog,
+html body #shopify-pc__banner,
+html body .cookie-consent,
+html body .cookie-banner,
+html body .cookie-popup,
+html body #cookie-banner,
+html body [data-cookie-banner],
+html body .cc-window,
+html body .cc-banner {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 2147483640 !important;
+  background: rgba(19, 21, 26, 0.95) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: none !important;
+  border-radius: 18px 18px 0 0 !important;
+  box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.75), 0 -2px 10px rgba(229, 169, 104, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  color: #F3F4F6 !important;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+  padding: 24px 32px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease !important;
+}
+
+@media screen and (min-width: 1024px) {
+  html body #shopify-pc__banner.shopify-pc__banner__dialog,
+  html body .shopify-pc__banner__dialog {
+    bottom: 20px !important;
+    left: 24px !important;
+    right: 24px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.8), 0 0 24px rgba(229, 169, 104, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+  }
+}
+
+html body .shopify-pc__banner__wrapper,
+html body #shopify-pc__banner .shopify-pc__banner__wrapper {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+  max-width: 100% !important;
+}
+
+html body .shopify-pc__banner__body,
+html body #shopify-pc__banner .shopify-pc__banner__body {
+  flex: 1 1 auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body #shopify-pc__banner__body-title,
+html body .shopify-pc__banner__body h2,
+html body .shopify-pc__banner__body-title {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  color: #F3F4F6 !important;
+  margin: 0 0 6px 0 !important;
+}
+
+html body #shopify-pc__banner__body-title::before,
+html body .shopify-pc__banner__body-title::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background-color: #E5A968 !important;
+  box-shadow: 0 0 8px #E5A968, 0 0 12px rgba(229, 169, 104, 0.6) !important;
+  flex-shrink: 0 !important;
+}
+
+html body .shopify-pc__banner__body p,
+html body #shopify-pc__banner .shopify-pc__banner__body p,
+html body .shopify-pc__banner__body {
+  font-size: 0.88rem !important;
+  line-height: 1.55 !important;
+  color: #B2B8C6 !important;
+  margin: 0 !important;
+}
+
+html body #shopify-pc__banner__body-policy-link,
+html body .shopify-pc__banner__body a,
+html body #shopify-pc__banner a {
+  color: #E5A968 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  border-bottom: 1px solid rgba(229, 169, 104, 0.45) !important;
+  padding-bottom: 1px !important;
+  transition: all 0.2s ease !important;
+}
+
+html body #shopify-pc__banner__body-policy-link:hover,
+html body .shopify-pc__banner__body a:hover,
+html body #shopify-pc__banner a:hover {
+  color: #F4C58E !important;
+  border-bottom-color: #F4C58E !important;
+  text-shadow: 0 0 8px rgba(229, 169, 104, 0.5) !important;
+}
+
+html body .shopify-pc__banner__btns,
+html body #shopify-pc__banner .shopify-pc__banner__btns {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+  flex-shrink: 0 !important;
+}
+
+html body #shopify-pc__banner button,
+html body .shopify-pc__banner__btns button,
+html body .shopify-pc__banner__btn-accept,
+html body .shopify-pc__banner__btn-decline,
+html body .shopify-pc__banner__btn-manage-prefs {
+  cursor: pointer !important;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  outline: none !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+html body #shopify-pc__banner__btn-accept,
+html body .shopify-pc__banner__btn-accept,
+html body #shopify-pc__prefs__header-accept,
+html body #shopify-pc__prefs__header-save {
+  background: linear-gradient(135deg, #F4C58E 0%, #E5A968 100%) !important;
+  color: #0B0C0E !important;
+  border: 1px solid rgba(244, 197, 142, 0.4) !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 2px 12px rgba(229, 169, 104, 0.35) !important;
+}
+
+html body #shopify-pc__banner__btn-accept:hover,
+html body .shopify-pc__banner__btn-accept:hover,
+html body #shopify-pc__prefs__header-accept:hover,
+html body #shopify-pc__prefs__header-save:hover {
+  background: linear-gradient(135deg, #FFD6A4 0%, #F0B579 100%) !important;
+  box-shadow: 0 4px 22px rgba(229, 169, 104, 0.6) !important;
+  transform: translateY(-1px) !important;
+  color: #000000 !important;
+}
+
+html body #shopify-pc__banner__btn-decline,
+html body .shopify-pc__banner__btn-decline,
+html body #shopify-pc__prefs__header-decline {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #F3F4F6 !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  text-transform: uppercase !important;
+}
+
+html body #shopify-pc__banner__btn-decline:hover,
+html body .shopify-pc__banner__btn-decline:hover,
+html body #shopify-pc__prefs__header-decline:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px) !important;
+}
+
+html body #shopify-pc__banner__btn-manage-prefs,
+html body .shopify-pc__banner__btn-manage-prefs {
+  background: transparent !important;
+  color: #9299A8 !important;
+  border: none !important;
+  font-weight: 500 !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+  padding: 8px 12px !important;
+}
+
+html body #shopify-pc__banner__btn-manage-prefs:hover,
+html body .shopify-pc__banner__btn-manage-prefs:hover {
+  color: #E5A968 !important;
+}
+
+@media screen and (max-width: 749px) {
+  html body #shopify-pc__banner.shopify-pc__banner__dialog,
+  html body .shopify-pc__banner__dialog,
+  html body #shopify-pc__banner {
+    padding: 20px 18px 24px 18px !important;
+    border-radius: 18px 18px 0 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  html body .shopify-pc__banner__wrapper,
+  html body #shopify-pc__banner .shopify-pc__banner__wrapper {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 16px !important;
+  }
+  html body .shopify-pc__banner__btns,
+  html body #shopify-pc__banner .shopify-pc__banner__btns {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+  html body #shopify-pc__banner button,
+  html body .shopify-pc__banner__btns button {
+    width: 100% !important;
+    padding: 12px 16px !important;
+    font-size: 0.85rem !important;
+  }
+  html body #shopify-pc__banner__btn-manage-prefs,
+  html body .shopify-pc__banner__btn-manage-prefs {
+    text-align: center !important;
+    padding: 6px !important;
+  }
+}
+
+/* Preferences Modal & Overlay */
+html body #shopify-pc__prefs__overlay,
+html body .shopify-pc__prefs__overlay {
+  background: rgba(7, 7, 9, 0.85) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  z-index: 2147483645 !important;
+}
+
+html body #shopify-pc__prefs__dialog,
+html body .shopify-pc__prefs__dialog {
+  background: #14161B !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.85), 0 0 32px rgba(229, 169, 104, 0.08) !important;
+  color: #F3F4F6 !important;
+  font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+  z-index: 2147483646 !important;
+}
+
+html body #shopify-pc__prefs__dialog header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  padding-bottom: 18px !important;
+}
+
+html body #shopify-pc__prefs__header-title {
+  color: #F3F4F6 !important;
+  font-family: var(--font-heading, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif) !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+}
+
+html body .shopify-pc__prefs__header-close {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: #B2B8C6 !important;
+  border-radius: 50% !important;
+  transition: all 0.2s ease !important;
+}
+
+html body .shopify-pc__prefs__header-close:hover {
+  background: rgba(229, 169, 104, 0.18) !important;
+  color: #E5A968 !important;
+}
+
+html body .shopify-pc__prefs__option {
+  background: #191B22 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 10px !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+  color: #F3F4F6 !important;
+}
+
+html body .shopify-pc__prefs__option input[type="checkbox"] {
+  accent-color: #E5A968 !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+html body .shopify-pc__prefs__intro p,
+html body .shopify-pc__prefs__option p {
+  color: #A2A8B6 !important;
+  font-size: 0.88rem !important;
+  line-height: 1.5 !important;
+}
