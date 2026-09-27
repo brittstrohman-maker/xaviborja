@@ -14,8 +14,8 @@
 <div
   class="banner color-{{ section.settings.color_scheme }} color-scheme"
   style="
-    --banner-height: {{ section.settings.height }}vh;
-    --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --banner-height: {{ section.settings.height | default: 85 }}vh;
+    --overlay-opacity: {{ section.settings.overlay_opacity | default: 30 | divided_by: 100.0 }};
     --content-justify: {{ justify }};
     --content-align: {{ align }};
   "

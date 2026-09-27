@@ -14,8 +14,24 @@
                 {%- endif -%}
                 {%- if block.settings.menu != blank -%}
                   <ul class="footer__list" role="list">
+                    {%- assign f_menu_urls = '' -%}
+                    {%- for fl in block.settings.menu.links -%}
+                      {%- assign f_menu_urls = f_menu_urls | append: fl.url | append: ',' -%}
+                    {%- endfor -%}
                     {%- for link in block.settings.menu.links -%}
-                      <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                      {%- if link.url == routes.all_products_collection_url or link.url == '/collections/all' or link.title == 'Catalog' or link.title == 'Shop' -%}
+                        {%- unless f_menu_urls contains '/collections/espresso-tools' -%}
+                          <li><a href="/collections/espresso-tools">{{ collections['espresso-tools'].title | default: 'Espresso Tools' }}</a></li>
+                          <li><a href="/collections/coffee-station">{{ collections['coffee-station'].title | default: 'Coffee Station' }}</a></li>
+                          <li><a href="/collections/brewing">{{ collections['brewing'].title | default: 'Brewing Essentials' }}</a></li>
+                          <li><a href="/collections/cups-glassware">{{ collections['cups-glassware'].title | default: 'Cups & Glassware' }}</a></li>
+                          <li><a href="{{ routes.all_products_collection_url }}">All Products</a></li>
+                        {%- else -%}
+                          <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                        {%- endunless -%}
+                      {%- else -%}
+                        <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                      {%- endif -%}
                     {%- endfor -%}
                   </ul>
                 {%- endif -%}

@@ -23,6 +23,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: var(--font-body-weight);
+  font-style: var(--font-body-style, normal);
   line-height: 1.6;
   letter-spacing: var(--body-tracking);
   color: rgb(var(--color-text));
@@ -186,6 +187,19 @@ hr {
 /* Typography helpers ----------------------------------------------------- */
 
 .h0 { font-size: var(--text-h0); font-family: var(--font-heading); line-height: 1.02; letter-spacing: var(--heading-tracking); text-transform: var(--heading-case); }
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-style: var(--font-heading-style);
+  line-height: var(--line-height-heading, 1.15);
+  letter-spacing: var(--heading-tracking);
+  text-transform: var(--heading-case);
+}
 .h1 { font-size: var(--text-h1); }
 .h2 { font-size: var(--text-h2); }
 .h3 { font-size: var(--text-h3); }
@@ -199,6 +213,7 @@ hr {
 .eyebrow {
   display: block;
   margin-bottom: 0.75rem;
+  font-family: var(--font-body);
   font-size: var(--text-xs);
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -208,6 +223,7 @@ hr {
 .micro-label,
 .micro-eyebrow {
   display: inline-block;
+  font-family: var(--font-body);
   font-size: 0.6875rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -244,7 +260,14 @@ hr {
 /* Colour schemes --------------------------------------------------------- */
 
 .color-scheme,
+.color-scheme-1,
+.color-scheme-2,
 .color-scheme-3,
+.color-scheme-4,
+.color-scheme_1,
+.color-scheme_2,
+.color-scheme_3,
+.color-scheme_4,
 .color-scheme-dark,
 .color-scheme--dark {
   color: rgb(var(--color-text));

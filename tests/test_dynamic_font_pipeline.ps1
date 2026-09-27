@@ -99,9 +99,63 @@ Assert-Check "layout/theme.liquid provides fallback for theme-color meta tag" $t
 $hyphenSchemeSupport = ($themeStyles -match '\.color-\{\{\s*scheme\.id\s*\|\s*replace:\s*''_''\s*,\s*''-''\s*\}\}')
 Assert-Check "snippets/theme-styles.liquid emits hyphenated color-scheme classes" $hyphenSchemeSupport "Missing hyphenated scheme class generation"
 
+# 9. Heading utility classes .h1-.h6 inherit var(--font-heading)
+$h1ThroughH6HeadingFont = ($baseCssContent -match '\.h[1-6][^{]*\{[^}]*font-family:\s*var\(--font-heading\)')
+Assert-Check "base.css applies var(--font-heading) to .h1-.h6 heading utility classes" $h1ThroughH6HeadingFont "Missing font-family: var(--font-heading) on .h1-.h6"
+
+# 10. Micro-labels explicitly bind to var(--font-body)
+$microLabelBodyFont = ($baseCssContent -match '\.micro-label[^{]*\{[^}]*font-family:\s*var\(--font-body\)')
+Assert-Check "base.css explicitly applies var(--font-body) to .micro-label" $microLabelBodyFont "Missing font-family: var(--font-body) on .micro-label"
+
+# 11. Body font style bound to body
+$bodyHasStyle = ($baseCssContent -match 'body\s*\{[^}]*font-style:\s*var\(--font-body-style')
+Assert-Check "base.css applies var(--font-body-style) to body" $bodyHasStyle "Missing font-style: var(--font-body-style) on body"
+
+# 12. Headless Edge JS runtime evaluation
+$edgePath = "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+if (-not (Test-Path $edgePath)) { $edgePath = "C:\Program Files\Microsoft\Edge\Application\msedge.exe" }
+if (Test-Path $edgePath) {
+    $themeJsCode = [System.IO.File]::ReadAllText("assets/theme.js", [System.Text.Encoding]::UTF8)
+    $fixtureJs = @"
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+window.errors = [];
+window.onerror = function(m, u, l) { window.errors.push(m + ':' + l); };
+</script>
+<script type="module">
+$themeJsCode
+</script>
+</head>
+<body class="animate-reveal">
+<header class="header-wrapper header-wrapper--sticky"></header>
+<script>
+document.title = 'ERRORS:' + window.errors.length + ':' + window.errors.join(';');
+</script>
+</body>
+</html>
+"@
+    $tmpJs = [System.IO.Path]::GetTempFileName() + ".html"
+    [System.IO.File]::WriteAllText($tmpJs, $fixtureJs, [System.Text.Encoding]::UTF8)
+    $psi = New-Object System.Diagnostics.ProcessStartInfo
+    $psi.FileName = $edgePath
+    $psi.Arguments = "--headless --disable-gpu --dump-dom `"$tmpJs`""
+    $psi.RedirectStandardOutput = $true
+    $psi.UseShellExecute = $false
+    $proc = [System.Diagnostics.Process]::Start($psi)
+    $out = $proc.StandardOutput.ReadToEnd()
+    $proc.WaitForExit()
+    Remove-Item $tmpJs -ErrorAction SilentlyContinue
+
+    $noErrors = ($out -match 'ERRORS:0:')
+    Assert-Check "Headless Edge: theme.js loads and initializes with zero JS errors" $noErrors "Got: $out"
+}
+
 if ($allPassed) {
     Write-Host "`nAll Dynamic Font Pipeline assertions PASSED (100%)" -ForegroundColor Green
 } else {
     Write-Host "`nSome Dynamic Font Pipeline assertions FAILED!" -ForegroundColor Red
     exit 1
 }
+

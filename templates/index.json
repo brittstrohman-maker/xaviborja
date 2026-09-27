@@ -30,7 +30,7 @@
           "type": "button",
           "settings": {
             "label": "SHOP ESPRESSO TOOLS",
-            "link": "/collections/all",
+            "link": "/collections/espresso-tools",
             "style": "solid",
             "alignment": "center"
           }
@@ -109,7 +109,7 @@
           "settings": {
             "heading": "Espresso Tools",
             "product": "dd-58mm-espresso-tamper-wdt-tool-set",
-            "link": "/collections/all"
+            "link": "/collections/espresso-tools"
           }
         },
         "card-2": {
@@ -117,7 +117,7 @@
           "settings": {
             "heading": "Coffee Station",
             "product": "dd-wooden-espresso-tool-station-knock-box-8-in-1",
-            "link": "/collections/all"
+            "link": "/collections/coffee-station"
           }
         },
         "card-3": {
@@ -125,15 +125,15 @@
           "settings": {
             "heading": "Brewing Essentials",
             "product": "dd-espresso-scale-dosing-cup-500g-usb-c",
-            "link": "/collections/all"
+            "link": "/collections/brewing"
           }
         },
         "card-4": {
           "type": "collection",
           "settings": {
-            "heading": "Milk & Latte Art",
+            "heading": "Cups & Glassware",
             "product": "dd-180ml-espresso-glass-milk-pitcher",
-            "link": "/collections/all"
+            "link": "/collections/cups-glassware"
           }
         }
       },

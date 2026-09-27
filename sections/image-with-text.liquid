@@ -59,7 +59,7 @@
                 position: absolute;
                 inset: 0;
                 background-color: #000;
-                opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+                opacity: {{ section.settings.overlay_opacity | default: 0 | divided_by: 100.0 }};
                 pointer-events: none;
                 z-index: 1;
               "

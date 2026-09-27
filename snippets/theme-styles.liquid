@@ -14,14 +14,18 @@
   assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
 -%}
 
-{{ heading_font | font_face: font_display: 'swap' }}
-{{ heading_font_bold | font_face: font_display: 'swap' }}
-{{ heading_font_italic | font_face: font_display: 'swap' }}
-{{ heading_font_bold_italic | font_face: font_display: 'swap' }}
-{{ body_font | font_face: font_display: 'swap' }}
-{{ body_font_bold | font_face: font_display: 'swap' }}
-{{ body_font_italic | font_face: font_display: 'swap' }}
-{{ body_font_bold_italic | font_face: font_display: 'swap' }}
+{%- if heading_font != blank -%}
+  {{ heading_font | font_face: font_display: 'swap' }}
+  {{ heading_font_bold | font_face: font_display: 'swap' }}
+  {{ heading_font_italic | font_face: font_display: 'swap' }}
+  {{ heading_font_bold_italic | font_face: font_display: 'swap' }}
+{%- endif -%}
+{%- if body_font != blank -%}
+  {{ body_font | font_face: font_display: 'swap' }}
+  {{ body_font_bold | font_face: font_display: 'swap' }}
+  {{ body_font_italic | font_face: font_display: 'swap' }}
+  {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+{%- endif -%}
 
 {%- comment -%}
   Dose & Dial Color Schemes:
@@ -56,6 +60,7 @@
 .color-scheme {
   color: rgb(var(--color-text));
   background-color: rgb(var(--color-background));
+  background-image: var(--gradient-background);
 }
 
 :root {
@@ -85,6 +90,7 @@
 
   --font-body: {%- if body_font != blank and body_font.family != blank -%}{{ body_font.family }}, {%- endif -%}'Manrope', 'Inter', {%- if body_font != blank and body_font.fallback_families != blank -%}{{ body_font.fallback_families }}, {%- endif -%}-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-body-weight: {{ body_font.weight | default: 400 }};
+  --font-body-style: {{ body_font.style | default: 'normal' }};
   --font-heading: {%- if heading_font != blank and heading_font.family != blank -%}{{ heading_font.family }}, {%- endif -%}'Manrope', 'Inter', {%- if heading_font != blank and heading_font.fallback_families != blank -%}{{ heading_font.fallback_families }}, {%- endif -%}-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-heading-weight: {{ heading_font.weight | default: 600 }};
   --font-heading-style: {{ heading_font.style | default: 'normal' }};
@@ -92,8 +98,8 @@
   --line-height-body: 1.6;
   --line-height-heading: 1.15;
 
-  --heading-tracking: {{ settings.heading_tracking | divided_by: 100.0 }}em;
-  --heading-case: {{ settings.heading_case }};
+  --heading-tracking: {{ settings.heading_tracking | default: 2 | divided_by: 100.0 }}em;
+  --heading-case: {{ settings.heading_case | default: 'uppercase' }};
   --body-tracking: {{ settings.body_tracking | default: 0 | divided_by: 100.0 }}em;
 
   {%- assign hs = settings.heading_scale | default: 100 | divided_by: 100.0 -%}
@@ -112,9 +118,9 @@
   --text-h5: {{ 1.125 | times: hs }}rem;
   --text-h6: {{ 1.0 | times: hs }}rem;
 
-  --page-width: {{ settings.page_width }}px;
+  --page-width: {{ settings.page_width | default: 1440 }}px;
   --page-gutter: 1.25rem;
-  --section-gap: {{ settings.spacing_sections }}px;
+  --section-gap: {{ settings.spacing_sections | default: 24 }}px;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -128,7 +134,7 @@
   --radius-base: {{ settings.radius_base | default: 4 }}px;
   --radius-media: {{ settings.radius_media | default: 6 }}px;
 
-  --logo-width: {{ settings.logo_width }}px;
+  --logo-width: {{ settings.logo_width | default: 140 }}px;
 
   --color-error: 194 61 46;
   --color-success: 42 122 78;

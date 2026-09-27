@@ -36,7 +36,7 @@
     {%- if settings.heading_font != blank and settings.heading_font.system? == false -%}
       <link rel="preload" as="font" href="{{ settings.heading_font | font_url }}" type="font/woff2" crossorigin>
     {%- endif -%}
-    {%- if settings.body_font != blank and settings.body_font.system? == false -%}
+    {%- if settings.body_font != blank and settings.body_font.system? == false and settings.body_font != settings.heading_font -%}
       <link rel="preload" as="font" href="{{ settings.body_font | font_url }}" type="font/woff2" crossorigin>
     {%- endif -%}
 

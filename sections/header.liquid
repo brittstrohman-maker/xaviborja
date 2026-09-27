@@ -46,66 +46,151 @@
       <nav class="nav" role="navigation" aria-label="{{ 'sections.header.menu' | t }}">
         <ul class="nav__list" role="list">
           {%- if menu != blank and menu.links.size > 0 -%}
+            {%- assign menu_urls = '' -%}
+            {%- for l in menu.links -%}
+              {%- assign menu_urls = menu_urls | append: l.url | append: ',' -%}
+              {%- for c in l.links -%}
+                {%- assign menu_urls = menu_urls | append: c.url | append: ',' -%}
+              {%- endfor -%}
+            {%- endfor -%}
+
             {%- for link in menu.links -%}
-              <li class="nav__item">
-                <a
-                  href="{{ link.url }}"
-                  class="nav__link"
-                  {% if link.current %}aria-current="page"{% endif %}
-                >
-                  {{ link.title | escape }}
-                  {%- if link.links.size > 0 %} {% render 'icon', name: 'chevron-down' %}{% endif -%}
-                </a>
+              {%- assign is_catalog = false -%}
+              {%- if link.url == routes.all_products_collection_url or link.url == '/collections/all' or link.title == 'Catalog' or link.title == 'Shop' -%}
+                {%- assign is_catalog = true -%}
+              {%- endif -%}
 
-                {%- if link.links.size > 0 -%}
-                  {%- assign has_grandchildren = false -%}
-                  {%- for child in link.links -%}
-                    {%- if child.links.size > 0 -%}
-                      {%- assign has_grandchildren = true -%}
-                      {%- break -%}
-                    {%- endif -%}
-                  {%- endfor -%}
+              {%- if is_catalog and link.links.size == 0 -%}
+                <li class="nav__item">
+                  <a
+                    href="{{ link.url }}"
+                    class="nav__link"
+                    {% if link.current %}aria-current="page"{% endif %}
+                  >
+                    {% if link.title == 'Catalog' %}Shop{% else %}{{ link.title | escape }}{% endif %}
+                    {% render 'icon', name: 'chevron-down' %}
+                  </a>
+                  <ul class="nav__dropdown" role="list">
+                    <li>
+                      <a href="/collections/espresso-tools" class="nav__link" {% if request.path == '/collections/espresso-tools' %}aria-current="page"{% endif %}>
+                        {{ collections['espresso-tools'].title | default: 'Espresso Tools' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/collections/coffee-station" class="nav__link" {% if request.path == '/collections/coffee-station' %}aria-current="page"{% endif %}>
+                        {{ collections['coffee-station'].title | default: 'Coffee Station' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/collections/brewing" class="nav__link" {% if request.path == '/collections/brewing' %}aria-current="page"{% endif %}>
+                        {{ collections['brewing'].title | default: 'Brewing Essentials' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/collections/cups-glassware" class="nav__link" {% if request.path == '/collections/cups-glassware' %}aria-current="page"{% endif %}>
+                        {{ collections['cups-glassware'].title | default: 'Cups & Glassware' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ routes.all_products_collection_url }}" class="nav__link" {% if request.path == routes.all_products_collection_url %}aria-current="page"{% endif %}>
+                        All Products
+                      </a>
+                    </li>
+                  </ul>
+                </li>
 
-                  {%- if has_grandchildren -%}
-                    <div class="mega-menu">
-                      <div class="mega-menu__grid">
-                        {%- for child in link.links -%}
-                          <div>
-                            <p class="mega-menu__heading">
-                              <a href="{{ child.url }}" class="nav__link" style="padding: 0;">{{ child.title | escape }}</a>
-                            </p>
-                            {%- if child.links.size > 0 -%}
-                              <ul class="mega-menu__list" role="list">
-                                {%- for grandchild in child.links -%}
-                                  <li>
-                                    <a href="{{ grandchild.url }}" class="nav__link">{{ grandchild.title | escape }}</a>
-                                  </li>
-                                {%- endfor -%}
-                              </ul>
-                            {%- endif -%}
-                          </div>
-                        {%- endfor -%}
-                      </div>
-                    </div>
-                  {%- else -%}
-                    <ul class="nav__dropdown" role="list">
-                      {%- for child in link.links -%}
-                        <li>
-                          <a href="{{ child.url }}" class="nav__link" {% if child.current %}aria-current="page"{% endif %}>
-                            {{ child.title | escape }}
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
+                {%- if section.settings.show_collection_links != false -%}
+                  {%- unless menu_urls contains '/collections/espresso-tools' -%}
+                    <li class="nav__item">
+                      <a href="/collections/espresso-tools" class="nav__link" {% if request.path == '/collections/espresso-tools' %}aria-current="page"{% endif %}>
+                        {{ collections['espresso-tools'].title | default: 'Espresso Tools' }}
+                      </a>
+                    </li>
+                  {%- endunless -%}
+                  {%- unless menu_urls contains '/collections/coffee-station' -%}
+                    <li class="nav__item">
+                      <a href="/collections/coffee-station" class="nav__link" {% if request.path == '/collections/coffee-station' %}aria-current="page"{% endif %}>
+                        {{ collections['coffee-station'].title | default: 'Coffee Station' }}
+                      </a>
+                    </li>
+                  {%- endunless -%}
+                  {%- unless menu_urls contains '/collections/brewing' -%}
+                    <li class="nav__item">
+                      <a href="/collections/brewing" class="nav__link" {% if request.path == '/collections/brewing' %}aria-current="page"{% endif %}>
+                        {{ collections['brewing'].title | default: 'Brewing' }}
+                      </a>
+                    </li>
+                  {%- endunless -%}
+                  {%- unless menu_urls contains '/collections/cups-glassware' -%}
+                    <li class="nav__item">
+                      <a href="/collections/cups-glassware" class="nav__link" {% if request.path == '/collections/cups-glassware' %}aria-current="page"{% endif %}>
+                        {{ collections['cups-glassware'].title | default: 'Cups & Glassware' }}
+                      </a>
+                    </li>
+                  {%- endunless -%}
                 {%- endif -%}
-              </li>
+              {%- else -%}
+                <li class="nav__item">
+                  <a
+                    href="{{ link.url }}"
+                    class="nav__link"
+                    {% if link.current %}aria-current="page"{% endif %}
+                  >
+                    {{ link.title | escape }}
+                    {%- if link.links.size > 0 %} {% render 'icon', name: 'chevron-down' %}{% endif -%}
+                  </a>
+
+                  {%- if link.links.size > 0 -%}
+                    {%- assign has_grandchildren = false -%}
+                    {%- for child in link.links -%}
+                      {%- if child.links.size > 0 -%}
+                        {%- assign has_grandchildren = true -%}
+                        {%- break -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+
+                    {%- if has_grandchildren -%}
+                      <div class="mega-menu">
+                        <div class="mega-menu__grid">
+                          {%- for child in link.links -%}
+                            <div>
+                              <p class="mega-menu__heading">
+                                <a href="{{ child.url }}" class="nav__link" style="padding: 0;">{{ child.title | escape }}</a>
+                              </p>
+                              {%- if child.links.size > 0 -%}
+                                <ul class="mega-menu__list" role="list">
+                                  {%- for grandchild in child.links -%}
+                                    <li>
+                                      <a href="{{ grandchild.url }}" class="nav__link">{{ grandchild.title | escape }}</a>
+                                    </li>
+                                  {%- endfor -%}
+                                </ul>
+                              {%- endif -%}
+                            </div>
+                          {%- endfor -%}
+                        </div>
+                      </div>
+                    {%- else -%}
+                      <ul class="nav__dropdown" role="list">
+                        {%- for child in link.links -%}
+                          <li>
+                            <a href="{{ child.url }}" class="nav__link" {% if child.current %}aria-current="page"{% endif %}>
+                              {{ child.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
+                  {%- endif -%}
+                </li>
+              {%- endif -%}
             {%- endfor -%}
           {%- else -%}
             <li class="nav__item"><a href="{{ routes.all_products_collection_url }}" class="nav__link">Shop</a></li>
             <li class="nav__item"><a href="/collections/espresso-tools" class="nav__link">Espresso Tools</a></li>
             <li class="nav__item"><a href="/collections/coffee-station" class="nav__link">Coffee Station</a></li>
             <li class="nav__item"><a href="/collections/brewing" class="nav__link">Brewing</a></li>
+            <li class="nav__item"><a href="/collections/cups-glassware" class="nav__link">Cups & Glassware</a></li>
             <li class="nav__item"><a href="/pages/about" class="nav__link">About</a></li>
           {%- endif -%}
         </ul>
@@ -173,9 +258,58 @@
 
       <ul class="menu-drawer__list" role="list">
         {%- if menu != blank and menu.links.size > 0 -%}
+          {%- assign menu_urls = '' -%}
+          {%- for l in menu.links -%}
+            {%- assign menu_urls = menu_urls | append: l.url | append: ',' -%}
+            {%- for c in l.links -%}
+              {%- assign menu_urls = menu_urls | append: c.url | append: ',' -%}
+            {%- endfor -%}
+          {%- endfor -%}
+
           {%- for link in menu.links -%}
-            <li>
-              {%- if link.links.size > 0 -%}
+            {%- assign is_catalog = false -%}
+            {%- if link.url == routes.all_products_collection_url or link.url == '/collections/all' or link.title == 'Catalog' or link.title == 'Shop' -%}
+              {%- assign is_catalog = true -%}
+            {%- endif -%}
+
+            {%- if is_catalog and link.links.size == 0 -%}
+              <li>
+                <details open>
+                  <summary class="menu-drawer__summary">
+                    {% if link.title == 'Catalog' %}Shop{% else %}{{ link.title | escape }}{% endif %}
+                    {% render 'icon', name: 'chevron-down' %}
+                  </summary>
+                  <ul class="menu-drawer__list menu-drawer__sublist" role="list">
+                    <li>
+                      <a href="/collections/espresso-tools" {% if request.path == '/collections/espresso-tools' %}aria-current="page"{% endif %}>
+                        {{ collections['espresso-tools'].title | default: 'Espresso Tools' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/collections/coffee-station" {% if request.path == '/collections/coffee-station' %}aria-current="page"{% endif %}>
+                        {{ collections['coffee-station'].title | default: 'Coffee Station' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/collections/brewing" {% if request.path == '/collections/brewing' %}aria-current="page"{% endif %}>
+                        {{ collections['brewing'].title | default: 'Brewing Essentials' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/collections/cups-glassware" {% if request.path == '/collections/cups-glassware' %}aria-current="page"{% endif %}>
+                        {{ collections['cups-glassware'].title | default: 'Cups & Glassware' }}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ routes.all_products_collection_url }}" {% if request.path == routes.all_products_collection_url %}aria-current="page"{% endif %}>
+                        All Products
+                      </a>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            {%- elsif link.links.size > 0 -%}
+              <li>
                 <details>
                   <summary class="menu-drawer__summary">
                     {{ link.title | escape }}
@@ -204,16 +338,19 @@
                     {%- endfor -%}
                   </ul>
                 </details>
-              {%- else -%}
+              </li>
+            {%- else -%}
+              <li>
                 <a href="{{ link.url }}" {% if link.current %}aria-current="page"{% endif %}>{{ link.title | escape }}</a>
-              {%- endif -%}
-            </li>
+              </li>
+            {%- endif -%}
           {%- endfor -%}
         {%- else -%}
           <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
           <li><a href="/collections/espresso-tools">Espresso Tools</a></li>
           <li><a href="/collections/coffee-station">Coffee Station</a></li>
           <li><a href="/collections/brewing">Brewing</a></li>
+          <li><a href="/collections/cups-glassware">Cups & Glassware</a></li>
           <li><a href="/pages/about">About</a></li>
         {%- endif -%}
       </ul>
@@ -258,6 +395,12 @@
       "id": "menu",
       "label": "t:sections.header.settings.menu.label",
       "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_links",
+      "label": "Show category links in menu",
+      "default": true
     },
     {
       "type": "select",
