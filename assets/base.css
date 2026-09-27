@@ -857,6 +857,11 @@ select {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgb(var(--color-text));
+  transition: opacity var(--duration-fast, 0.2s) ease;
+}
+
+.header__logo:hover {
+  opacity: 0.88;
 }
 
 .header__logo-text {
@@ -868,7 +873,15 @@ select {
   color: rgb(var(--color-text));
 }
 
-.header__logo img { width: var(--logo-width); height: auto; }
+.header__logo img,
+.header__logo-image {
+  width: var(--logo-width, 140px);
+  max-width: 220px;
+  height: auto;
+  max-height: 42px;
+  display: block;
+  object-fit: contain;
+}
 
 .header__actions {
   display: flex;
@@ -1150,6 +1163,11 @@ body:has(dialog.modal[open]) { overflow: hidden; }
     letter-spacing: 0.04em;
     text-align: center;
     justify-content: center;
+  }
+  .header__logo img,
+  .header__logo-image {
+    max-width: 140px;
+    max-height: 32px;
   }
   .header__actions {
     gap: 0;

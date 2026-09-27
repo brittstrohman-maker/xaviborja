@@ -1,0 +1,59 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="favAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F4C58E"/>
+      <stop offset="60%" stop-color="#E5A968"/>
+      <stop offset="100%" stop-color="#B87333"/>
+    </linearGradient>
+    <radialGradient id="favDialBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1B1E26"/>
+      <stop offset="85%" stop-color="#111317"/>
+      <stop offset="100%" stop-color="#0B0C0E"/>
+    </radialGradient>
+    <filter id="favGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Obsidian Stealth Base with Hairline Metallic Rim -->
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="#0B0C0E" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1.5"/>
+
+  <!-- Dial Outer Ring -->
+  <circle cx="32" cy="32" r="26" fill="url(#favDialBg)" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.5"/>
+
+  <!-- Precision Calibration Ticks -->
+  <!-- 12 o'clock -->
+  <line x1="32" y1="8" x2="32" y2="13" stroke="url(#favAmber)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- 3 o'clock -->
+  <line x1="56" y1="32" x2="51" y2="32" stroke="url(#favAmber)" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- 6 o'clock -->
+  <line x1="32" y1="56" x2="32" y2="51" stroke="url(#favAmber)" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- 9 o'clock -->
+  <line x1="8" y1="32" x2="13" y2="32" stroke="url(#favAmber)" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- Intermediate Ticks -->
+  <line x1="44" y1="11.2" x2="41.5" y2="15.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="52.8" y1="20" x2="48.5" y2="22.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="52.8" y1="44" x2="48.5" y2="41.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="44" y1="52.8" x2="41.5" y2="48.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="20" y1="52.8" x2="22.5" y2="48.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="11.2" y1="44" x2="15.5" y2="41.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="11.2" y1="20" x2="15.5" y2="22.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="20" y1="11.2" x2="22.5" y2="15.5" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- Concentric Dosing Track -->
+  <circle cx="32" cy="32" r="17.5" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" stroke-dasharray="2 2.5"/>
+
+  <!-- Stylized Geometric "D" Icon -->
+  <path d="M 23 18 C 23 16.9 23.9 16 25 16 L 25.5 16 C 26.6 16 27.5 16.9 27.5 18 L 27.5 46 C 27.5 47.1 26.6 48 25.5 48 L 25 48 C 23.9 48 23 47.1 23 46 Z" fill="#F3F4F6"/>
+  <path d="M 26.5 16.5 L 34 16.5 C 41.5 16.5 47 22.5 47 32 C 47 41.5 41.5 47.5 34 47.5 L 26.5 47.5" stroke="#F3F4F6" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Molten Amber Calibrated Center Point & Needle -->
+  <circle cx="33.5" cy="32" r="4.2" fill="url(#favAmber)" filter="url(#favGlow)"/>
+  <circle cx="33.5" cy="32" r="1.8" fill="#FFFFFF"/>
+  <line x1="33.5" y1="32" x2="41" y2="24.5" stroke="url(#favAmber)" stroke-width="2.2" stroke-linecap="round"/>
+</svg>
